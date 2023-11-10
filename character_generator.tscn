@@ -13,6 +13,19 @@ offset_bottom = 40.0
 layout_mode = 2
 text = "Character generation"
 
+[node name="Container" type="VBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(375, 212)
+layout_mode = 2
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="VBoxContainer/Container"]
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Container/CanvasLayer2"]
+offset_left = 1.0
+offset_top = 30.0
+offset_right = 375.0
+offset_bottom = 242.0
+color = Color(0.772549, 0.898039, 0.976471, 1)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
