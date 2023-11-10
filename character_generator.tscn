@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://punfu476axs3"]
+
+[ext_resource type="Script" path="res://character_generator.gd" id="1_ggyww"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ggyww")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CreateCharacter" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Character generation"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HairButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Hair"
+
+[node name="EyesButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Eyes"
+
+[node name="EarsButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Ears"
+
+[node name="NoseButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Nose"
+
+[node name="MouthButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Mouth"
+
+[node name="GenerateButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Generate"

@@ -14,3 +14,7 @@ func _process(delta):
 func _on_button_pressed():
 	print("asd")
 	pass # Replace with function body.
+
+
+func _on_generate_char_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://character_generator.tscn")
