@@ -32,12 +32,12 @@ func _process(delta: float) -> void:
 
 
 func _on_hair_button_pressed() -> void:
-	current_hair_id += 1
+	current_hair_id = (current_hair_id + 1)%hairs.size()
 	$VBoxContainer/PortraitContainer/HairLayer/HairSprite.texture = hairs[current_hair_id]
 
 
 func _on_eyes_button_pressed() -> void:
-	current_eye_id += 1
+	current_eye_id = (current_eye_id + 1)%eyes.size()
 	$VBoxContainer/PortraitContainer/EyesLayer/EyesSprite.texture = eyes[current_eye_id]
 
 
