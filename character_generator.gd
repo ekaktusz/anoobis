@@ -1,3 +1,5 @@
+@tool
+
 extends Node2D
 
 var hairs : Array = [
@@ -11,13 +13,17 @@ var eyes : Array = [
 	preload ("res://images/dummy_face_parts/eyes2.png"),
 ]
 
-var current_hair_id : int = 0
-var current_eye_id : int = 0
+var current_hair_id : int
+var current_eye_id : int
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	current_hair_id = 0
+	current_eye_id = 0
+
+	$VBoxContainer/PortraitContainer/HairLayer/HairSprite.texture = hairs[current_hair_id]
+	$VBoxContainer/PortraitContainer/EyesLayer/EyesSprite.texture = eyes[current_eye_id]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

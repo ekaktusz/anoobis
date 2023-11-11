@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://character_generator.gd" id="1_ggyww"]
 [ext_resource type="Texture2D" uid="uid://bdyoqg3bewokx" path="res://images/dummy_face_parts/full_face_wo_bg_no_hair_no_eyes.png" id="2_ggg4x"]
-[ext_resource type="Texture2D" uid="uid://nt0jcnks2kv" path="res://images/dummy_face_parts/hair3.png" id="3_hjhx4"]
+[ext_resource type="Texture2D" uid="uid://gg7v35spvqfs" path="res://images/dummy_face_parts/hair1.png" id="3_e4m5p"]
 [ext_resource type="Texture2D" uid="uid://bhxe1dpbiecu2" path="res://images/dummy_face_parts/eyes1.png" id="4_wspcr"]
 
 [node name="Node2D" type="Node2D"]
@@ -45,7 +45,7 @@ offset_left = 1.0
 offset_top = 30.0
 offset_right = 375.0
 offset_bottom = 242.0
-texture = ExtResource("3_hjhx4")
+texture = ExtResource("3_e4m5p")
 
 [node name="EyesLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
 
