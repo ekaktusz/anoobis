@@ -1,6 +1,6 @@
 @tool
 
-extends Node2D
+extends Control
 
 var hairs : Array = [
 	preload ("res://images/dummy_face_parts/hair1.png"),
