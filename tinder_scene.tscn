@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxagx5lrf143d"]
+[gd_scene load_steps=4 format=3 uid="uid://bxagx5lrf143d"]
 
 [ext_resource type="Texture2D" uid="uid://dl3amwv7723w0" path="res://images/menu_background.png" id="1_3qnl7"]
-[ext_resource type="Script" path="res://tinder_scene.gd" id="1_w104e"]
+[ext_resource type="PackedScene" uid="uid://rqqyj237vk1x" path="res://scale.tscn" id="4_68rii"]
+
+[sub_resource type="GDScript" id="GDScript_ndpmo"]
 
 [node name="tinder_scene" type="Control"]
 layout_mode = 3
@@ -10,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_w104e")
+script = SubResource("GDScript_ndpmo")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -50,4 +52,31 @@ size_flags_horizontal = 3
 layout_mode = 2
 text = "dsgdfgdfgdfgdfgdf"
 
+[node name="HellButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 820.0
+offset_right = 543.0
+offset_bottom = 988.0
+theme_override_font_sizes/font_size = 50
+text = "TO HELL"
+
+[node name="HeavenButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = 1378.0
+offset_top = 816.0
+offset_right = 1871.0
+offset_bottom = 984.0
+theme_override_font_sizes/font_size = 50
+text = "TO HEAVEN"
+
+[node name="Scale" parent="." instance=ExtResource("4_68rii")]
+layout_mode = 1
+offset_left = 802.0
+offset_top = 816.0
+offset_right = -788.0
+offset_bottom = -96.0
+
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HellButton" to="Scale" method="_on_hell_button_pressed"]
+[connection signal="pressed" from="HeavenButton" to="Scale" method="_on_heaven_button_pressed"]
