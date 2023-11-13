@@ -36,6 +36,14 @@ size_flags_horizontal = 3
 layout_mode = 2
 text = "dsgdfgdfgdfgdfgdf"
 
+[node name="CharacterGeneration" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GenerateCharButton" type="Button" parent="HBoxContainer/VBoxContainer/CharacterGeneration"]
+layout_mode = 2
+text = "Generate a character
+"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -78,5 +86,6 @@ offset_right = -788.0
 offset_bottom = -96.0
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/CharacterGeneration/GenerateCharButton" to="." method="_on_generate_char_button_pressed"]
 [connection signal="pressed" from="HellButton" to="Scale" method="_on_hell_button_pressed"]
 [connection signal="pressed" from="HeavenButton" to="Scale" method="_on_heaven_button_pressed"]

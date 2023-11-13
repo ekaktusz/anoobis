@@ -4,8 +4,8 @@ extends Control
 @onready var tmp_next_soul = $TmpNextSoul
 
 var tmp_character_soul_value = tmp_get_random_soul_value()
-var heaven_score = -50
-var hell_score = 50
+var heaven_score = 50
+var hell_score = -50
 
 func _on_hell_button_pressed():
 	print("hell button pressed")
@@ -27,8 +27,8 @@ func tmp_get_random_soul_value():
 	
 func tmp_set_soul_forecast():
 	if(tmp_character_soul_value < 0):
-		tmp_next_soul.text = "EVIL HUMAN: " + str(tmp_character_soul_value)
+		tmp_next_soul.text = "NEXT IS EVIL: " + str(tmp_character_soul_value)
 	elif (tmp_character_soul_value > 0):
-		tmp_next_soul.text = "GOOD HUMAN: " + str(tmp_character_soul_value)	
+		tmp_next_soul.text = "NEXT IS GOOD: " + str(tmp_character_soul_value)	
 	else:
-		tmp_next_soul.text = "NEUTRAL HUMAN: " + str(tmp_character_soul_value)
+		tmp_next_soul.text = "NEXT IS NEUTRAL: " + str(tmp_character_soul_value)
