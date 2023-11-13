@@ -1,10 +1,81 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxagx5lrf143d"]
+[gd_scene load_steps=14 format=3 uid="uid://bxagx5lrf143d"]
 
 [ext_resource type="Script" path="res://tinder_scene.gd" id="1_w104e"]
-[ext_resource type="Texture2D" uid="uid://cxu2vwf8gse55" path="res://images/background.jpg" id="2_6yyho"]
+[ext_resource type="Texture2D" uid="uid://vy0fo1us4mkc" path="res://icon.png" id="2_ms72m"]
+[ext_resource type="Texture2D" uid="uid://dv0if8nq54b84" path="res://images/scale.png" id="3_dq081"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sio5"]
+bg_color = Color(0.996078, 0.952941, 0.823529, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4di4n"]
-bg_color = Color(0.737255, 0.560784, 0.376471, 0.92549)
+bg_color = Color(0.737255, 0.560784, 0.376471, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.74902, 0.341176, 0.313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r284g"]
+bg_color = Color(1, 0.796078, 0.313726, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0.529412, 0.356863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xd2ch"]
+bg_color = Color(0.345098, 0.243137, 0.137255, 0)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agjk6"]
+bg_color = Color(0.486275, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id1j8"]
+bg_color = Color(0.772549, 0.898039, 0.976471, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f50d6"]
+bg_color = Color(0.996078, 0.952941, 0.823529, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0.780392, 0.690196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdp6q"]
+bg_color = Color(0.74902, 0.341176, 0.313726, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0.796078, 0.313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhbqx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0.529412, 0.356863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtq0w"]
+bg_color = Color(0.180392, 0.403922, 0, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -19,32 +90,39 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w104e")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="BackgroundPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_6yyho")
+theme_override_styles/panel = SubResource("StyleBoxFlat_4sio5")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
-[node name="LeftVboxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LeftVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="QuestLog1" type="Control" parent="HBoxContainer/LeftVboxContainer"]
+[node name="QuestLog1" type="Control" parent="MarginContainer/HBoxContainer/LeftVboxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="HBoxContainer/LeftVboxContainer/QuestLog1"]
+[node name="BackgroundPanel" type="Panel" parent="MarginContainer/HBoxContainer/LeftVboxContainer/QuestLog1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,7 +131,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4di4n")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftVboxContainer/QuestLog1"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/LeftVboxContainer/QuestLog1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,93 +143,337 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="QuestLogVboxContainer" type="VBoxContainer" parent="HBoxContainer/LeftVboxContainer/QuestLog1/MarginContainer"]
+[node name="QuestLogVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LeftVboxContainer/QuestLog1/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/LeftVboxContainer/QuestLog1/MarginContainer/QuestLogVboxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/LeftVboxContainer/QuestLog1/MarginContainer/QuestLogVboxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Quest I."
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/LeftVboxContainer/QuestLog1/MarginContainer/QuestLogVboxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftVboxContainer/QuestLog1/MarginContainer/QuestLogVboxContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="HBoxContainer/LeftVboxContainer/QuestLog1/MarginContainer/QuestLogVboxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/LeftVboxContainer/QuestLog1/MarginContainer/QuestLogVboxContainer/HBoxContainer"]
 layout_mode = 2
-text = "- asd"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "- pick 4 musucuanst to both realms 2/4"
 
-[node name="QuestLog2" type="Control" parent="HBoxContainer/LeftVboxContainer"]
+[node name="SuperSecretButton" type="Button" parent="MarginContainer/HBoxContainer/LeftVboxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_r284g")
+text = "SUPER SECRET"
+
+[node name="Cons" type="Control" parent="MarginContainer/HBoxContainer/LeftVboxContainer"]
+custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="HBoxContainer/LeftVboxContainer/QuestLog2"]
+[node name="BackgroundPanel" type="Panel" parent="MarginContainer/HBoxContainer/LeftVboxContainer/Cons"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4di4n")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xd2ch")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftVboxContainer/QuestLog2"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/LeftVboxContainer/Cons"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 319.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="QuestLogVboxContainer" type="VBoxContainer" parent="HBoxContainer/LeftVboxContainer/QuestLog2/MarginContainer"]
+[node name="QuestLogVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LeftVboxContainer/Cons/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/LeftVboxContainer/QuestLog2/MarginContainer/QuestLogVboxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/LeftVboxContainer/Cons/MarginContainer/QuestLogVboxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "Quest I."
+text = "CONS"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/LeftVboxContainer/QuestLog2/MarginContainer/QuestLogVboxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftVboxContainer/Cons/MarginContainer/QuestLogVboxContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="HBoxContainer/LeftVboxContainer/QuestLog2/MarginContainer/QuestLogVboxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/LeftVboxContainer/Cons/MarginContainer/QuestLogVboxContainer/HBoxContainer"]
 layout_mode = 2
-text = "- asd"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "- had slaces
+- used premade stuff dsfdsfs
+- secret
+- secret
+- secret
+- secret"
 
-[node name="Button" type="Button" parent="HBoxContainer/LeftVboxContainer"]
+[node name="HellButton" type="Button" parent="MarginContainer/HBoxContainer/LeftVboxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/icon_normal_color = Color(0.976471, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_agjk6")
 text = "TO HELL"
 
-[node name="MidVboxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="MidVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="HBoxContainer/MidVboxContainer"]
+[node name="QuestLog2" type="Control" parent="MarginContainer/HBoxContainer/MidVboxContainer"]
 layout_mode = 2
-text = "dsgdfgdfgdfgdfgdf"
+size_flags_vertical = 3
 
-[node name="RightVboxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="BackgroundPanel" type="Panel" parent="MarginContainer/HBoxContainer/MidVboxContainer/QuestLog2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4di4n")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/MidVboxContainer/QuestLog2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="QuestLogVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MidVboxContainer/QuestLog2/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/MidVboxContainer/QuestLog2/MarginContainer/QuestLogVboxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Quest II."
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MidVboxContainer/QuestLog2/MarginContainer/QuestLogVboxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/MidVboxContainer/QuestLog2/MarginContainer/QuestLogVboxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "- asd"
+
+[node name="RequestGreatPersonButton" type="Button" parent="MarginContainer/HBoxContainer/MidVboxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_r284g")
+text = "Request Great Person"
+
+[node name="CharacterViewScene" type="MarginContainer" parent="MarginContainer/HBoxContainer/MidVboxContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_id1j8")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_ms72m")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene"]
+layout_mode = 2
+
+[node name="TitleContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene/VBoxContainer"]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene/VBoxContainer/TitleContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f50d6")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene/VBoxContainer/TitleContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Ashur, the Unworthy"
+horizontal_alignment = 1
+
+[node name="TitleContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene/VBoxContainer"]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene/VBoxContainer/TitleContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f50d6")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene/VBoxContainer/TitleContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "SECRET REVEAL"
+horizontal_alignment = 1
+
+[node name="ScaleScene" type="MarginContainer" parent="MarginContainer/HBoxContainer/MidVboxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/MidVboxContainer/ScaleScene"]
+layout_mode = 2
+texture = ExtResource("3_dq081")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RightVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="HBoxContainer/RightVboxContainer"]
+[node name="HellQuest" type="Control" parent="MarginContainer/HBoxContainer/RightVboxContainer"]
 layout_mode = 2
-text = "dsgdfgdfgdfgdfgdf"
+size_flags_vertical = 3
 
-[node name="CharacterGeneration" type="VBoxContainer" parent="HBoxContainer/RightVboxContainer"]
+[node name="BackgroundPanel" type="Panel" parent="MarginContainer/HBoxContainer/RightVboxContainer/HellQuest"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sdp6q")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/RightVboxContainer/HellQuest"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="QuestLogVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/RightVboxContainer/HellQuest/MarginContainer"]
 layout_mode = 2
 
-[node name="GenerateCharButton" type="Button" parent="HBoxContainer/RightVboxContainer/CharacterGeneration"]
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/RightVboxContainer/HellQuest/MarginContainer/QuestLogVboxContainer"]
 layout_mode = 2
-text = "Generate a character
-"
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "HELL QUEST I."
+horizontal_alignment = 1
 
-[connection signal="pressed" from="HBoxContainer/RightVboxContainer/CharacterGeneration/GenerateCharButton" to="." method="_on_generate_char_button_pressed"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/RightVboxContainer/HellQuest/MarginContainer/QuestLogVboxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/RightVboxContainer/HellQuest/MarginContainer/QuestLogVboxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "- asd"
+
+[node name="SecretRevealIndicator" type="MarginContainer" parent="MarginContainer/HBoxContainer/RightVboxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/RightVboxContainer/SecretRevealIndicator"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lhbqx")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/RightVboxContainer/SecretRevealIndicator"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "SECRET REVEALS LEFT: 5/14"
+horizontal_alignment = 1
+
+[node name="Pros" type="Control" parent="MarginContainer/HBoxContainer/RightVboxContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="BackgroundPanel" type="Panel" parent="MarginContainer/HBoxContainer/RightVboxContainer/Pros"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xd2ch")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/RightVboxContainer/Pros"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 134.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="QuestLogVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/RightVboxContainer/Pros/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/RightVboxContainer/Pros/MarginContainer/QuestLogVboxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "PROS"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/RightVboxContainer/Pros/MarginContainer/QuestLogVboxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/RightVboxContainer/Pros/MarginContainer/QuestLogVboxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "- Mumified three cats
+- did not steal from the poor
+
+- loved by his mother
+- secret
+- secret
+- secret
+- secret"
+
+[node name="HeavenButton" type="Button" parent="MarginContainer/HBoxContainer/RightVboxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_wtq0w")
+text = "TO HEAVEN"
