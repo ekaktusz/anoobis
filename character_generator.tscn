@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://punfu476axs3"]
+[gd_scene load_steps=7 format=3 uid="uid://punfu476axs3"]
 
 [ext_resource type="Script" path="res://character_generator.gd" id="1_ggyww"]
-[ext_resource type="Texture2D" uid="uid://bdyoqg3bewokx" path="res://images/dummy_face_parts/full_face_wo_bg_no_hair_no_eyes.png" id="2_ggg4x"]
-[ext_resource type="Texture2D" uid="uid://gg7v35spvqfs" path="res://images/dummy_face_parts/hair1.png" id="3_e4m5p"]
-[ext_resource type="Texture2D" uid="uid://bhxe1dpbiecu2" path="res://images/dummy_face_parts/eyes1.png" id="4_wspcr"]
+[ext_resource type="Texture2D" uid="uid://d3xno22v8rhl6" path="res://images/face_parts/skin_A1.png" id="2_w27cp"]
+[ext_resource type="Texture2D" uid="uid://dx54x4gpxgp24" path="res://images/face_parts/hair_A_back.png" id="3_5eabk"]
+[ext_resource type="Texture2D" uid="uid://d14g7qnqysiwb" path="res://images/face_parts/eyes_A.png" id="4_mg3ep"]
+[ext_resource type="Texture2D" uid="uid://bhuyqwtotgvmk" path="res://images/face_parts/mouth_A.png" id="5_wbyvb"]
+[ext_resource type="Texture2D" uid="uid://ci3wp4gkap78o" path="res://images/face_parts/nose_A.png" id="6_wn64c"]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -11,6 +13,7 @@ anchors_preset = 0
 script = ExtResource("1_ggyww")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -31,32 +34,50 @@ offset_right = 375.0
 offset_bottom = 242.0
 color = Color(0.772549, 0.898039, 0.976471, 1)
 
-[node name="FullHeadLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
+[node name="SkinLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
 
-[node name="FullHeadSprite" type="TextureRect" parent="VBoxContainer/PortraitContainer/FullHeadLayer"]
+[node name="SkinTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/SkinLayer"]
 offset_left = 1.0
 offset_top = 30.0
 offset_right = 375.0
 offset_bottom = 242.0
-texture = ExtResource("2_ggg4x")
+texture = ExtResource("2_w27cp")
 
 [node name="HairLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
 
-[node name="HairSprite" type="TextureRect" parent="VBoxContainer/PortraitContainer/HairLayer"]
+[node name="HairTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/HairLayer"]
 offset_left = 1.0
 offset_top = 30.0
 offset_right = 375.0
 offset_bottom = 242.0
-texture = ExtResource("3_e4m5p")
+texture = ExtResource("3_5eabk")
 
 [node name="EyesLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
 
-[node name="EyesSprite" type="TextureRect" parent="VBoxContainer/PortraitContainer/EyesLayer"]
+[node name="EyesTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/EyesLayer"]
 offset_left = 1.0
 offset_top = 30.0
 offset_right = 375.0
 offset_bottom = 242.0
-texture = ExtResource("4_wspcr")
+texture = ExtResource("4_mg3ep")
+
+[node name="MouthLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
+
+[node name="MouthTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/MouthLayer"]
+offset_left = 1.0
+offset_top = 30.0
+offset_right = 375.0
+offset_bottom = 242.0
+texture = ExtResource("5_wbyvb")
+
+[node name="NoseLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
+
+[node name="NoseTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/NoseLayer"]
+offset_left = 1.0
+offset_top = 30.0
+offset_right = 375.0
+offset_bottom = 242.0
+texture = ExtResource("6_wn64c")
 
 [node name="GeneratePartsHBox" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
