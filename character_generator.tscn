@@ -120,3 +120,4 @@ text = "Generate"
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/SkinButton" to="." method="_on_skin_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/NoseButton" to="." method="_on_nose_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/MouthButton" to="." method="_on_mouth_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GenerateButton" to="." method="_on_generate_button_pressed"]

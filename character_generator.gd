@@ -74,6 +74,7 @@ func _ready() -> void:
 	$VBoxContainer/PortraitContainer/NoseLayer/NoseTexture.texture = noses[current_nose_id]
 	$VBoxContainer/PortraitContainer/MouthLayer/MouthTexture.texture = mouths[current_mouth_id]
 
+	randomize()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -107,3 +108,23 @@ func _on_mouth_button_pressed() -> void:
 func _on_skin_button_pressed() -> void:
 	current_skin_id = (current_skin_id + 1)%skins.size()
 	$VBoxContainer/PortraitContainer/SkinLayer/SkinTexture.texture = skins[current_skin_id]
+
+
+func _on_generate_button_pressed() -> void:
+	var rand_hair = randi()%hair_fronts.size()
+	current_hair_front_id = rand_hair
+	current_hair_back_id = rand_hair
+	$VBoxContainer/PortraitContainer/FrontHairLayer/FrontHairTexture.texture = hair_fronts[current_hair_front_id]
+	$VBoxContainer/PortraitContainer/BackHairLayer/BackHairTexture.texture = hair_backs[current_hair_back_id]
+
+	current_eye_id = randi()%eyes.size()
+	$VBoxContainer/PortraitContainer/EyesLayer/EyesTexture.texture = eyes[current_eye_id]
+
+	current_skin_id = randi()%skins.size()
+	$VBoxContainer/PortraitContainer/SkinLayer/SkinTexture.texture = skins[current_skin_id]
+
+	current_nose_id = randi()%noses.size()
+	$VBoxContainer/PortraitContainer/NoseLayer/NoseTexture.texture = noses[current_nose_id]
+
+	current_mouth_id = randi()%mouths.size()
+	$VBoxContainer/PortraitContainer/MouthLayer/MouthTexture.texture = mouths[current_mouth_id]
