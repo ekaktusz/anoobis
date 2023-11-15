@@ -3,6 +3,7 @@
 extends Control
 
 var hair_fronts : Array = [
+	null,
 	preload ("res://images/face_parts/hair_A_front.png"),
 	preload ("res://images/face_parts/hair_B_front.png"),
 	preload ("res://images/face_parts/hair_C_front.png"),
@@ -11,6 +12,7 @@ var hair_fronts : Array = [
 
 #TODO: the size should match worked around by padding with null
 var hair_backs : Array = [
+	null,
 	preload ("res://images/face_parts/hair_A_back.png"),
 	preload ("res://images/face_parts/hair_B_back.png"),
 	null,

@@ -1,11 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://punfu476axs3"]
+[gd_scene load_steps=3 format=3 uid="uid://punfu476axs3"]
 
 [ext_resource type="Script" path="res://character_generator.gd" id="1_ggyww"]
-[ext_resource type="Texture2D" uid="uid://d3xno22v8rhl6" path="res://images/face_parts/skin_A1.png" id="2_w27cp"]
-[ext_resource type="Texture2D" uid="uid://dx54x4gpxgp24" path="res://images/face_parts/hair_A_back.png" id="3_5eabk"]
-[ext_resource type="Texture2D" uid="uid://d14g7qnqysiwb" path="res://images/face_parts/eyes_A.png" id="4_mg3ep"]
-[ext_resource type="Texture2D" uid="uid://bhuyqwtotgvmk" path="res://images/face_parts/mouth_A.png" id="5_wbyvb"]
-[ext_resource type="Texture2D" uid="uid://ci3wp4gkap78o" path="res://images/face_parts/nose_A.png" id="6_wn64c"]
+[ext_resource type="PackedScene" uid="uid://bjq5xbjijdywn" path="res://character.tscn" id="2_6m771"]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -21,72 +17,8 @@ offset_bottom = 40.0
 layout_mode = 2
 text = "Character generation"
 
-[node name="PortraitContainer" type="VBoxContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(375, 212)
+[node name="PortraitContainer" parent="VBoxContainer" instance=ExtResource("2_6m771")]
 layout_mode = 2
-
-[node name="BackgroundLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
-
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/PortraitContainer/BackgroundLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
-color = Color(0.772549, 0.898039, 0.976471, 1)
-
-[node name="BackHairLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
-
-[node name="BackHairTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/BackHairLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
-texture = ExtResource("3_5eabk")
-
-[node name="SkinLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
-
-[node name="SkinTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/SkinLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
-texture = ExtResource("2_w27cp")
-
-[node name="FrontHairLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
-
-[node name="FrontHairTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/FrontHairLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
-texture = ExtResource("3_5eabk")
-
-[node name="EyesLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
-
-[node name="EyesTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/EyesLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
-texture = ExtResource("4_mg3ep")
-
-[node name="MouthLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
-
-[node name="MouthTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/MouthLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
-texture = ExtResource("5_wbyvb")
-
-[node name="NoseLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
-
-[node name="NoseTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/NoseLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
-texture = ExtResource("6_wn64c")
 
 [node name="GeneratePartsHBox" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

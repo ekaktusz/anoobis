@@ -17,4 +17,11 @@ func _on_button_pressed():
 
 
 func _on_heaven_button_pressed() -> void:
+	var character_scene : PackedScene = preload("res://character.tscn")
+	var character_node : Node = character_scene.instantiate()
+
+	$MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene/MarginContainer.add_child(character_node)
+
+
+func _on_hell_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://character_generator.tscn")
