@@ -58,23 +58,9 @@ var current_nose_id : int
 var current_mouth_id : int
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_hair_front_id = 0
-	current_hair_back_id = 0
-	current_eye_id = 0
-	current_skin_id = 0
-	current_nose_id = 0
-	current_mouth_id = 0
-
-	$FrontHairTexture.texture = hair_fronts[current_hair_front_id]
-	$BackHairTexture.texture = hair_backs[current_hair_back_id]
-	$EyesTexture.texture = eyes[current_eye_id]
-	$SkinTexture.texture = skins[current_skin_id]
-	$NoseTexture.texture = noses[current_nose_id]
-	$MouthTexture.texture = mouths[current_mouth_id]
-
 	randomize()
+	_set_random_parts()
 
 
 func _set_next_hair() -> void:
