@@ -1,9 +1,13 @@
 extends AspectRatioContainer
 
 
+@export var FACE_PARTS_PATH := "res://images/face_parts/"
+
+
 class Hair:
 	var hair_back : Resource
 	var hair_front : Resource
+
 
 var eyes : Array[Resource]
 var skins : Array[Resource]
@@ -17,39 +21,9 @@ var current_skin_id : int
 var current_nose_id : int
 var current_mouth_id : int
 
+
 func _ready() -> void:
-	var face_parts_folder = "res://images/face_parts/"
-	var dir = DirAccess.open(face_parts_folder)
-
-	dir.list_dir_begin()
-	var file_name = dir.get_next()
-	while (file_name != ""):
-		if file_name.ends_with("png"):
-			if file_name.begins_with("eyes"):
-				eyes.push_back(load(face_parts_folder+file_name))
-			elif file_name.begins_with("mouth"):
-				mouths.push_back(load(face_parts_folder+file_name))
-			elif file_name.begins_with("nose"):
-				noses.push_back(load(face_parts_folder+file_name))
-			elif file_name.begins_with("skin"):
-				skins.push_back(load(face_parts_folder+file_name))
-			elif file_name.begins_with("hair"):
-				if file_name.ends_with("_front.png"):
-					var hair = Hair.new()
-					hair.hair_front = load(face_parts_folder+file_name)
-					var filename_parts = file_name.split('_')
-					var back_variant = filename_parts[0] + "_" + filename_parts[1] + "_back.png"
-					print(back_variant)
-					if dir.file_exists(back_variant):
-						hair.hair_back =  load(face_parts_folder+back_variant)
-					else:
-						hair.hair_back = null
-
-					hairs.push_back(hair)
-				elif file_name.ends_with("_end.png"):
-					pass
-		file_name = dir.get_next()
-
+	load_assets()
 	randomize()
 	_set_random_parts()
 
@@ -81,7 +55,7 @@ func _set_next_skin() -> void:
 
 
 func _set_random_parts() -> void:
-	var rand_hair = randi()%hairs.size()
+	var rand_hair : int = randi()%hairs.size()
 
 	$FrontHairTexture.texture = hairs[rand_hair].hair_front
 	$BackHairTexture.texture = hairs[rand_hair].hair_back
@@ -97,3 +71,39 @@ func _set_random_parts() -> void:
 
 	current_mouth_id = randi()%mouths.size()
 	$MouthTexture.texture = mouths[current_mouth_id]
+
+
+func load_assets() -> void:
+	var dir := DirAccess.open(FACE_PARTS_PATH)
+
+	dir.list_dir_begin()
+	var file_name : String = dir.get_next()
+	while (file_name != ""):
+		if file_name.ends_with("png"):
+			if file_name.begins_with("eyes"):
+				eyes.push_back(load(FACE_PARTS_PATH+file_name))
+			elif file_name.begins_with("mouth"):
+				mouths.push_back(load(FACE_PARTS_PATH+file_name))
+			elif file_name.begins_with("nose"):
+				noses.push_back(load(FACE_PARTS_PATH+file_name))
+			elif file_name.begins_with("skin"):
+				skins.push_back(load(FACE_PARTS_PATH+file_name))
+			elif (file_name.begins_with("hair") and file_name.ends_with("_front.png")):
+				hairs.push_back(get_hair_from_asset(dir, file_name))
+
+		file_name = dir.get_next()
+
+func get_hair_from_asset(dir : DirAccess, file_name : String) -> Hair:
+	var hair := Hair.new()
+	var filename_parts := file_name.split('_')
+	var back_variant : String = filename_parts[0] + '_' + \
+								filename_parts[1] + '_back.png'
+
+	hair.hair_front = load(FACE_PARTS_PATH+file_name)
+
+	if dir.file_exists(back_variant):
+		hair.hair_back =  load(FACE_PARTS_PATH+back_variant)
+	else:
+		hair.hair_back = null
+
+	return hair
