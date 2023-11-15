@@ -94,10 +94,6 @@ func _on_eyes_button_pressed() -> void:
 	$VBoxContainer/PortraitContainer/EyesLayer/EyesTexture.texture = eyes[current_eye_id]
 
 
-func _on_ears_button_pressed() -> void:
-	pass # Replace with function body.
-
-
 func _on_nose_button_pressed() -> void:
 	current_nose_id = (current_nose_id + 1)%noses.size()
 	$VBoxContainer/PortraitContainer/NoseLayer/NoseTexture.texture = noses[current_nose_id]
@@ -106,3 +102,8 @@ func _on_nose_button_pressed() -> void:
 func _on_mouth_button_pressed() -> void:
 	current_mouth_id = (current_mouth_id + 1)%mouths.size()
 	$VBoxContainer/PortraitContainer/MouthLayer/MouthTexture.texture = mouths[current_mouth_id]
+
+
+func _on_skin_button_pressed() -> void:
+	current_skin_id = (current_skin_id + 1)%skins.size()
+	$VBoxContainer/PortraitContainer/SkinLayer/SkinTexture.texture = skins[current_skin_id]

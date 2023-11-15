@@ -99,9 +99,9 @@ text = "Hair"
 layout_mode = 2
 text = "Eyes"
 
-[node name="EarsButton" type="Button" parent="VBoxContainer/GeneratePartsHBox"]
+[node name="SkinButton" type="Button" parent="VBoxContainer/GeneratePartsHBox"]
 layout_mode = 2
-text = "Ears"
+text = "Skin"
 
 [node name="NoseButton" type="Button" parent="VBoxContainer/GeneratePartsHBox"]
 layout_mode = 2
@@ -117,6 +117,6 @@ text = "Generate"
 
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/HairButton" to="." method="_on_hair_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/EyesButton" to="." method="_on_eyes_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/EarsButton" to="." method="_on_ears_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/SkinButton" to="." method="_on_skin_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/NoseButton" to="." method="_on_nose_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/MouthButton" to="." method="_on_mouth_button_pressed"]
