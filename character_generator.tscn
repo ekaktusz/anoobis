@@ -17,7 +17,7 @@ offset_bottom = 40.0
 layout_mode = 2
 text = "Character generation"
 
-[node name="PortraitContainer" parent="VBoxContainer" instance=ExtResource("2_6m771")]
+[node name="Character" parent="VBoxContainer" instance=ExtResource("2_6m771")]
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 
