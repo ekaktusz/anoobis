@@ -48,9 +48,14 @@ text = "Mouth"
 layout_mode = 2
 text = "Generate"
 
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/HairButton" to="." method="_on_hair_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/EyesButton" to="." method="_on_eyes_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/SkinButton" to="." method="_on_skin_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/NoseButton" to="." method="_on_nose_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/MouthButton" to="." method="_on_mouth_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/GenerateButton" to="." method="_on_generate_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
