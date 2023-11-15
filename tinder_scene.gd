@@ -16,9 +16,5 @@ func _on_button_pressed():
 	pass # Replace with function body.
 
 
-func _on_generate_char_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://character_generator.tscn")
-
-
 func _on_heaven_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://character_generator.tscn")
