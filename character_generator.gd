@@ -69,12 +69,12 @@ func _ready() -> void:
 	current_nose_id = 0
 	current_mouth_id = 0
 
-	$VBoxContainer/PortraitContainer/FrontHairLayer/FrontHairTexture.texture = hair_fronts[current_hair_front_id]
-	$VBoxContainer/PortraitContainer/BackHairLayer/BackHairTexture.texture = hair_backs[current_hair_back_id]
-	$VBoxContainer/PortraitContainer/EyesLayer/EyesTexture.texture = eyes[current_eye_id]
-	$VBoxContainer/PortraitContainer/SkinLayer/SkinTexture.texture = skins[current_skin_id]
-	$VBoxContainer/PortraitContainer/NoseLayer/NoseTexture.texture = noses[current_nose_id]
-	$VBoxContainer/PortraitContainer/MouthLayer/MouthTexture.texture = mouths[current_mouth_id]
+	$VBoxContainer/PortraitContainer/FrontHairTexture.texture = hair_fronts[current_hair_front_id]
+	$VBoxContainer/PortraitContainer/BackHairTexture.texture = hair_backs[current_hair_back_id]
+	$VBoxContainer/PortraitContainer/EyesTexture.texture = eyes[current_eye_id]
+	$VBoxContainer/PortraitContainer/SkinTexture.texture = skins[current_skin_id]
+	$VBoxContainer/PortraitContainer/NoseTexture.texture = noses[current_nose_id]
+	$VBoxContainer/PortraitContainer/MouthTexture.texture = mouths[current_mouth_id]
 
 	randomize()
 
@@ -86,47 +86,47 @@ func _process(delta: float) -> void:
 
 func _on_hair_button_pressed() -> void:
 	current_hair_front_id = (current_hair_front_id + 1)%hair_fronts.size()
-	$VBoxContainer/PortraitContainer/FrontHairLayer/FrontHairTexture.texture = hair_fronts[current_hair_front_id]
+	$VBoxContainer/PortraitContainer/FrontHairTexture.texture = hair_fronts[current_hair_front_id]
 
 	current_hair_back_id = (current_hair_back_id + 1)%hair_backs.size()
-	$VBoxContainer/PortraitContainer/BackHairLayer/BackHairTexture.texture = hair_backs[current_hair_back_id]
+	$VBoxContainer/PortraitContainer/BackHairTexture.texture = hair_backs[current_hair_back_id]
 
 
 func _on_eyes_button_pressed() -> void:
 	current_eye_id = (current_eye_id + 1)%eyes.size()
-	$VBoxContainer/PortraitContainer/EyesLayer/EyesTexture.texture = eyes[current_eye_id]
+	$VBoxContainer/PortraitContainer/EyesTexture.texture = eyes[current_eye_id]
 
 
 func _on_nose_button_pressed() -> void:
 	current_nose_id = (current_nose_id + 1)%noses.size()
-	$VBoxContainer/PortraitContainer/NoseLayer/NoseTexture.texture = noses[current_nose_id]
+	$VBoxContainer/PortraitContainer/NoseTexture.texture = noses[current_nose_id]
 
 
 func _on_mouth_button_pressed() -> void:
 	current_mouth_id = (current_mouth_id + 1)%mouths.size()
-	$VBoxContainer/PortraitContainer/MouthLayer/MouthTexture.texture = mouths[current_mouth_id]
+	$VBoxContainer/PortraitContainer/MouthTexture.texture = mouths[current_mouth_id]
 
 
 func _on_skin_button_pressed() -> void:
 	current_skin_id = (current_skin_id + 1)%skins.size()
-	$VBoxContainer/PortraitContainer/SkinLayer/SkinTexture.texture = skins[current_skin_id]
+	$VBoxContainer/PortraitContainer/SkinTexture.texture = skins[current_skin_id]
 
 
 func _on_generate_button_pressed() -> void:
 	var rand_hair = randi()%hair_fronts.size()
 	current_hair_front_id = rand_hair
 	current_hair_back_id = rand_hair
-	$VBoxContainer/PortraitContainer/FrontHairLayer/FrontHairTexture.texture = hair_fronts[current_hair_front_id]
-	$VBoxContainer/PortraitContainer/BackHairLayer/BackHairTexture.texture = hair_backs[current_hair_back_id]
+	$VBoxContainer/PortraitContainer/FrontHairTexture.texture = hair_fronts[current_hair_front_id]
+	$VBoxContainer/PortraitContainer/BackHairTexture.texture = hair_backs[current_hair_back_id]
 
 	current_eye_id = randi()%eyes.size()
-	$VBoxContainer/PortraitContainer/EyesLayer/EyesTexture.texture = eyes[current_eye_id]
+	$VBoxContainer/PortraitContainer/EyesTexture.texture = eyes[current_eye_id]
 
 	current_skin_id = randi()%skins.size()
-	$VBoxContainer/PortraitContainer/SkinLayer/SkinTexture.texture = skins[current_skin_id]
+	$VBoxContainer/PortraitContainer/SkinTexture.texture = skins[current_skin_id]
 
 	current_nose_id = randi()%noses.size()
-	$VBoxContainer/PortraitContainer/NoseLayer/NoseTexture.texture = noses[current_nose_id]
+	$VBoxContainer/PortraitContainer/NoseTexture.texture = noses[current_nose_id]
 
 	current_mouth_id = randi()%mouths.size()
-	$VBoxContainer/PortraitContainer/MouthLayer/MouthTexture.texture = mouths[current_mouth_id]
+	$VBoxContainer/PortraitContainer/MouthTexture.texture = mouths[current_mouth_id]

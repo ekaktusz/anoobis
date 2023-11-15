@@ -6,68 +6,30 @@
 [ext_resource type="Texture2D" uid="uid://bhuyqwtotgvmk" path="res://images/face_parts/mouth_A.png" id="4_86cqo"]
 [ext_resource type="Texture2D" uid="uid://ci3wp4gkap78o" path="res://images/face_parts/nose_A.png" id="5_eerww"]
 
-[node name="PortraitContainer" type="VBoxContainer"]
-custom_minimum_size = Vector2(375, 212)
+[node name="PortraitContainer" type="AspectRatioContainer"]
+offset_right = 72.0
+offset_bottom = 72.0
 
-[node name="BackgroundLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
-color = Color(0.772549, 0.898039, 0.976471, 1)
-
-[node name="BackHairLayer" type="CanvasLayer" parent="."]
-
-[node name="BackHairTexture" type="TextureRect" parent="BackHairLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
+[node name="BackHairTexture" type="TextureRect" parent="."]
+layout_mode = 2
 texture = ExtResource("1_r81iw")
 
-[node name="SkinLayer" type="CanvasLayer" parent="."]
-
-[node name="SkinTexture" type="TextureRect" parent="SkinLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
+[node name="SkinTexture" type="TextureRect" parent="."]
+layout_mode = 2
 texture = ExtResource("2_q1q6y")
 
-[node name="FrontHairLayer" type="CanvasLayer" parent="."]
-
-[node name="FrontHairTexture" type="TextureRect" parent="FrontHairLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
+[node name="FrontHairTexture" type="TextureRect" parent="."]
+layout_mode = 2
 texture = ExtResource("1_r81iw")
 
-[node name="EyesLayer" type="CanvasLayer" parent="."]
-
-[node name="EyesTexture" type="TextureRect" parent="EyesLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
+[node name="EyesTexture" type="TextureRect" parent="."]
+layout_mode = 2
 texture = ExtResource("3_0livs")
 
-[node name="MouthLayer" type="CanvasLayer" parent="."]
-
-[node name="MouthTexture" type="TextureRect" parent="MouthLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
+[node name="MouthTexture" type="TextureRect" parent="."]
+layout_mode = 2
 texture = ExtResource("4_86cqo")
 
-[node name="NoseLayer" type="CanvasLayer" parent="."]
-
-[node name="NoseTexture" type="TextureRect" parent="NoseLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
+[node name="NoseTexture" type="TextureRect" parent="."]
+layout_mode = 2
 texture = ExtResource("5_eerww")
