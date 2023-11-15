@@ -34,6 +34,15 @@ offset_right = 375.0
 offset_bottom = 242.0
 color = Color(0.772549, 0.898039, 0.976471, 1)
 
+[node name="BackHairLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
+
+[node name="BackHairTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/BackHairLayer"]
+offset_left = 1.0
+offset_top = 30.0
+offset_right = 375.0
+offset_bottom = 242.0
+texture = ExtResource("3_5eabk")
+
 [node name="SkinLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
 
 [node name="SkinTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/SkinLayer"]
@@ -43,9 +52,9 @@ offset_right = 375.0
 offset_bottom = 242.0
 texture = ExtResource("2_w27cp")
 
-[node name="HairLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
+[node name="FrontHairLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
 
-[node name="HairTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/HairLayer"]
+[node name="FrontHairTexture" type="TextureRect" parent="VBoxContainer/PortraitContainer/FrontHairLayer"]
 offset_left = 1.0
 offset_top = 30.0
 offset_right = 375.0
