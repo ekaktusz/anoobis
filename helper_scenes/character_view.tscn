@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgqmpin8edd76"]
 
-[ext_resource type="PackedScene" uid="uid://3r4kssy62sku" path="res://portrait_view.tscn" id="1_aeitp"]
+[ext_resource type="PackedScene" uid="uid://3r4kssy62sku" path="res://portrait_view.tscn" id="1_iee2r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id1j8"]
 bg_color = Color(0.772549, 0.898039, 0.976471, 1)
@@ -33,7 +33,7 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="PortraitContainer" parent="MarginContainer" instance=ExtResource("1_aeitp")]
+[node name="PortraitContainer" parent="MarginContainer" instance=ExtResource("1_iee2r")]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

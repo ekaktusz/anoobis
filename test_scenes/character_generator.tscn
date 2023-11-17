@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://punfu476axs3"]
 
-[ext_resource type="Script" path="res://character_generator.gd" id="1_ggyww"]
-[ext_resource type="PackedScene" path="res://character.tscn" id="2_6m771"]
+[ext_resource type="Script" path="res://test_scenes/character_generator.gd" id="1_ggyww"]
+[ext_resource type="PackedScene" uid="uid://3r4kssy62sku" path="res://helper_scenes/portrait_view.tscn" id="2_6m771"]
 
 [node name="CharacterGenerator" type="Control"]
 layout_mode = 3

@@ -12,5 +12,5 @@ func _process(delta):
 
 
 func _on_start_button_pressed():
-	SceneTransition.change_scene_to_file("res://tinder_scene.tscn")
+	SceneTransition.change_scene_to_file("res://main_scenes/tinder_scene.tscn")
 	pass # Replace with function body.
