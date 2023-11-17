@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjq5xbjijdywn"]
+[gd_scene load_steps=7 format=3 uid="uid://b0bx1wgoq8ce0"]
 
 [ext_resource type="Texture2D" uid="uid://dx54x4gpxgp24" path="res://images/face_parts/hair_A_back.png" id="1_r81iw"]
 [ext_resource type="Script" path="res://character.gd" id="1_rvx3b"]
