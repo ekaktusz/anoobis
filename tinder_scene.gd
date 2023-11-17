@@ -30,7 +30,7 @@ func _on_hell_button_pressed() -> void:
 
 
 func get_new_character() -> void:
-	var character_scene : PackedScene = preload("res://character.tscn")
+	var character_scene : PackedScene = preload("res://portrait_view.tscn")
 	var character_node : Node = character_scene.instantiate()
 	var portrait_containter : Node = $MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene/MarginContainer
 
