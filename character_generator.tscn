@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://punfu476axs3"]
+[gd_scene load_steps=3 format=3 uid="uid://punfu476axs3"]
 
 [ext_resource type="Script" path="res://character_generator.gd" id="1_ggyww"]
-[ext_resource type="Texture2D" uid="uid://bdyoqg3bewokx" path="res://images/dummy_face_parts/full_face_wo_bg_no_hair_no_eyes.png" id="2_ggg4x"]
-[ext_resource type="Texture2D" uid="uid://gg7v35spvqfs" path="res://images/dummy_face_parts/hair1.png" id="3_e4m5p"]
-[ext_resource type="Texture2D" uid="uid://bhxe1dpbiecu2" path="res://images/dummy_face_parts/eyes1.png" id="4_wspcr"]
+[ext_resource type="PackedScene" uid="uid://bjq5xbjijdywn" path="res://character.tscn" id="2_6m771"]
 
-[node name="Node2D" type="Node2D"]
+[node name="CharacterGenerator" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_ggyww")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -16,45 +17,9 @@ offset_bottom = 40.0
 layout_mode = 2
 text = "Character generation"
 
-[node name="PortraitContainer" type="VBoxContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(375, 212)
+[node name="Character" parent="VBoxContainer" instance=ExtResource("2_6m771")]
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
-
-[node name="BackgroundLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
-
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/PortraitContainer/BackgroundLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
-color = Color(0.772549, 0.898039, 0.976471, 1)
-
-[node name="FullHeadLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
-
-[node name="FullHeadSprite" type="TextureRect" parent="VBoxContainer/PortraitContainer/FullHeadLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
-texture = ExtResource("2_ggg4x")
-
-[node name="HairLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
-
-[node name="HairSprite" type="TextureRect" parent="VBoxContainer/PortraitContainer/HairLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
-texture = ExtResource("3_e4m5p")
-
-[node name="EyesLayer" type="CanvasLayer" parent="VBoxContainer/PortraitContainer"]
-
-[node name="EyesSprite" type="TextureRect" parent="VBoxContainer/PortraitContainer/EyesLayer"]
-offset_left = 1.0
-offset_top = 30.0
-offset_right = 375.0
-offset_bottom = 242.0
-texture = ExtResource("4_wspcr")
 
 [node name="GeneratePartsHBox" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -67,9 +32,9 @@ text = "Hair"
 layout_mode = 2
 text = "Eyes"
 
-[node name="EarsButton" type="Button" parent="VBoxContainer/GeneratePartsHBox"]
+[node name="SkinButton" type="Button" parent="VBoxContainer/GeneratePartsHBox"]
 layout_mode = 2
-text = "Ears"
+text = "Skin"
 
 [node name="NoseButton" type="Button" parent="VBoxContainer/GeneratePartsHBox"]
 layout_mode = 2
@@ -83,8 +48,14 @@ text = "Mouth"
 layout_mode = 2
 text = "Generate"
 
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/HairButton" to="." method="_on_hair_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/EyesButton" to="." method="_on_eyes_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/EarsButton" to="." method="_on_ears_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/SkinButton" to="." method="_on_skin_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/NoseButton" to="." method="_on_nose_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/MouthButton" to="." method="_on_mouth_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GenerateButton" to="." method="_on_generate_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

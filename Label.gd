@@ -10,8 +10,8 @@ func _ready():
 
 func _update_score_label(score):
 	if (score < 0):
-		scale_label.text = "Hell felé billenek :" + str(score)
+		scale_label.text = str(score)
 	elif (score > 0):
-		scale_label.text ="Heaven felé billenek :" + str(score)
+		scale_label.text =str(score)
 	else:
 		scale_label.text = "Balance"
