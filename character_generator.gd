@@ -1,53 +1,34 @@
-@tool
-
 extends Control
 
-var hairs : Array = [
-	preload ("res://images/dummy_face_parts/hair1.png"),
-	preload ("res://images/dummy_face_parts/hair2.png"),
-	preload ("res://images/dummy_face_parts/hair3.png"),
-]
+var character_node : Node
 
-var eyes : Array = [
-	preload ("res://images/dummy_face_parts/eyes1.png"),
-	preload ("res://images/dummy_face_parts/eyes2.png"),
-]
-
-var current_hair_id : int
-var current_eye_id : int
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_hair_id = 0
-	current_eye_id = 0
-
-	$VBoxContainer/PortraitContainer/HairLayer/HairSprite.texture = hairs[current_hair_id]
-	$VBoxContainer/PortraitContainer/EyesLayer/EyesSprite.texture = eyes[current_eye_id]
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+	character_node = $VBoxContainer/Character
+	character_node._set_random_parts()
 
 func _on_hair_button_pressed() -> void:
-	current_hair_id = (current_hair_id + 1)%hairs.size()
-	$VBoxContainer/PortraitContainer/HairLayer/HairSprite.texture = hairs[current_hair_id]
+	character_node._set_next_hair()
 
 
 func _on_eyes_button_pressed() -> void:
-	current_eye_id = (current_eye_id + 1)%eyes.size()
-	$VBoxContainer/PortraitContainer/EyesLayer/EyesSprite.texture = eyes[current_eye_id]
-
-
-func _on_ears_button_pressed() -> void:
-	pass # Replace with function body.
+	character_node._set_next_eye()
 
 
 func _on_nose_button_pressed() -> void:
-	pass # Replace with function body.
+	character_node._set_next_nose()
 
 
 func _on_mouth_button_pressed() -> void:
-	pass # Replace with function body.
+		character_node._set_next_mouth()
+
+
+func _on_skin_button_pressed() -> void:
+	character_node._set_next_skin()
+
+
+func _on_generate_button_pressed() -> void:
+	character_node._set_random_parts()
+
+
+func _on_exit_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://tinder_scene.tscn")
