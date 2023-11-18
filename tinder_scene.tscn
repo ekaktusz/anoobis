@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://bxagx5lrf143d"]
 
 [ext_resource type="Script" path="res://tinder_scene.gd" id="1_w104e"]
-[ext_resource type="PackedScene" uid="uid://bjq5xbjijdywn" path="res://character.tscn" id="2_2tnho"]
-[ext_resource type="Texture2D" uid="uid://dv0if8nq54b84" path="res://images/scale.png" id="3_dq081"]
+[ext_resource type="PackedScene" path="res://character.tscn" id="2_2tnho"]
+[ext_resource type="PackedScene" uid="uid://b5lkspwgwwpc4" path="res://scale.tscn" id="4_68rii"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sio5"]
 bg_color = Color(0.996078, 0.952941, 0.823529, 1)
@@ -350,11 +350,8 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/MidVboxContainer/ScaleScene"]
+[node name="Scale" parent="MarginContainer/HBoxContainer/MidVboxContainer/ScaleScene" instance=ExtResource("4_68rii")]
 layout_mode = 2
-texture = ExtResource("3_dq081")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="RightVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -477,4 +474,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wtq0w")
 text = "TO HEAVEN"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LeftVboxContainer/HellButton" to="." method="_on_hell_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/LeftVboxContainer/HellButton" to="MarginContainer/HBoxContainer/MidVboxContainer/ScaleScene/Scale" method="_on_hell_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/RightVboxContainer/HeavenButton" to="." method="_on_heaven_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/RightVboxContainer/HeavenButton" to="MarginContainer/HBoxContainer/MidVboxContainer/ScaleScene/Scale" method="_on_heaven_button_pressed"]
