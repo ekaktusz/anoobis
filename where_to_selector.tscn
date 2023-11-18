@@ -2,27 +2,43 @@
 
 [ext_resource type="Script" path="res://where_to_selector.gd" id="1_53lby"]
 
-[node name="WhereToSelector" type="Window"]
-title = "Select where to go on your break"
-initial_position = 1
-size = Vector2i(200, 200)
+[node name="WhereToSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 200.0
 script = ExtResource("1_53lby")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.0235294, 0.0235294, 0.0235294, 0.239216)
 
-[node name="ToHellButton" type="Button" parent="HBoxContainer"]
+[node name="Window" type="Window" parent="ColorRect"]
+initial_position = 1
+size = Vector2i(200, 200)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Window"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_right = 100.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ToHellButton" type="Button" parent="ColorRect/Window/HBoxContainer"]
 layout_mode = 2
 text = "Go to Hell
 "
 
-[node name="ToHeavenButton" type="Button" parent="HBoxContainer"]
+[node name="ToHeavenButton" type="Button" parent="ColorRect/Window/HBoxContainer"]
 layout_mode = 2
 text = "Go to Heaven"
 
-[connection signal="pressed" from="HBoxContainer/ToHellButton" to="." method="_on_to_hell_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/ToHeavenButton" to="." method="_on_to_heaven_button_pressed"]
+[connection signal="pressed" from="ColorRect/Window/HBoxContainer/ToHellButton" to="." method="_on_to_hell_button_pressed"]
+[connection signal="pressed" from="ColorRect/Window/HBoxContainer/ToHeavenButton" to="." method="_on_to_heaven_button_pressed"]
