@@ -4,6 +4,7 @@ signal character_changed(new_character: CharacterData)
 signal character_sent_to_hell(character: CharacterData)
 signal character_sent_to_heaven(character: CharacterData)
 
+var current_character: CharacterData
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,17 +26,15 @@ func _on_button_pressed():
 
 
 func _on_heaven_button_pressed() -> void:
+	character_sent_to_heaven.emit(self.current_character)
 	get_new_character()
 
 
 func _on_hell_button_pressed() -> void:
+	character_sent_to_hell.emit(self.current_character)
 	get_new_character()
 
 
 func get_new_character() -> void:
-	#var new_character : CharacterData = CharacterData.new()
-	var new_character : CharacterData = CharacterDatabase.get_random_character()
-	if new_character == null:
-		print("FING")
-	#new_character.initalize_random()
-	character_changed.emit(new_character)
+	self.current_character = CharacterDatabase.get_random_character()
+	character_changed.emit(self.current_character)
