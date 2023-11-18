@@ -1,5 +1,7 @@
 extends Control
 
+const CharaterData = preload("res://data_classes/character_data.gd")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,14 +31,8 @@ func _on_hell_button_pressed() -> void:
 	get_new_character()
 
 
-const CharaterData = preload("res://data_classes/character_data.gd")
-
 func get_new_character() -> void:
-	var portrait_containter : Node = $MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene/MarginContainer
-	
 	var new_character : CharaterData = CharaterData.new()
 	new_character.initalize_random()
-
-#	TODO: Here we can send the portrait to the afterlife instead of deleting
-	portrait_containter.get_child(0).queue_free()
-	portrait_containter.add_child(new_character.portrait_view)
+	
+	$MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene.change_character(new_character)

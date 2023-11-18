@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://gh4wifppmunc"]
+[gd_scene load_steps=13 format=3 uid="uid://gh4wifppmunc"]
 
 [ext_resource type="Script" path="res://tinder_scene.gd" id="1_w104e"]
 [ext_resource type="PackedScene" uid="uid://dgqmpin8edd76" path="res://character_view.tscn" id="2_6dr6a"]
+[ext_resource type="PackedScene" uid="uid://baq7djetaw4j7" path="res://property_view.tscn" id="2_m1ckk"]
 [ext_resource type="Texture2D" uid="uid://dv0if8nq54b84" path="res://assets/images/scale.png" id="3_4nntl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sio5"]
@@ -191,19 +192,8 @@ theme_override_font_sizes/font_size = 40
 text = "CONS"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftVboxContainer/Cons/MarginContainer/QuestLogVboxContainer"]
+[node name="PropertyView" parent="MarginContainer/HBoxContainer/LeftVboxContainer/Cons/MarginContainer/QuestLogVboxContainer" instance=ExtResource("2_m1ckk")]
 layout_mode = 2
-
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/LeftVboxContainer/Cons/MarginContainer/QuestLogVboxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "- had slaces
-- used premade stuff dsfdsfs
-- secret
-- secret
-- secret
-- secret"
 
 [node name="HellButton" type="Button" parent="MarginContainer/HBoxContainer/LeftVboxContainer"]
 layout_mode = 2

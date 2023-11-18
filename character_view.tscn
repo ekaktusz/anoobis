@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgqmpin8edd76"]
+[gd_scene load_steps=5 format=3 uid="uid://dgqmpin8edd76"]
 
 [ext_resource type="PackedScene" uid="uid://3r4kssy62sku" path="res://portrait_view.tscn" id="1_aeitp"]
+[ext_resource type="Script" path="res://character_view.gd" id="1_wsq35"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id1j8"]
 bg_color = Color(0.772549, 0.898039, 0.976471, 1)
@@ -21,6 +22,7 @@ border_color = Color(1, 0.780392, 0.690196, 1)
 [node name="CharacterViewScene" type="MarginContainer"]
 custom_minimum_size = Vector2(500, 500)
 size_flags_vertical = 3
+script = ExtResource("1_wsq35")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
