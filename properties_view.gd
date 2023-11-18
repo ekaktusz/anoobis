@@ -12,7 +12,7 @@ func _ready():
 	title_label.text = PROPERTIES_VIEW_MODE.keys()[mode]
 	
 
-func _on_tinder_scene_character_changed(new_character: CharaterData):
+func _on_tinder_scene_character_changed(new_character: CharacterData):
 	if self.mode == PROPERTIES_VIEW_MODE.Cons:
 		self.properties = new_character.negative_properties
 	else:

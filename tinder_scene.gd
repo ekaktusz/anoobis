@@ -1,8 +1,9 @@
 extends Control
 
-signal character_changed(new_character : CharaterData)
+signal character_changed(new_character: CharacterData)
+signal character_sent_to_hell(character: CharacterData)
+signal character_sent_to_heaven(character: CharacterData)
 
-const CharaterData = preload("res://data_classes/character_data.gd")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,8 +33,8 @@ func _on_hell_button_pressed() -> void:
 
 
 func get_new_character() -> void:
-	#var new_character : CharaterData = CharaterData.new()
-	var new_character : CharaterData = CharacterDatabase.get_random_character()
+	#var new_character : CharacterData = CharacterData.new()
+	var new_character : CharacterData = CharacterDatabase.get_random_character()
 	if new_character == null:
 		print("FING")
 	#new_character.initalize_random()
