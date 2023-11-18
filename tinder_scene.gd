@@ -6,7 +6,7 @@ const CharaterData = preload("res://data_classes/character_data.gd")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	get_new_character()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,5 +35,7 @@ func _on_hell_button_pressed() -> void:
 func get_new_character() -> void:
 	#var new_character : CharaterData = CharaterData.new()
 	var new_character : CharaterData = CharacterDatabase.get_random_character()
+	if new_character == null:
+		print("FING")
 	#new_character.initalize_random()
 	character_changed.emit(new_character)

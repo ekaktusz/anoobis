@@ -48,8 +48,10 @@ var characters: Array[CharacterData] = [
 	)
 ]
 
-# removes as well!
+# currently no remove from database
 func get_random_character() -> CharacterData:
 	var rand_index: int = randi() % self.characters.size()
-	print(self.characters[rand_index].name)
+	if rand_index == self.characters.size():
+		return null
+	
 	return self.characters[rand_index]
