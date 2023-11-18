@@ -1,6 +1,6 @@
-extends AspectRatioContainer
+class_name PortraitView extends AspectRatioContainer
 
-static var FACE_PARTS_PATH : String = "res://images/face_parts/"
+static var FACE_PARTS_PATH : String = "res://assets/images/face_parts/"
 
 class Hair:
 	var hair_back : Resource

@@ -1,11 +1,21 @@
 [gd_scene load_steps=7 format=3 uid="uid://3r4kssy62sku"]
 
 [ext_resource type="Script" path="res://portrait_view.gd" id="1_tsrr6"]
-[ext_resource type="Texture2D" uid="uid://dx54x4gpxgp24" path="res://images/face_parts/hair_A_back.png" id="2_7sjwh"]
-[ext_resource type="Texture2D" uid="uid://d3xno22v8rhl6" path="res://images/face_parts/skin_A1.png" id="3_vhl14"]
-[ext_resource type="Texture2D" uid="uid://d14g7qnqysiwb" path="res://images/face_parts/eyes_A.png" id="4_v1wk1"]
-[ext_resource type="Texture2D" uid="uid://bhuyqwtotgvmk" path="res://images/face_parts/mouth_A.png" id="5_cemcy"]
-[ext_resource type="Texture2D" uid="uid://ci3wp4gkap78o" path="res://images/face_parts/nose_A.png" id="6_x8lm6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sapyp"]
+load_path = "res://.godot/imported/hair_A_back.png-43162ca916699e29fb25e45a5f4f03bf.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sysx3"]
+load_path = "res://.godot/imported/skin_A1.png-76cac0830684e20284e1774950b4cf4c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2ecpb"]
+load_path = "res://.godot/imported/eyes_A.png-28ab78449753ece71a560df543572310.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bpgc4"]
+load_path = "res://.godot/imported/mouth_A.png-cf6dc86a640661c8fceba43f99c57a06.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7emgq"]
+load_path = "res://.godot/imported/nose_A.png-4759844ea8f96885b041d219cd7f5b6a.ctex"
 
 [node name="Character" type="AspectRatioContainer"]
 offset_right = 72.0
@@ -14,24 +24,24 @@ script = ExtResource("1_tsrr6")
 
 [node name="BackHairTexture" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_7sjwh")
+texture = SubResource("CompressedTexture2D_sapyp")
 
 [node name="SkinTexture" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("3_vhl14")
+texture = SubResource("CompressedTexture2D_sysx3")
 
 [node name="FrontHairTexture" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_7sjwh")
+texture = SubResource("CompressedTexture2D_sapyp")
 
 [node name="EyesTexture" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("4_v1wk1")
+texture = SubResource("CompressedTexture2D_2ecpb")
 
 [node name="MouthTexture" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("5_cemcy")
+texture = SubResource("CompressedTexture2D_bpgc4")
 
 [node name="NoseTexture" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("6_x8lm6")
+texture = SubResource("CompressedTexture2D_7emgq")

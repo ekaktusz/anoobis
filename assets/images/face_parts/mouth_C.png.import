@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgoxstx0ncvu2"
-path="res://.godot/imported/hair_B_back.png-81cd7dd2a776fbdd58fd39e50715eca9.ctex"
+uid="uid://ct4mamlm7rkf2"
+path="res://.godot/imported/mouth_C.png-4bf66da4063d65180d8acd1b64bc429c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/face_parts/hair_B_back.png"
-dest_files=["res://.godot/imported/hair_B_back.png-81cd7dd2a776fbdd58fd39e50715eca9.ctex"]
+source_file="res://assets/images/face_parts/mouth_C.png"
+dest_files=["res://.godot/imported/mouth_C.png-4bf66da4063d65180d8acd1b64bc429c.ctex"]
 
 [params]
 

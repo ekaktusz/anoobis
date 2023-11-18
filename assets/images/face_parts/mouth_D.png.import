@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxu2vwf8gse55"
-path="res://.godot/imported/background.jpg-fecfc4c19b565abc1b6227560c1dede4.ctex"
+uid="uid://coovjhg40krfy"
+path="res://.godot/imported/mouth_D.png-21e7ad7de56fcaaf22e46b18eb6baedf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/background.jpg"
-dest_files=["res://.godot/imported/background.jpg-fecfc4c19b565abc1b6227560c1dede4.ctex"]
+source_file="res://assets/images/face_parts/mouth_D.png"
+dest_files=["res://.godot/imported/mouth_D.png-21e7ad7de56fcaaf22e46b18eb6baedf.ctex"]
 
 [params]
 

@@ -29,11 +29,14 @@ func _on_hell_button_pressed() -> void:
 	get_new_character()
 
 
+const CharaterData = preload("res://data_classes/character_data.gd")
+
 func get_new_character() -> void:
-	var character_scene : PackedScene = preload("res://portrait_view.tscn")
-	var character_node : Node = character_scene.instantiate()
 	var portrait_containter : Node = $MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene/MarginContainer
+	
+	var new_character : CharaterData = CharaterData.new()
+	new_character.initalize_random()
 
 #	TODO: Here we can send the portrait to the afterlife instead of deleting
 	portrait_containter.get_child(0).queue_free()
-	portrait_containter.add_child(character_node)
+	portrait_containter.add_child(new_character.portrait_view)

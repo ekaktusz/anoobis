@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://587jtnjhn0rb"
-path="res://.godot/imported/skin_C1.png-933774cc1c0052528f48c763013a9879.ctex"
+path="res://.godot/imported/skin_C1.png-4d5b4da15f54148dd1dbb9ff556555ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/face_parts/skin_C1.png"
-dest_files=["res://.godot/imported/skin_C1.png-933774cc1c0052528f48c763013a9879.ctex"]
+source_file="res://assets/images/face_parts/skin_C1.png"
+dest_files=["res://.godot/imported/skin_C1.png-4d5b4da15f54148dd1dbb9ff556555ae.ctex"]
 
 [params]
 
