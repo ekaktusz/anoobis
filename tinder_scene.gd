@@ -1,9 +1,11 @@
 extends Control
 
 var processed_dead_count : int = 0
+var selector_scene : PackedScene = preload("res://where_to_selector.tscn")
 
 @onready var dead_count_label : Node = \
 	$MarginContainer/HBoxContainer/MidVboxContainer/RequestGreatPersonButton
+@onready var root : Node = $MarginContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,11 +30,15 @@ func _on_button_pressed():
 func _on_heaven_button_pressed() -> void:
 	get_new_character()
 	increase_processed_dead_counter()
+	if processed_dead_count >= 10:
+		trigger_break_selector()
 
 
 func _on_hell_button_pressed() -> void:
 	get_new_character()
 	increase_processed_dead_counter()
+	if processed_dead_count >= 10:
+		trigger_break_selector()
 
 
 func get_new_character() -> void:
@@ -48,3 +54,8 @@ func get_new_character() -> void:
 func increase_processed_dead_counter():
 	processed_dead_count += 1
 	dead_count_label.text = str(processed_dead_count) + "/10"
+
+
+func trigger_break_selector() -> void:
+	var selector_node : Node = selector_scene.instantiate()
+	root.add_child(selector_node)

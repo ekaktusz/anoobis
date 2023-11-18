@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvxiufsh31gp1"]
+
+[ext_resource type="Script" path="res://where_to_selector.gd" id="1_53lby"]
+
+[node name="WhereToSelector" type="Window"]
+title = "Select where to go on your break"
+initial_position = 1
+size = Vector2i(200, 200)
+script = ExtResource("1_53lby")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ToHellButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Go to Hell
+"
+
+[node name="ToHeavenButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Go to Heaven"
+
+[connection signal="pressed" from="HBoxContainer/ToHellButton" to="." method="_on_to_hell_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ToHeavenButton" to="." method="_on_to_heaven_button_pressed"]
