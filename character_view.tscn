@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgqmpin8edd76"]
+[gd_scene load_steps=5 format=3 uid="uid://c0oykyjsf86lh"]
 
-[ext_resource type="PackedScene" uid="uid://3r4kssy62sku" path="res://portrait_view.tscn" id="1_aeitp"]
+[ext_resource type="PackedScene" uid="uid://crdjlfgux2jt3" path="res://portrait_view.tscn" id="1_aeitp"]
 [ext_resource type="Script" path="res://character_view.gd" id="1_wsq35"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id1j8"]

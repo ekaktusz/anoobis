@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Label.gd" id="1_2au8i"]
 [ext_resource type="Script" path="res://scale.gd" id="1_ognxn"]
 [ext_resource type="Script" path="res://ScalePicture.gd" id="3_emhsc"]
-[ext_resource type="Texture2D" path="res://images/scale.png" id="3_kty0e"]
+[ext_resource type="Texture2D" uid="uid://dv0if8nq54b84" path="res://assets/images/scale.png" id="3_kty0e"]
 
 [node name="Scale" type="Control"]
 layout_mode = 3
