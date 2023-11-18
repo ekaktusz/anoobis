@@ -12,3 +12,5 @@ func change_character(new_character: CharacterData):
 	portrait_containter.get_child(0).queue_free()
 	portrait_containter.add_child(new_character.portrait_view)
 
+func _on_tinder_scene_character_changed(new_character):
+	change_character(new_character)

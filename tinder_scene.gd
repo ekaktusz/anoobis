@@ -1,7 +1,8 @@
 extends Control
 
-const CharaterData = preload("res://data_classes/character_data.gd")
+signal character_changed(new_character : CharaterData)
 
+const CharaterData = preload("res://data_classes/character_data.gd")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,5 +35,4 @@ func _on_hell_button_pressed() -> void:
 func get_new_character() -> void:
 	var new_character : CharaterData = CharaterData.new()
 	new_character.initalize_random()
-	
-	$MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene.change_character(new_character)
+	character_changed.emit(new_character)
