@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgqmpin8edd76"]
+
+[ext_resource type="PackedScene" uid="uid://3r4kssy62sku" path="res://portrait_view.tscn" id="1_aeitp"]
+[ext_resource type="Script" path="res://character_view.gd" id="1_wsq35"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id1j8"]
+bg_color = Color(0.772549, 0.898039, 0.976471, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f50d6"]
+bg_color = Color(0.996078, 0.952941, 0.823529, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0.780392, 0.690196, 1)
+
+[node name="CharacterViewScene" type="MarginContainer"]
+custom_minimum_size = Vector2(500, 500)
+size_flags_vertical = 3
+script = ExtResource("1_wsq35")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_id1j8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="PortraitContainer" parent="MarginContainer" instance=ExtResource("1_aeitp")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Name Container" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Name Container"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f50d6")
+
+[node name="Label" type="Label" parent="VBoxContainer/Name Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Ashur, the Unworthy"
+horizontal_alignment = 1
+
+[node name="TitleContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Panel" type="Panel" parent="VBoxContainer/TitleContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f50d6")
+
+[node name="Label" type="Label" parent="VBoxContainer/TitleContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "SECRET REVEAL"
+horizontal_alignment = 1

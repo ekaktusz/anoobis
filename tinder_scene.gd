@@ -1,9 +1,12 @@
 extends Control
 
+signal character_changed(new_character : CharaterData)
+
+const CharaterData = preload("res://data_classes/character_data.gd")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	get_new_character()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,10 +32,9 @@ func _on_hell_button_pressed() -> void:
 
 
 func get_new_character() -> void:
-	var character_scene : PackedScene = preload("res://character.tscn")
-	var character_node : Node = character_scene.instantiate()
-	var portrait_containter : Node = $MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene/MarginContainer
-
-#	TODO: Here we can send the portrait to the afterlife instead of deleting
-	portrait_containter.get_child(0).queue_free()
-	portrait_containter.add_child(character_node)
+	#var new_character : CharaterData = CharaterData.new()
+	var new_character : CharaterData = CharacterDatabase.get_random_character()
+	if new_character == null:
+		print("FING")
+	#new_character.initalize_random()
+	character_changed.emit(new_character)

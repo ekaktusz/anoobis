@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://baq7djetaw4j7"]
+
+[ext_resource type="Script" path="res://property_view.gd" id="1_8utd3"]
+[ext_resource type="Texture2D" uid="uid://b5fimrxpkskcf" path="res://assets/images/bullet_point.png" id="1_pdery"]
+
+[node name="PropertyView" type="HBoxContainer"]
+script = ExtResource("1_8utd3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("1_pdery")
+expand_mode = 4
+
+[node name="PropertyDescription" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "had slaces"
