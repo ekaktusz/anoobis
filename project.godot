@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Anoobis"
-run/main_scene="res://main_scenes/menu_scene.tscn"
+run/main_scene="res://menu_scene.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.png"
 
 [autoload]
 
-SceneTransition="*res://helper_scenes/scene_transition.tscn"
+SceneTransition="*res://scene_transition.tscn"
 
 [display]
 

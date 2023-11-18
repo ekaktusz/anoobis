@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvsj2bfcvspby"]
 
-[ext_resource type="Script" path="res://main_scenes/menu_scene.gd" id="1_4mcla"]
-[ext_resource type="Texture2D" uid="uid://cxu2vwf8gse55" path="res://images/background.jpg" id="2_qyb42"]
+[ext_resource type="Texture2D" uid="uid://cxu2vwf8gse55" path="res://images/background.jpg" id="1_cj50i"]
+[ext_resource type="Script" path="res://menu_scene.gd" id="1_ip1xw"]
 
 [node name="menu_scene" type="MarginContainer"]
 anchors_preset = 15
@@ -9,11 +9,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4mcla")
+script = ExtResource("1_ip1xw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_qyb42")
+texture = ExtResource("1_cj50i")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2

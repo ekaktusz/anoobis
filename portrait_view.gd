@@ -1,4 +1,4 @@
-class_name PortraitView extends AspectRatioContainer
+extends AspectRatioContainer
 
 static var FACE_PARTS_PATH : String = "res://images/face_parts/"
 
@@ -86,6 +86,7 @@ func _set_next_mouth() -> void:
 func _set_next_skin() -> void:
 	current_skin_id = (current_skin_id + 1)%skins.size()
 	$SkinTexture.texture = skins[current_skin_id]
+
 
 func _set_random_parts() -> void:
 	var rand_hair : int = randi()%hairs.size()
