@@ -33,6 +33,7 @@ func _on_hell_button_pressed() -> void:
 
 
 func get_new_character() -> void:
-	var new_character : CharaterData = CharaterData.new()
-	new_character.initalize_random()
+	#var new_character : CharaterData = CharaterData.new()
+	var new_character : CharaterData = CharacterDatabase.get_random_character()
+	#new_character.initalize_random()
 	character_changed.emit(new_character)

@@ -18,6 +18,7 @@ config/icon="res://assets/icon.png"
 [autoload]
 
 SceneTransition="*res://scene_transition.tscn"
+CharacterDatabase="*res://character_database.gd"
 
 [display]
 
