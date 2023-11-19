@@ -1,6 +1,6 @@
 extends MarginContainer
 
-const CharacterData = preload("res://data_classes/character_data.gd")
+const CharacterData = preload("res://character_data.gd")
 
 var current_character: CharacterData
 
