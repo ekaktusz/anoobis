@@ -9,13 +9,14 @@ var characters: Array[CharacterData] = [
 			PropertyData.new(randi_range(0,20), "loves his mother", true),
 			PropertyData.new(randi_range(0,20), "loves his mother", false),
 			PropertyData.new(randi_range(0,20), "loves his mother", true)
-		], 
+		],
 		[ # negative traits
 			PropertyData.new(randi_range(-20,0), "hates his mother", true),
 			PropertyData.new(randi_range(-20,0), "hates his mother", false),
 			PropertyData.new(randi_range(-20,0), "hates his mother", true)
-		], 
-		PortraitView.instantiate() # will be random
+		],
+#		PortraitView.instantiate() # will be random
+		null
 	),
 	CharacterData.new(
 		"Jozsef", # name
@@ -23,13 +24,14 @@ var characters: Array[CharacterData] = [
 			PropertyData.new(randi_range(0,20), "loves his mother", true),
 			PropertyData.new(randi_range(0,20), "loves his mother", false),
 			PropertyData.new(randi_range(0,20), "loves his mother", true)
-		], 
+		],
 		[ # negative traits
 			PropertyData.new(randi_range(-20,0), "hates his mother", true),
 			PropertyData.new(randi_range(-20,0), "hates his mother", false),
 			PropertyData.new(randi_range(-20,0), "hates his mother", true)
-		], 
-		PortraitView.instantiate() # will be random
+		],
+#		PortraitView.instantiate() # will be random
+		null
 	),
 	CharacterData.new(
 		"Sanya", # name
@@ -37,13 +39,14 @@ var characters: Array[CharacterData] = [
 			PropertyData.new(randi_range(0,20), "loves his mother", true),
 			PropertyData.new(randi_range(0,20), "loves his mother", false),
 			PropertyData.new(randi_range(0,20), "loves his mother", true)
-		], 
+		],
 		[ # negative traits
 			PropertyData.new(randi_range(-20,0), "hates his mother", true),
 			PropertyData.new(randi_range(-20,0), "hates his mother", false),
 			PropertyData.new(randi_range(-20,0), "hates his mother", true)
-		], 
-		PortraitView.instantiate() # will be random
+		],
+#		PortraitView.instantiate() # will be random
+		null
 	)
 ]
 
@@ -52,5 +55,8 @@ func get_random_character() -> CharacterData:
 	var rand_index: int = randi() % self.characters.size()
 	if rand_index == self.characters.size():
 		return null
-	
-	return self.characters[rand_index]
+
+	var random_character = self.characters[rand_index]
+	random_character.portrait_view = PortraitView.instantiate()
+
+	return random_character
