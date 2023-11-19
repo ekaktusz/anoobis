@@ -1,6 +1,6 @@
 extends Control
 
-var processed_dead_count : int = 0
+var processed_dead_count : int
 var selector_scene : PackedScene = preload("res://where_to_selector.tscn")
 
 @onready var dead_count_label : Node = \
@@ -14,6 +14,8 @@ var current_character: CharacterData
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	processed_dead_count = 0
+	dead_count_label.text = "0/10"
 	get_new_character()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,14 +35,15 @@ func _on_button_pressed():
 
 func _on_heaven_button_pressed() -> void:
 	character_sent_to_heaven.emit(self.current_character)
-	get_new_character()
-	increase_processed_dead_counter()
-	if processed_dead_count >= 10:
-		trigger_break_selector()
+	swipe_character()
 
 
 func _on_hell_button_pressed() -> void:
 	character_sent_to_hell.emit(self.current_character)
+	swipe_character()
+
+
+func swipe_character() -> void:
 	get_new_character()
 	increase_processed_dead_counter()
 	if processed_dead_count >= 10:
