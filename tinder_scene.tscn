@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bxagx5lrf143d"]
 
 [ext_resource type="Script" path="res://tinder_scene.gd" id="1_w104e"]
-[ext_resource type="PackedScene" path="res://character.tscn" id="2_2tnho"]
+[ext_resource type="PackedScene" uid="uid://bjq5xbjijdywn" path="res://character.tscn" id="2_2tnho"]
 [ext_resource type="PackedScene" uid="uid://b5lkspwgwwpc4" path="res://scale.tscn" id="4_68rii"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sio5"]
