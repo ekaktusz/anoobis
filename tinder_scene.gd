@@ -32,7 +32,7 @@ var current_character: CharacterData
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	processed_dead_count = 0
-	dead_count_label.text = "0/10"
+	dead_count_label.text = "10/0"
 	rank_display_label.text = RANK_NAMES[rank]
 	get_new_character()
 
@@ -62,11 +62,13 @@ func _on_hell_button_pressed() -> void:
 
 
 func swipe_character() -> void:
-	get_new_character()
 	increase_processed_dead_counter()
 	if processed_dead_count >= 10:
 		trigger_break_selector()
 		rank_up()
+	else:
+		get_new_character()
+
 
 
 func get_new_character() -> void:
@@ -76,7 +78,7 @@ func get_new_character() -> void:
 
 func increase_processed_dead_counter():
 	processed_dead_count += 1
-	dead_count_label.text = str(processed_dead_count) + "/10"
+	dead_count_label.text = "10/" + str(processed_dead_count)
 
 
 func trigger_break_selector() -> void:
