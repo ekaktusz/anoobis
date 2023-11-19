@@ -1,14 +1,31 @@
 extends Control
 
 var processed_dead_count : int
+static var rank : int
 var selector_scene : PackedScene = preload("res://where_to_selector.tscn")
 
 @onready var dead_count_label : Node = \
 	$MarginContainer/HBoxContainer/MidVboxContainer/RequestGreatPersonButton
 @onready var root : Node = $MarginContainer
+@onready var rank_display_label : Node = \
+	$MarginContainer/HBoxContainer/MidVboxContainer/QuestLog2/MarginContainer/QuestLogVboxContainer/Title
+
 signal character_changed(new_character: CharacterData)
 signal character_sent_to_hell(character: CharacterData)
 signal character_sent_to_heaven(character: CharacterData)
+
+const RANK_NAMES : Array = ["intern trainee",
+					"junior intern",
+					"medior intern",
+					"senior intern",
+					"senior intern specialist",
+					"senior intern manager",
+					"intern director",
+					"chief operating intern",
+					"chief executive intern",
+					"junior god of the dead)",
+					]
+
 
 var current_character: CharacterData
 
@@ -16,6 +33,7 @@ var current_character: CharacterData
 func _ready():
 	processed_dead_count = 0
 	dead_count_label.text = "0/10"
+	rank_display_label.text = RANK_NAMES[rank]
 	get_new_character()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,6 +66,7 @@ func swipe_character() -> void:
 	increase_processed_dead_counter()
 	if processed_dead_count >= 10:
 		trigger_break_selector()
+		rank_up()
 
 
 func get_new_character() -> void:
@@ -63,3 +82,8 @@ func increase_processed_dead_counter():
 func trigger_break_selector() -> void:
 	var selector_node : Node = selector_scene.instantiate()
 	root.add_child(selector_node)
+
+
+func rank_up() -> void:
+	rank += 1
+	rank_display_label.text = RANK_NAMES[rank]
