@@ -37,4 +37,5 @@ func _on_hell_button_pressed() -> void:
 
 func get_new_character() -> void:
 	self.current_character = CharacterDatabase.get_random_character()
+	$NameLabel.text = self.current_character.character_name
 	character_changed.emit(self.current_character)

@@ -11,7 +11,6 @@ corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
 [node name="PropertiesView" type="MarginContainer"]
-custom_minimum_size = Vector2(0, 500)
 size_flags_vertical = 3
 script = ExtResource("1_7cokg")
 

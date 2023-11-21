@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl3amwv7723w0"
-path="res://.godot/imported/menu_background.png-f64e89e1fa6fbecea6149f323dd67638.ctex"
+uid="uid://c31u1q2p640qv"
+path="res://.godot/imported/tinder_scene_bg.jpg-f5abf3fb627d24a37dc0275089e9af29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/menu_background.png"
-dest_files=["res://.godot/imported/menu_background.png-f64e89e1fa6fbecea6149f323dd67638.ctex"]
+source_file="res://assets/images/tinder_scene_bg.jpg"
+dest_files=["res://.godot/imported/tinder_scene_bg.jpg-f5abf3fb627d24a37dc0275089e9af29.ctex"]
 
 [params]
 
