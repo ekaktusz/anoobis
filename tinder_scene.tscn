@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://gh4wifppmunc"]
+[gd_scene load_steps=15 format=3 uid="uid://gh4wifppmunc"]
 
 [ext_resource type="Script" path="res://tinder_scene.gd" id="1_w104e"]
 [ext_resource type="PackedScene" uid="uid://70k7ofhbtbhy" path="res://properties_view.tscn" id="2_1d4s5"]
@@ -7,6 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://b5lkspwgwwpc4" path="res://scale.tscn" id="4_68rii"]
 [ext_resource type="Theme" uid="uid://dl3j051kdxri3" path="res://game_theme.tres" id="4_btjjv"]
 [ext_resource type="FontFile" uid="uid://be8jb3h077tii" path="res://assets/fonts/Roman SD.ttf" id="5_flaah"]
+[ext_resource type="StyleBox" uid="uid://rh6q75qmagpe" path="res://hell_quest_btn_style.tres" id="8_bnp4i"]
+[ext_resource type="Texture2D" uid="uid://cno861nk463jf" path="res://assets/images/soul.png" id="8_r11d4"]
+[ext_resource type="StyleBox" uid="uid://cs5sc5k8laa54" path="res://hell_quest_btn_style_hover.tres" id="9_syh15"]
+[ext_resource type="StyleBox" uid="uid://wpo57pxm4o0i" path="res://heaven_quest_btn_style.tres" id="10_7sghi"]
+[ext_resource type="StyleBox" uid="uid://cpbd6ff7nqoax" path="res://heaven_quest_btn_style_hover.tres" id="11_hmsvt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sio5"]
 bg_color = Color(0.996078, 0.952941, 0.823529, 1)
@@ -49,19 +54,19 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_4sio5")
 
 [node name="ConsPropertiesView" parent="." instance=ExtResource("2_1d4s5")]
 layout_mode = 1
-offset_left = 324.0
-offset_top = 438.0
-offset_right = 618.0
-offset_bottom = 938.0
+offset_left = 299.0
+offset_top = 444.0
+offset_right = 613.0
+offset_bottom = 944.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="ProsPropertiesView" parent="." instance=ExtResource("2_1d4s5")]
 layout_mode = 0
-offset_left = 1268.0
-offset_top = 442.0
-offset_right = 1562.0
-offset_bottom = 942.0
+offset_left = 1247.0
+offset_top = 441.0
+offset_right = 1561.0
+offset_bottom = 941.0
 mode = 1
 
 [node name="NameLabel" type="Label" parent="."]
@@ -77,6 +82,39 @@ theme_override_fonts/font = ExtResource("5_flaah")
 theme_override_font_sizes/font_size = 35
 text = "Ashur, the Unworthy"
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 715.0
+offset_top = 18.0
+offset_right = 1222.0
+offset_bottom = 138.0
+theme = ExtResource("4_btjjv")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("5_flaah")
+theme_override_font_sizes/font_size = 60
+text = "INTERN LVL 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TurnNumberLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 882.0
+offset_top = 143.0
+offset_right = 992.0
+offset_bottom = 198.0
+theme = ExtResource("4_btjjv")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("5_flaah")
+theme_override_font_sizes/font_size = 35
+text = "10/2"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="CharacterViewScene" parent="." instance=ExtResource("2_6dr6a")]
@@ -99,7 +137,7 @@ offset_top = 964.0
 offset_right = 957.0
 offset_bottom = 964.0
 
-[node name="HellButton" type="Button" parent="."]
+[node name="ToHellButton" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0.34902)
 layout_mode = 0
 offset_left = 359.0
@@ -107,9 +145,11 @@ offset_top = 836.0
 offset_right = 416.0
 offset_bottom = 867.0
 scale = Vector2(4.04403, 7.4395)
+focus_mode = 0
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_xp0qr")
 
-[node name="HeavenButton" type="Button" parent="."]
+[node name="ToHeavenButton" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0.34902)
 layout_mode = 0
 offset_left = 1336.0
@@ -117,12 +157,49 @@ offset_top = 836.0
 offset_right = 1393.0
 offset_bottom = 867.0
 scale = Vector2(4.04403, 7.4395)
+focus_mode = 0
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_xp0qr")
+
+[node name="HellQuestButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 42.0
+offset_right = 653.0
+offset_bottom = 173.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("5_flaah")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("8_bnp4i")
+theme_override_styles/hover = ExtResource("9_syh15")
+text = "HELL QUEST"
+
+[node name="HeavenQuest" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1291.0
+offset_top = 42.0
+offset_right = 1634.0
+offset_bottom = 173.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("5_flaah")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("10_7sghi")
+theme_override_styles/hover = ExtResource("11_hmsvt")
+text = "HEAVEN QUEST"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1025, 170)
+scale = Vector2(0.144118, 0.144118)
+texture = ExtResource("8_r11d4")
 
 [connection signal="character_changed" from="." to="ConsPropertiesView" method="_on_tinder_scene_character_changed"]
 [connection signal="character_changed" from="." to="ProsPropertiesView" method="_on_tinder_scene_character_changed"]
 [connection signal="character_changed" from="." to="CharacterViewScene" method="_on_tinder_scene_character_changed"]
 [connection signal="character_sent_to_heaven" from="." to="Scale" method="_on_tinder_scene_character_sent_to_heaven"]
 [connection signal="character_sent_to_hell" from="." to="Scale" method="_on_tinder_scene_character_sent_to_hell"]
-[connection signal="pressed" from="HellButton" to="." method="_on_hell_button_pressed"]
-[connection signal="pressed" from="HeavenButton" to="." method="_on_heaven_button_pressed"]
+[connection signal="pressed" from="ToHellButton" to="." method="_on_hell_button_pressed"]
+[connection signal="pressed" from="ToHeavenButton" to="." method="_on_heaven_button_pressed"]
+[connection signal="pressed" from="HellQuestButton" to="." method="_on_hell_quest_button_pressed"]
+[connection signal="pressed" from="HeavenQuest" to="." method="_on_heaven_quest_pressed"]

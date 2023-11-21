@@ -39,3 +39,13 @@ func get_new_character() -> void:
 	self.current_character = CharacterDatabase.get_random_character()
 	$NameLabel.text = self.current_character.character_name
 	character_changed.emit(self.current_character)
+
+
+func _on_hell_quest_button_pressed():
+	SceneTransition.change_scene_to_file("res://hell_scene.tscn")
+	pass # Replace with function body.
+
+
+func _on_heaven_quest_pressed():
+	SceneTransition.change_scene_to_file("res://heaven_scene.tscn")
+	pass # Replace with function body.

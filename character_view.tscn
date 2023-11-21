@@ -1,24 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0oykyjsf86lh"]
+[gd_scene load_steps=3 format=3 uid="uid://c0oykyjsf86lh"]
 
 [ext_resource type="PackedScene" uid="uid://crdjlfgux2jt3" path="res://portrait_view.tscn" id="1_aeitp"]
 [ext_resource type="Script" path="res://character_view.gd" id="1_wsq35"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id1j8"]
-bg_color = Color(0.772549, 0.898039, 0.976471, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0, 0, 0, 1)
-
 [node name="CharacterViewScene" type="MarginContainer"]
 custom_minimum_size = Vector2(500, 500)
 script = ExtResource("1_wsq35")
-
-[node name="Panel" type="Panel" parent="."]
-visible = false
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_id1j8")
 
 [node name="PortraitContainer" parent="." instance=ExtResource("1_aeitp")]
 layout_mode = 2
