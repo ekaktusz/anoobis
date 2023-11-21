@@ -47,10 +47,14 @@ var characters: Array[CharacterData] = [
 	)
 ]
 
+var in_heaven_characters: Array[CharacterData]
+var in_hell_characters: Array[CharacterData]
+
 # currently no remove from database
 func get_random_character() -> CharacterData:
-	var rand_index: int = randi() % self.characters.size()
-	if rand_index == self.characters.size():
+	if self.characters.size() == 0:
 		return null
+		
+	var rand_index: int = randi() % self.characters.size()
 	
 	return self.characters[rand_index]

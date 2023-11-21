@@ -34,6 +34,13 @@ func get_public_properties() -> Array[PropertyData]:
 			public_properties.append(property)
 	return public_properties
 	
+func reveal_a_secret() -> void:
+	for property in self.properties:
+		if property.is_secret:
+			property.is_secret = false
+			_update_gui()
+			return
+	
 func _update_gui():
 	var property_container = $MarginContainer/VBoxContainer/VBoxContainer
 	
