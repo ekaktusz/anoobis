@@ -185,6 +185,8 @@ var characters: Array[CharacterData] = [
 		"Sanya", # name
 		[ # positive traits
 			positive_properties_normal[randi_range(0,positive_properties_normal.size()-1)],
+			positive_properties_normal[randi_range(0,positive_properties_normal.size()-1)],
+			positive_properties_normal[randi_range(0,positive_properties_normal.size()-1)],
 		], 
 		[ # negative traits
 			negative_properties_normal[randi_range(0,negative_properties_normal.size()-1)],
