@@ -11,7 +11,7 @@ var tmp_char_counter = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	current_level_10_characters = CharacterDatabase.get_characters(10)
-	current_character = current_level_10_characters[0]
+	get_new_character()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -40,9 +40,9 @@ func _on_hell_button_pressed() -> void:
 
 func get_new_character() -> void:
 	#TODO connect this with current 1/10 character counter
-	if (tmp_char_counter == 9):
+	if (tmp_char_counter == 10):
 		print('NEXT LEVEL')
 		tmp_char_counter = 0
-	self.current_character = current_level_10_characters[tmp_char_counter + 1]
+	self.current_character = current_level_10_characters[tmp_char_counter]
 	tmp_char_counter+=1
 	character_changed.emit(self.current_character)
