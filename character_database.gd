@@ -15,7 +15,6 @@ var characters: Array[CharacterData] = [
 			PropertyData.new(randi_range(-20,0), "hates his mother", false),
 			PropertyData.new(randi_range(-20,0), "hates his mother", true)
 		],
-#		PortraitView.instantiate() # will be random
 		null
 	),
 	CharacterData.new(
@@ -30,7 +29,6 @@ var characters: Array[CharacterData] = [
 			PropertyData.new(randi_range(-20,0), "hates his mother", false),
 			PropertyData.new(randi_range(-20,0), "hates his mother", true)
 		],
-#		PortraitView.instantiate() # will be random
 		null
 	),
 	CharacterData.new(
@@ -45,7 +43,6 @@ var characters: Array[CharacterData] = [
 			PropertyData.new(randi_range(-20,0), "hates his mother", false),
 			PropertyData.new(randi_range(-20,0), "hates his mother", true)
 		],
-#		PortraitView.instantiate() # will be random
 		null
 	)
 ]
