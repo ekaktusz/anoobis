@@ -151,57 +151,50 @@ var positive_properties_secret: Array[PropertyData] = [
 	PropertyData.new(6, "Wrote the original script of the Lion King", true),
 	PropertyData.new(9, "They were Batman", true),
 ]
+var firstnames = ["Ashur", "Tarmek", "Shumak", "Abasi", "Abubakar", "Akiiki", "Amenhotep", "Ba", "Baahir", "Baal",
+				  "Bab", "Babita", "Badi", "Bebti", "Bomani", "Bastet", "Chatuluka", "Chigaru", "Chione", "Dalila",
+				  "Dakarai", "Dendera", "Donkor", "Ebo", "Echidna", "Edjo", "Fenuku", "Femi", "Eshe", "Hanbal",
+				  "Hapi", "Hapu", "Hathor", "Hatshepsut", "Hu", "Issa", "Jafari", "Jamila", "Kamilah", "Kakra",
+				  "Kafele", "Kamuzu", "Kanika", "Kek", "Kissa", "Lapis", "Lateef", "Layla", "Lotus", "Luzige",
+				  "Lisimba", "Maat", "Madu", "Maibe", "Mafuane", "Menkaura", "Moshe", "Msamaki", "Mukamutara",
+				  "Naeem", "Nassor", "Nathifa", "Neema", "Niu", "Niut", "Nkuku", "Nun", "Nuru", "Oba", "Olabisi",
+				  "Omorose", "Onuris", "Osahar", "Paki", "Ptolemy", "Pili", "Radames", "Rashida", "Runihura", "Sabah",
+				  "Sabola", "Sagira", "Sanura", "Sebak", "Sefu", "Selma", "Sekhet", "Shukura", "Siti", "Sutekh",
+				  "Tabia", "Tahirah", "Tau", "Tarik", "Thabit", "Thutmose", "Uadjit", "Ufa", "Ur", "Urbi", "Usi",
+				  "Ur Atum", "Wamukota", "Walidah", "Yafeu", "Zahra", "Zahur", "Zalika", "Zaid"
+				]
 
-var characters: Array[CharacterData] = [
-	CharacterData.new(
-		"Tibi", # name
-		[ # positive traits
-			positive_properties_normal[randi_range(0,positive_properties_normal.size()-1)],
-			positive_properties_normal[randi_range(0,positive_properties_normal.size()-1)],
-			positive_properties_normal[randi_range(0,positive_properties_normal.size()-1)]
-		], 
-		[ # negative traits
-			negative_properties_normal[randi_range(0,negative_properties_normal.size()-1)],
-			negative_properties_normal[randi_range(0,negative_properties_normal.size()-1)],
-			negative_properties_normal[randi_range(0,negative_properties_normal.size()-1)]
-		], 
-		PortraitView.instantiate() # will be random
-	),
-	CharacterData.new(
-		"Jozsef", # name
-		[ # positive traits
-			positive_properties_normal[randi_range(0,positive_properties_normal.size()-1)],
-			positive_properties_normal[randi_range(0,positive_properties_normal.size()-1)],
-			positive_properties_normal[randi_range(0,positive_properties_normal.size()-1)]
-		], 
-		[ # negative traits
-			negative_properties_normal[randi_range(0,negative_properties_normal.size()-1)],
-			negative_properties_normal[randi_range(0,negative_properties_normal.size()-1)],
-			negative_properties_normal[randi_range(0,negative_properties_normal.size()-1)]
-		], 
-		PortraitView.instantiate() # will be random
-	),
-	CharacterData.new(
-		"Sanya", # name
-		[ # positive traits
-			positive_properties_normal[randi_range(0,positive_properties_normal.size()-1)],
-			positive_properties_normal[randi_range(0,positive_properties_normal.size()-1)],
-			positive_properties_normal[randi_range(0,positive_properties_normal.size()-1)],
-		], 
-		[ # negative traits
-			negative_properties_normal[randi_range(0,negative_properties_normal.size()-1)],
-			negative_properties_normal[randi_range(0,negative_properties_normal.size()-1)],
-			negative_properties_normal[randi_range(0,negative_properties_normal.size()-1)]
-		], 
-		PortraitView.instantiate() # will be random
-	)
-]
+var lastnames = ["the Unworthy", "the Worst", "the Meh", "the Neutral", "the Underachiever", "the Robust",
+					  "the Coward", "the Keg", "the Vulture", "the Radiant", "the Ambitious", "the Valiant",
+					  "the Bright", "the Dull", "the Bland", "the Forgotten", "the Hardcore", "the Rigid",
+					  "the Fierce", "the Tenacious", "the Amiable", "the Fearless", "the Real", "the Vivacious",
+					  "the Flexible", "the Shrewd", "the Cunning", "the Brave", "the Two-Faced", "the Relentless",
+					  "the Reckless", "the Lone Wolf", "the Great", "the Awesome", "the Tall", "the Fearsome",
+					  "the Shy", "the Handsome", "the Short", "the Unlikely", "the Wholesome", "the Destined One",
+					  "the Unfortunate", "the Lucky", "the Amateur", "the Inappropriate", "the Cringe", "the Awkward",
+					  "the Morbid"
+					]
 
-# currently no remove from database
-func get_random_character() -> CharacterData:
-	var rand_index: int = randi() % self.characters.size()
-	if rand_index == self.characters.size():
-		return null
+var characters: Array[CharacterData] = get_characters(10)
+
+func get_characters(number_of_characters: int):
+	var characters :Array[CharacterData] = []
+	while characters.size() < number_of_characters:
+		characters.append((CharacterData.new(
+		get_random_fullname(),
+		get_random_properties(positive_properties_normal,3),
+		get_random_properties(negative_properties_normal,2), 
+		PortraitView.instantiate()
+		)))
+	return characters
 	
-	return self.characters[rand_index]
+func get_random_properties(properties_array: Array[PropertyData], number_of_properties)-> Array[PropertyData]:
+	var result_array : Array[PropertyData] = []
+	while result_array.size() < number_of_properties:
+		var random_element = properties_array.pick_random();
+		if (result_array.find(random_element) == -1):
+			result_array.append(random_element)
+	return result_array
 	
+func get_random_fullname() -> String:
+	return firstnames.pick_random() + lastnames.pick_random()

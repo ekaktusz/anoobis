@@ -4,11 +4,14 @@ signal character_changed(new_character: CharacterData)
 signal character_sent_to_hell(character: CharacterData)
 signal character_sent_to_heaven(character: CharacterData)
 
+var current_level_10_characters:Array[CharacterData] = []
 var current_character: CharacterData
+var tmp_char_counter = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_new_character()
+	current_level_10_characters = CharacterDatabase.get_characters(10)
+	current_character = current_level_10_characters[0]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -36,5 +39,10 @@ func _on_hell_button_pressed() -> void:
 
 
 func get_new_character() -> void:
-	self.current_character = CharacterDatabase.get_random_character()
+	#TODO connect this with current 1/10 character counter
+	if (tmp_char_counter == 9):
+		print('NEXT LEVEL')
+		tmp_char_counter = 0
+	self.current_character = current_level_10_characters[tmp_char_counter + 1]
+	tmp_char_counter+=1
 	character_changed.emit(self.current_character)
