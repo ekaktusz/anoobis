@@ -183,7 +183,7 @@ func get_characters(number_of_characters: int):
 		characters.append((CharacterData.new(
 		get_random_fullname(),
 		get_random_properties(positive_properties_normal,3),
-		get_random_properties(negative_properties_normal,2), 
+		get_random_properties(negative_properties_normal,3), 
 		PortraitView.instantiate()
 		)))
 	return characters
