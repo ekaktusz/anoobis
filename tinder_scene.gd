@@ -4,6 +4,8 @@ signal character_changed(new_character: CharacterData)
 signal character_sent_to_hell(character: CharacterData)
 signal character_sent_to_heaven(character: CharacterData)
 
+const PortraitView = preload("res://portrait_view.tscn")
+
 var current_level_10_characters:Array[CharacterData] = []
 var current_character: CharacterData
 var tmp_char_counter = 0
@@ -45,4 +47,5 @@ func get_new_character() -> void:
 		tmp_char_counter = 0
 	self.current_character = current_level_10_characters[tmp_char_counter]
 	tmp_char_counter+=1
+	self.current_character.portrait_view = PortraitView.instantiate()
 	character_changed.emit(self.current_character)

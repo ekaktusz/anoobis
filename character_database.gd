@@ -1,7 +1,5 @@
 extends Node
 
-const PortraitView = preload("res://portrait_view.tscn")
-
 var negative_properties_normal: Array[PropertyData] = [
 	PropertyData.new(-1, "Used cheat codes in video games", false),
 	PropertyData.new(-1, "Did not wash their teeth after a fish-dinner", false),
@@ -184,7 +182,7 @@ func get_characters(number_of_characters: int):
 		get_random_fullname(),
 		get_random_properties(positive_properties_normal,3),
 		get_random_properties(negative_properties_normal,3), 
-		PortraitView.instantiate()
+		null
 		)))
 	return characters
 	
