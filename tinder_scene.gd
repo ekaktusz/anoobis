@@ -64,7 +64,7 @@ func get_new_character() -> void:
 
 func reset_dead_count() -> void:
 	processed_dead_count = 0
-	dead_count_label.text = "10/0"
+	dead_count_label.text = "0/10"
 
 
 func increase_processed_dead_counter():
