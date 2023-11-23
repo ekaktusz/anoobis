@@ -147,7 +147,7 @@ var positive_properties_secret: Array[PropertyData] = [
 	PropertyData.new(2, "Never bragged about his great-uncle who invented the wheel", true),
 	PropertyData.new(4, "Had a tattoo on their waist saying 'Anubis rulez'", true),
 	PropertyData.new(6, "Wrote the original script of the Lion King", true),
-	PropertyData.new(9, "They were Batman", true),
+	PropertyData.new(9, "They were Batman", true)
 ]
 var firstnames = ["Ashur", "Tarmek", "Shumak", "Abasi", "Abubakar", "Akiiki", "Amenhotep", "Ba", "Baahir", "Baal",
 				  "Bab", "Babita", "Badi", "Bebti", "Bomani", "Bastet", "Chatuluka", "Chigaru", "Chione", "Dalila",
@@ -196,3 +196,11 @@ func get_random_properties(properties_array: Array[PropertyData], number_of_prop
 	
 func get_random_fullname() -> String:
 	return firstnames.pick_random() + lastnames.pick_random()
+	
+func get_random_character() -> CharacterData:
+	var rand_index: int = randi() % self.characters.size()
+	if rand_index == self.characters.size():
+		return null
+
+	var random_character = self.characters[rand_index]
+	return random_character
