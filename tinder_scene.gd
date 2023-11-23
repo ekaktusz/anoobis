@@ -28,22 +28,22 @@ func _on_button_pressed():
 func _on_heaven_button_pressed() -> void:
 	character_sent_to_heaven.emit(self.current_character)
 	CharacterDatabase.in_heaven_characters.append(self.current_character)
-	CharacterDatabase.characters.erase(self.current_character)
+	#CharacterDatabase.characters.erase(self.current_character)
 	get_new_character()
 
 
 func _on_hell_button_pressed() -> void:
 	character_sent_to_hell.emit(self.current_character)
 	CharacterDatabase.in_hell_characters.append(self.current_character)
-	CharacterDatabase.characters.erase(self.current_character)
+	#CharacterDatabase.characters.erase(self.current_character)
 	get_new_character()
 
 
 func get_new_character() -> void:
-	self.current_character = CharacterDatabase.get_random_character()
+	self.current_character = CharacterDatabase.get_random_character()	
 	
 	if self.current_character == null:
-		
+		return
 	
 	$NameLabel.text = self.current_character.character_name
 	character_changed.emit(self.current_character)

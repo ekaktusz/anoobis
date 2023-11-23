@@ -211,8 +211,6 @@ text = "REVEAL SECRET"
 [connection signal="character_changed" from="." to="ConsPropertiesView" method="_on_tinder_scene_character_changed"]
 [connection signal="character_changed" from="." to="ProsPropertiesView" method="_on_tinder_scene_character_changed"]
 [connection signal="character_changed" from="." to="CharacterViewScene" method="_on_tinder_scene_character_changed"]
-[connection signal="character_sent_to_heaven" from="." to="Scale" method="_on_tinder_scene_character_sent_to_heaven"]
-[connection signal="character_sent_to_hell" from="." to="Scale" method="_on_tinder_scene_character_sent_to_hell"]
 [connection signal="pressed" from="ToHellButton" to="." method="_on_hell_button_pressed"]
 [connection signal="pressed" from="ToHeavenButton" to="." method="_on_heaven_button_pressed"]
 [connection signal="pressed" from="HellQuestButton" to="." method="_on_hell_quest_button_pressed"]
