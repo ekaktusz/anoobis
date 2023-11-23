@@ -14,13 +14,16 @@ signal character_changed(new_character: CharacterData)
 signal character_sent_to_hell(character: CharacterData)
 signal character_sent_to_heaven(character: CharacterData)
 
+const PortraitView = preload("res://portrait_view.tscn")
+
+var current_level_10_characters:Array[CharacterData] = []
 var current_character: CharacterData
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	reset_dead_count()
+	current_level_10_characters = CharacterDatabase.get_characters(10)
 	rank_display_label.text = RankDefinitions.get_rank(level)
-
 	get_new_character()
 
 
@@ -54,7 +57,8 @@ func swipe_character() -> void:
 
 
 func get_new_character() -> void:
-	self.current_character = CharacterDatabase.get_random_character()
+	self.current_character = current_level_10_characters[processed_dead_count]
+	self.current_character.portrait_view = PortraitView.instantiate()
 	character_changed.emit(self.current_character)
 
 
@@ -65,7 +69,7 @@ func reset_dead_count() -> void:
 
 func increase_processed_dead_counter():
 	processed_dead_count += 1
-	dead_count_label.text = "10/" + str(processed_dead_count)
+	dead_count_label.text =  str(processed_dead_count) +"/10"
 
 
 func trigger_break_selector() -> void:
