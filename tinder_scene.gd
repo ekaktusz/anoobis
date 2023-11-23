@@ -18,11 +18,10 @@ var current_character: CharacterData
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	processed_dead_count = 0
-	dead_count_label.text = "10/0"
 	rank_display_label.text = RankDefinitions.get_rank(level)
 
 	get_new_character()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -49,6 +48,7 @@ func swipe_character() -> void:
 	if processed_dead_count >= 10:
 		trigger_break_selector()
 		rank_up()
+		reset_dead_count()
 	else:
 		get_new_character()
 
@@ -56,6 +56,11 @@ func swipe_character() -> void:
 func get_new_character() -> void:
 	self.current_character = CharacterDatabase.get_random_character()
 	character_changed.emit(self.current_character)
+
+
+func reset_dead_count() -> void:
+	processed_dead_count = 0
+	dead_count_label.text = "10/0"
 
 
 func increase_processed_dead_counter():
