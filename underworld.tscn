@@ -50,6 +50,17 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Heaven score is : 0"
 
+[node name="AcceptHeavenQuest" type="Button" parent="Heaven/HeavenBackgroundPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -4.0
+offset_right = 4.0
+offset_bottom = 8.0
+grow_horizontal = 2
+text = "Accept heaven quest"
+
 [node name="Hell" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -88,6 +99,17 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Hell score is : 0"
 
+[node name="AcceptHellQuest" type="Button" parent="Hell/HellBackgroundPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.0
+offset_right = 70.0
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "Accept hell quest"
+
 [node name="UnderworldSelector" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -122,7 +144,9 @@ text = "Go to Heaven"
 
 [connection signal="pressed" from="Heaven/HeavenBackgroundPanel/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Heaven/HeavenBackgroundPanel/Back" to="Heaven" method="_on_button_pressed" flags=18]
+[connection signal="toggled" from="Heaven/HeavenBackgroundPanel/AcceptHeavenQuest" to="." method="_on_accept_heaven_quest_toggled"]
 [connection signal="pressed" from="Hell/HellBackgroundPanel/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Hell/HellBackgroundPanel/Back" to="Hell" method="_on_back_pressed" flags=18]
+[connection signal="toggled" from="Hell/HellBackgroundPanel/AcceptHellQuest" to="." method="_on_accept_hell_quest_toggled"]
 [connection signal="pressed" from="UnderworldSelector/HBoxContainer/ToHellButton" to="." method="_on_to_hell_button_pressed"]
 [connection signal="pressed" from="UnderworldSelector/HBoxContainer/ToHeavenButton" to="." method="_on_to_heaven_button_pressed"]

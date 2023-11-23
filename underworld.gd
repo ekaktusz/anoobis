@@ -69,3 +69,11 @@ func evaluate_win_condition() -> void:
 			print("YOUR LOSER: Heaven got unbalanced")
 	elif heaven_score <= 0:
 		print("YOUR LOSER: Heaven got unbalanced")
+
+
+func _on_accept_hell_quest_toggled(button_pressed: bool) -> void:
+	hell_quest_accepted = button_pressed
+
+
+func _on_accept_heaven_quest_toggled(button_pressed: bool) -> void:
+	heaven_quest_accepted = button_pressed
