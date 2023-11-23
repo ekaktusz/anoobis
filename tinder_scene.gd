@@ -47,8 +47,6 @@ func swipe_character() -> void:
 	increase_processed_dead_counter()
 	if processed_dead_count >= 10:
 		trigger_break_selector()
-		rank_up()
-		reset_dead_count()
 	else:
 		get_new_character()
 
@@ -75,3 +73,9 @@ func trigger_break_selector() -> void:
 func rank_up() -> void:
 	level += 1
 	rank_display_label.text = RankDefinitions.get_rank(level)
+
+
+func _on_where_to_selector_underworld_left() -> void:
+	selector_overlay.set_visible(false)
+	rank_up()
+	reset_dead_count()
