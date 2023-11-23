@@ -18,7 +18,7 @@ func _on_to_heaven_button_pressed() -> void:
 
 func _on_back_pressed() -> void:
 	UnderworldSelector.set_visible(true)
-	$Heaven.set_visible(false)
-	$Hell.set_visible(false)
+	Heaven.set_visible(false)
+	Hell.set_visible(false)
 
 	underworld_left.emit()

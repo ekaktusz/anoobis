@@ -3,7 +3,7 @@ extends Control
 var processed_dead_count : int
 static var level : int = 0
 
-@onready var selector_overlay : Node =  $WhereToSelector
+@onready var underworld : Node =  $Underworld
 @onready var dead_count_label : Node = \
 	$MarginContainer/HBoxContainer/MidVboxContainer/RequestGreatPersonButton
 @onready var root : Node = $MarginContainer
@@ -67,7 +67,7 @@ func increase_processed_dead_counter():
 
 
 func trigger_break_selector() -> void:
-	selector_overlay.set_visible(true)
+	underworld.set_visible(true)
 
 
 func rank_up() -> void:
@@ -76,6 +76,6 @@ func rank_up() -> void:
 
 
 func _on_where_to_selector_underworld_left() -> void:
-	selector_overlay.set_visible(false)
+	underworld.set_visible(false)
 	rank_up()
 	reset_dead_count()
