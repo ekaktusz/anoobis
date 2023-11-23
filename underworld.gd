@@ -1,7 +1,7 @@
 extends Control
 
-var hell_score : int = 0
-var heaven_score : int = 0
+var hell_score : int = -50
+var heaven_score : int = 50
 var dead_counter : int = 0
 var heaven_quest_accepted : bool = false
 var hell_quest_accepted : bool = false
