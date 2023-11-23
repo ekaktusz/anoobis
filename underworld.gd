@@ -53,22 +53,31 @@ func evaluate_win_condition() -> void:
 			print("YOUR LOSER: Accepted an underworld quest but ended up balanced")
 		else:
 			print("YOUR WINNER: True ending")
+		game_over()
 
 	if hell_score <= -100:
 		if hell_quest_accepted:
 			print("YOUR WINNER: Completed hell quest")
 		else:
 			print("YOUR LOSER: Hell got unbalanced")
+		game_over()
 	elif hell_score >= 0:
 		print("YOUR LOSER: Hell got unbalanced")
+		game_over()
 
 	if heaven_score >= 100:
 		if heaven_quest_accepted:
 			print("YOUR WINNER: Completed heaven quest")
 		else:
 			print("YOUR LOSER: Heaven got unbalanced")
+			game_over()
 	elif heaven_score <= 0:
 		print("YOUR LOSER: Heaven got unbalanced")
+		game_over()
+
+
+func game_over() -> void:
+	SceneTransition.change_scene_to_file("res://menu_scene.tscn")
 
 
 func _on_accept_hell_quest_toggled(button_pressed: bool) -> void:
