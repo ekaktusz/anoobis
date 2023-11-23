@@ -2,8 +2,8 @@ extends Control
 
 var processed_dead_count : int
 static var level : int = 0
-var selector_scene : PackedScene = preload("res://where_to_selector.tscn")
 
+@onready var selector_overlay : Node =  $WhereToSelector
 @onready var dead_count_label : Node = \
 	$MarginContainer/HBoxContainer/MidVboxContainer/RequestGreatPersonButton
 @onready var root : Node = $MarginContainer
@@ -64,8 +64,7 @@ func increase_processed_dead_counter():
 
 
 func trigger_break_selector() -> void:
-	var selector_node : Node = selector_scene.instantiate()
-	root.add_child(selector_node)
+	selector_overlay.set_visible(true)
 
 
 func rank_up() -> void:
