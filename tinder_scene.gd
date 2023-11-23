@@ -18,6 +18,7 @@ var current_character: CharacterData
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	reset_dead_count()
 	rank_display_label.text = RankDefinitions.get_rank(level)
 
 	get_new_character()
@@ -46,6 +47,7 @@ func _on_hell_button_pressed() -> void:
 func swipe_character() -> void:
 	increase_processed_dead_counter()
 	if processed_dead_count >= 10:
+		underworld.evaluate_win_condition()
 		trigger_break_selector()
 	else:
 		get_new_character()
