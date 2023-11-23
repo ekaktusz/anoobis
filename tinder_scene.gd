@@ -34,11 +34,6 @@ func _input(event: InputEvent) -> void:
 		get_tree().change_scene_to_file("res://character_generator.tscn")
 
 
-func _on_button_pressed():
-	print("asd")
-	pass # Replace with function body.
-
-
 func _on_heaven_button_pressed() -> void:
 	character_sent_to_heaven.emit(self.current_character)
 	swipe_character()
