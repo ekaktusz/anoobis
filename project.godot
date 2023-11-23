@@ -19,6 +19,7 @@ config/icon="res://assets/icon.png"
 
 SceneTransition="*res://scene_transition.tscn"
 CharacterDatabase="*res://character_database.gd"
+RankDefinitions="*res://rank_definitions.gd"
 
 [display]
 
