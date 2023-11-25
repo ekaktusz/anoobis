@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://gh4wifppmunc"]
+[gd_scene load_steps=13 format=3 uid="uid://gh4wifppmunc"]
 
 [ext_resource type="Script" path="res://tinder_scene.gd" id="1_w104e"]
 [ext_resource type="PackedScene" uid="uid://70k7ofhbtbhy" path="res://properties_view.tscn" id="2_1d4s5"]
 [ext_resource type="PackedScene" uid="uid://c0oykyjsf86lh" path="res://character_view.tscn" id="2_6dr6a"]
 [ext_resource type="PackedScene" uid="uid://b5lkspwgwwpc4" path="res://scale.tscn" id="4_68rii"]
+[ext_resource type="PackedScene" uid="uid://cvxiufsh31gp1" path="res://underworld.tscn" id="7_eqbrd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sio5"]
 bg_color = Color(0.996078, 0.952941, 0.823529, 1)
@@ -214,7 +215,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_r284g")
-text = "0/10"
 
 [node name="CharacterViewScene" parent="MarginContainer/HBoxContainer/MidVboxContainer" instance=ExtResource("2_6dr6a")]
 layout_mode = 2
@@ -299,10 +299,17 @@ theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_wtq0w")
 text = "TO HEAVEN"
 
+[node name="Underworld" parent="." instance=ExtResource("7_eqbrd")]
+visible = false
+layout_mode = 1
+
 [connection signal="character_changed" from="." to="MarginContainer/HBoxContainer/LeftVboxContainer/ConsPropertiesView" method="_on_tinder_scene_character_changed"]
 [connection signal="character_changed" from="." to="MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene" method="_on_tinder_scene_character_changed"]
 [connection signal="character_changed" from="." to="MarginContainer/HBoxContainer/RightVboxContainer/ProsPropertiesView" method="_on_tinder_scene_character_changed"]
 [connection signal="character_sent_to_heaven" from="." to="MarginContainer/HBoxContainer/MidVboxContainer/ScaleScene/Scale" method="_on_tinder_scene_character_sent_to_heaven"]
+[connection signal="character_sent_to_heaven" from="." to="Underworld" method="_on_tinder_scene_character_sent_to_heaven"]
 [connection signal="character_sent_to_hell" from="." to="MarginContainer/HBoxContainer/MidVboxContainer/ScaleScene/Scale" method="_on_tinder_scene_character_sent_to_hell"]
+[connection signal="character_sent_to_hell" from="." to="Underworld" method="_on_tinder_scene_character_sent_to_hell"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LeftVboxContainer/HellButton" to="." method="_on_hell_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/RightVboxContainer/HeavenButton" to="." method="_on_heaven_button_pressed"]
+[connection signal="underworld_left" from="Underworld" to="." method="_on_where_to_selector_underworld_left"]
