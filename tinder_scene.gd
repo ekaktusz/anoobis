@@ -2,12 +2,13 @@ extends Control
 
 var processed_dead_count : int
 static var level : int = 0
-var selector_scene : PackedScene = preload("res://where_to_selector.tscn")
 
 @onready var dead_count_label : Node = $TurnNumberLabel
-@onready var root : Node = get_tree().get_root()
 @onready var rank_display_label : Node = $LevelLabel
 @onready var character_name : Node = $NameLabel
+@onready var underworld : Node =  $Underworld
+
+
 signal character_changed(new_character: CharacterData)
 signal character_sent_to_hell(character: CharacterData)
 signal character_sent_to_heaven(character: CharacterData)
@@ -19,11 +20,11 @@ var current_character: CharacterData
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	reset_dead_count()
 	current_level_10_characters = CharacterDatabase.get_characters(10)
-	processed_dead_count = 0
-	dead_count_label.text = "0/10"
 	rank_display_label.text = RankDefinitions.get_rank(level)
 	get_new_character()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -48,8 +49,8 @@ func _on_hell_button_pressed() -> void:
 func swipe_character() -> void:
 	increase_processed_dead_counter()
 	if processed_dead_count >= 10:
+		underworld.evaluate_win_condition()
 		trigger_break_selector()
-		rank_up()
 	else:
 		get_new_character()
 
@@ -61,16 +62,26 @@ func get_new_character() -> void:
 	character_changed.emit(self.current_character)
 
 
+func reset_dead_count() -> void:
+	processed_dead_count = 0
+	dead_count_label.text = "0/10"
+
+
 func increase_processed_dead_counter():
 	processed_dead_count += 1
 	dead_count_label.text =  str(processed_dead_count) +"/10"
 
 
 func trigger_break_selector() -> void:
-	var selector_node : Node = selector_scene.instantiate()
-	root.add_child(selector_node)
+	underworld.set_visible(true)
 
 
 func rank_up() -> void:
 	level += 1
 	rank_display_label.text = RankDefinitions.get_rank(level)
+
+
+func _on_where_to_selector_underworld_left() -> void:
+	underworld.set_visible(false)
+	rank_up()
+	reset_dead_count()

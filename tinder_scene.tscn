@@ -200,6 +200,7 @@ scale = Vector2(0.144118, 0.144118)
 texture = ExtResource("8_r11d4")
 
 [node name="Underworld" parent="." instance=ExtResource("14_48rvw")]
+visible = false
 layout_mode = 1
 
 [connection signal="character_changed" from="." to="ConsPropertiesView" method="_on_tinder_scene_character_changed"]
@@ -211,3 +212,6 @@ layout_mode = 1
 [connection signal="pressed" from="ToHeavenButton" to="." method="_on_heaven_button_pressed"]
 [connection signal="pressed" from="HellQuestButton" to="." method="_on_hell_quest_button_pressed"]
 [connection signal="pressed" from="HeavenQuest" to="." method="_on_heaven_quest_pressed"]
+[connection signal="character_sent_to_heaven" from="." to="Underworld" method="_on_tinder_scene_character_sent_to_heaven"]
+[connection signal="character_sent_to_hell" from="." to="Underworld" method="_on_tinder_scene_character_sent_to_hell"]
+[connection signal="underworld_left" from="Underworld" to="." method="_on_where_to_selector_underworld_left"]

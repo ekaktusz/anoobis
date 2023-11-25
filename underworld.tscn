@@ -95,7 +95,6 @@ grow_vertical = 2
 text = "Back to Tinder screen"
 
 [node name="ScoreLabel" type="Label" parent="Hell/HellBackgroundPanel"]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Hell score is : 0"

@@ -30,11 +30,6 @@ func _on_tinder_scene_character_sent_to_hell(character):
 	print("heaven current score: ", heaven_score )
 	print("hell current score: ", hell_score )
 
-func tmp_get_random_soul_value():
-	var next_soul_value = randi_range(-20,20)
-	print("next_soul_value ",next_soul_value)
-	return next_soul_value
-
 func calculate_rotation():
 	#so the scale doesn't lift to 180 degrees just 60
 	var scaled_hell_score = hell_score / 3
