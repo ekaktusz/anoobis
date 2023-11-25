@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://gtpldb6et110"]
+
+[node name="game_over_scene" type="Node2D"]

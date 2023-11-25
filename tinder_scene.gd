@@ -3,12 +3,11 @@ extends Control
 var processed_dead_count : int
 static var level : int = 0
 
+@onready var dead_count_label : Node = $TurnNumberLabel
+@onready var rank_display_label : Node = $LevelLabel
+@onready var character_name : Node = $NameLabel
 @onready var underworld : Node =  $Underworld
-@onready var dead_count_label : Node = \
-	$MarginContainer/HBoxContainer/MidVboxContainer/RequestGreatPersonButton
-@onready var root : Node = $MarginContainer
-@onready var rank_display_label : Node = \
-	$MarginContainer/HBoxContainer/MidVboxContainer/QuestLog2/MarginContainer/QuestLogVboxContainer/Title
+
 
 signal character_changed(new_character: CharacterData)
 signal character_sent_to_hell(character: CharacterData)
@@ -59,6 +58,7 @@ func swipe_character() -> void:
 func get_new_character() -> void:
 	self.current_character = current_level_10_characters[processed_dead_count]
 	self.current_character.portrait_view = PortraitView.instantiate()
+	character_name.text = current_character.character_name
 	character_changed.emit(self.current_character)
 
 

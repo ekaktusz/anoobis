@@ -175,6 +175,9 @@ var lastnames = ["the Unworthy", "the Worst", "the Meh", "the Neutral", "the Und
 
 var characters: Array[CharacterData] = get_characters(10)
 
+var in_heaven_characters: Array[CharacterData]
+var in_hell_characters: Array[CharacterData]
+
 func get_characters(number_of_characters: int):
 	var characters :Array[CharacterData] = []
 	while characters.size() < number_of_characters:
@@ -198,9 +201,7 @@ func get_random_fullname() -> String:
 	return firstnames.pick_random() + lastnames.pick_random()
 	
 func get_random_character() -> CharacterData:
+	if self.characters.size() == 0:
+		return null	
 	var rand_index: int = randi() % self.characters.size()
-	if rand_index == self.characters.size():
-		return null
-
-	var random_character = self.characters[rand_index]
-	return random_character
+	return self.characters[rand_index]

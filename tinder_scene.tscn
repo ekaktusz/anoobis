@@ -1,10 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://gh4wifppmunc"]
+[gd_scene load_steps=17 format=3 uid="uid://gh4wifppmunc"]
 
 [ext_resource type="Script" path="res://tinder_scene.gd" id="1_w104e"]
 [ext_resource type="PackedScene" uid="uid://70k7ofhbtbhy" path="res://properties_view.tscn" id="2_1d4s5"]
 [ext_resource type="PackedScene" uid="uid://c0oykyjsf86lh" path="res://character_view.tscn" id="2_6dr6a"]
+[ext_resource type="Texture2D" uid="uid://c31u1q2p640qv" path="res://assets/images/tinder_scene_bg.jpg" id="2_fs4uo"]
 [ext_resource type="PackedScene" uid="uid://b5lkspwgwwpc4" path="res://scale.tscn" id="4_68rii"]
-[ext_resource type="PackedScene" uid="uid://cvxiufsh31gp1" path="res://underworld.tscn" id="7_eqbrd"]
+[ext_resource type="Theme" path="res://game_theme.tres" id="4_btjjv"]
+[ext_resource type="FontFile" uid="uid://be8jb3h077tii" path="res://assets/fonts/Roman SD.ttf" id="5_flaah"]
+[ext_resource type="StyleBox" path="res://hell_quest_btn_style.tres" id="8_bnp4i"]
+[ext_resource type="StyleBox" path="res://hover_dislike_style.tres" id="8_i63kk"]
+[ext_resource type="Texture2D" uid="uid://cno861nk463jf" path="res://assets/images/soul.png" id="8_r11d4"]
+[ext_resource type="StyleBox" path="res://hell_quest_btn_style_hover.tres" id="9_syh15"]
+[ext_resource type="StyleBox" path="res://heaven_quest_btn_style.tres" id="10_7sghi"]
+[ext_resource type="StyleBox" path="res://heaven_quest_btn_style_hover.tres" id="11_hmsvt"]
+[ext_resource type="PackedScene" uid="uid://dw0x6jys7euaw" path="res://underworld.tscn" id="14_48rvw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sio5"]
 bg_color = Color(0.996078, 0.952941, 0.823529, 1)
@@ -14,51 +23,12 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4di4n"]
-bg_color = Color(0.737255, 0.560784, 0.376471, 0)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.74902, 0.341176, 0.313726, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r284g"]
-bg_color = Color(1, 0.796078, 0.313726, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(1, 0.529412, 0.356863, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agjk6"]
-bg_color = Color(0.486275, 0, 0, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdp6q"]
-bg_color = Color(0.74902, 0.341176, 0.313726, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(1, 0.796078, 0.313726, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhbqx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xp0qr"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(1, 0.529412, 0.356863, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtq0w"]
-bg_color = Color(0.180392, 0.403922, 0, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
 
 [node name="tinder_scene" type="Control"]
 layout_mode = 3
@@ -69,7 +39,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w104e")
 
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_fs4uo")
+
 [node name="BackgroundPanel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -78,238 +55,163 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4sio5")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="ConsPropertiesView" parent="." instance=ExtResource("2_1d4s5")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+offset_left = 299.0
+offset_top = 444.0
+offset_right = 613.0
+offset_bottom = 944.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="LeftVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="QuestLog1" type="Control" parent="MarginContainer/HBoxContainer/LeftVboxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="BackgroundPanel" type="Panel" parent="MarginContainer/HBoxContainer/LeftVboxContainer/QuestLog1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4di4n")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/LeftVboxContainer/QuestLog1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="QuestLogVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LeftVboxContainer/QuestLog1/MarginContainer"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/LeftVboxContainer/QuestLog1/MarginContainer/QuestLogVboxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "Quest I."
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftVboxContainer/QuestLog1/MarginContainer/QuestLogVboxContainer"]
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/LeftVboxContainer/QuestLog1/MarginContainer/QuestLogVboxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "- pick 4 musucuanst to both realms 2/4"
-
-[node name="SuperSecretButton" type="Button" parent="MarginContainer/HBoxContainer/LeftVboxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_r284g")
-text = "SUPER SECRET"
-
-[node name="ConsPropertiesView" parent="MarginContainer/HBoxContainer/LeftVboxContainer" instance=ExtResource("2_1d4s5")]
-layout_mode = 2
-
-[node name="HellButton" type="Button" parent="MarginContainer/HBoxContainer/LeftVboxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
-theme_override_styles/normal = SubResource("StyleBoxFlat_agjk6")
-text = "TO HELL"
-
-[node name="MidVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="QuestLog2" type="Control" parent="MarginContainer/HBoxContainer/MidVboxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="BackgroundPanel" type="Panel" parent="MarginContainer/HBoxContainer/MidVboxContainer/QuestLog2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4di4n")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/MidVboxContainer/QuestLog2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="QuestLogVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MidVboxContainer/QuestLog2/MarginContainer"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/MidVboxContainer/QuestLog2/MarginContainer/QuestLogVboxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "rank_name"
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MidVboxContainer/QuestLog2/MarginContainer/QuestLogVboxContainer"]
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/MidVboxContainer/QuestLog2/MarginContainer/QuestLogVboxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "- asd"
-
-[node name="RequestGreatPersonButton" type="Button" parent="MarginContainer/HBoxContainer/MidVboxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_r284g")
-
-[node name="CharacterViewScene" parent="MarginContainer/HBoxContainer/MidVboxContainer" instance=ExtResource("2_6dr6a")]
-layout_mode = 2
-
-[node name="ScaleScene" type="MarginContainer" parent="MarginContainer/HBoxContainer/MidVboxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Scale" parent="MarginContainer/HBoxContainer/MidVboxContainer/ScaleScene" instance=ExtResource("4_68rii")]
-layout_mode = 2
-
-[node name="RightVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HellQuest" type="Control" parent="MarginContainer/HBoxContainer/RightVboxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="BackgroundPanel" type="Panel" parent="MarginContainer/HBoxContainer/RightVboxContainer/HellQuest"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_sdp6q")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/RightVboxContainer/HellQuest"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="QuestLogVboxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/RightVboxContainer/HellQuest/MarginContainer"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/RightVboxContainer/HellQuest/MarginContainer/QuestLogVboxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 40
-text = "HELL QUEST I."
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/RightVboxContainer/HellQuest/MarginContainer/QuestLogVboxContainer"]
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/RightVboxContainer/HellQuest/MarginContainer/QuestLogVboxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "- asd"
-
-[node name="SecretRevealIndicator" type="MarginContainer" parent="MarginContainer/HBoxContainer/RightVboxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-
-[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/RightVboxContainer/SecretRevealIndicator"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_lhbqx")
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/RightVboxContainer/SecretRevealIndicator"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "SECRET REVEALS LEFT: 5/14"
-horizontal_alignment = 1
-
-[node name="ProsPropertiesView" parent="MarginContainer/HBoxContainer/RightVboxContainer" instance=ExtResource("2_1d4s5")]
-layout_mode = 2
+[node name="ProsPropertiesView" parent="." instance=ExtResource("2_1d4s5")]
+layout_mode = 0
+offset_left = 1247.0
+offset_top = 441.0
+offset_right = 1561.0
+offset_bottom = 941.0
 mode = 1
 
-[node name="HeavenButton" type="Button" parent="MarginContainer/HBoxContainer/RightVboxContainer"]
+[node name="NameLabel" type="Label" parent="."]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
-theme_override_styles/normal = SubResource("StyleBoxFlat_wtq0w")
-text = "TO HEAVEN"
+offset_left = 758.0
+offset_top = 322.0
+offset_right = 1156.0
+offset_bottom = 396.0
+theme = ExtResource("4_btjjv")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("5_flaah")
+theme_override_font_sizes/font_size = 35
+text = "rank_name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="Underworld" parent="." instance=ExtResource("7_eqbrd")]
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 715.0
+offset_top = 18.0
+offset_right = 1222.0
+offset_bottom = 138.0
+theme = ExtResource("4_btjjv")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("5_flaah")
+theme_override_font_sizes/font_size = 60
+text = "INTERN LVL 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TurnNumberLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 882.0
+offset_top = 143.0
+offset_right = 992.0
+offset_bottom = 198.0
+theme = ExtResource("4_btjjv")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("5_flaah")
+theme_override_font_sizes/font_size = 35
+text = "10/2"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CharacterViewScene" parent="." instance=ExtResource("2_6dr6a")]
+layout_mode = 2
+offset_left = 796.0
+offset_top = 421.0
+offset_right = 1296.0
+offset_bottom = 921.0
+scale = Vector2(0.649012, 0.649012)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Scale" parent="." instance=ExtResource("4_68rii")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 957.0
+offset_top = 964.0
+offset_right = 957.0
+offset_bottom = 964.0
+
+[node name="ToHellButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.34902)
+layout_mode = 0
+offset_left = 359.0
+offset_top = 836.0
+offset_right = 416.0
+offset_bottom = 867.0
+scale = Vector2(4.04403, 7.4395)
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_xp0qr")
+theme_override_styles/hover = ExtResource("8_i63kk")
+
+[node name="ToHeavenButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.34902)
+layout_mode = 0
+offset_left = 1336.0
+offset_top = 836.0
+offset_right = 1393.0
+offset_bottom = 867.0
+scale = Vector2(4.04403, 7.4395)
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_xp0qr")
+theme_override_styles/hover = ExtResource("8_i63kk")
+
+[node name="HellQuestButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 42.0
+offset_right = 653.0
+offset_bottom = 173.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("5_flaah")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("8_bnp4i")
+theme_override_styles/hover = ExtResource("9_syh15")
+text = "HELL QUEST"
+
+[node name="HeavenQuest" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1291.0
+offset_top = 42.0
+offset_right = 1634.0
+offset_bottom = 173.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("5_flaah")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("10_7sghi")
+theme_override_styles/hover = ExtResource("11_hmsvt")
+text = "HEAVEN QUEST"
+
+[node name="Fire" type="Sprite2D" parent="."]
+position = Vector2(1025, 170)
+scale = Vector2(0.144118, 0.144118)
+texture = ExtResource("8_r11d4")
+
+[node name="Underworld" parent="." instance=ExtResource("14_48rvw")]
 visible = false
 layout_mode = 1
 
-[connection signal="character_changed" from="." to="MarginContainer/HBoxContainer/LeftVboxContainer/ConsPropertiesView" method="_on_tinder_scene_character_changed"]
-[connection signal="character_changed" from="." to="MarginContainer/HBoxContainer/MidVboxContainer/CharacterViewScene" method="_on_tinder_scene_character_changed"]
-[connection signal="character_changed" from="." to="MarginContainer/HBoxContainer/RightVboxContainer/ProsPropertiesView" method="_on_tinder_scene_character_changed"]
-[connection signal="character_sent_to_heaven" from="." to="MarginContainer/HBoxContainer/MidVboxContainer/ScaleScene/Scale" method="_on_tinder_scene_character_sent_to_heaven"]
+[connection signal="character_changed" from="." to="ConsPropertiesView" method="_on_tinder_scene_character_changed"]
+[connection signal="character_changed" from="." to="ProsPropertiesView" method="_on_tinder_scene_character_changed"]
+[connection signal="character_changed" from="." to="CharacterViewScene" method="_on_tinder_scene_character_changed"]
+[connection signal="character_sent_to_heaven" from="." to="Scale" method="_on_tinder_scene_character_sent_to_heaven"]
+[connection signal="character_sent_to_hell" from="." to="Scale" method="_on_tinder_scene_character_sent_to_hell"]
+[connection signal="pressed" from="ToHellButton" to="." method="_on_hell_button_pressed"]
+[connection signal="pressed" from="ToHeavenButton" to="." method="_on_heaven_button_pressed"]
+[connection signal="pressed" from="HellQuestButton" to="." method="_on_hell_quest_button_pressed"]
+[connection signal="pressed" from="HeavenQuest" to="." method="_on_heaven_quest_pressed"]
 [connection signal="character_sent_to_heaven" from="." to="Underworld" method="_on_tinder_scene_character_sent_to_heaven"]
-[connection signal="character_sent_to_hell" from="." to="MarginContainer/HBoxContainer/MidVboxContainer/ScaleScene/Scale" method="_on_tinder_scene_character_sent_to_hell"]
 [connection signal="character_sent_to_hell" from="." to="Underworld" method="_on_tinder_scene_character_sent_to_hell"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/LeftVboxContainer/HellButton" to="." method="_on_hell_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/RightVboxContainer/HeavenButton" to="." method="_on_heaven_button_pressed"]
 [connection signal="underworld_left" from="Underworld" to="." method="_on_where_to_selector_underworld_left"]

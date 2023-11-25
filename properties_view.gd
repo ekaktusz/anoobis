@@ -19,7 +19,6 @@ func _on_tinder_scene_character_changed(new_character: CharacterData):
 		self.properties = new_character.positive_properties
 
 	_update_gui()
-
 func _update_gui():
 	var property_container = $MarginContainer/VBoxContainer/VBoxContainer
 

@@ -14,4 +14,4 @@ var ranks = [
 ]
 
 func get_rank(level : int) -> String:
-	return ranks[level]
+	return ranks[level] if level < ranks.size() else ranks[ranks.size()-1]
