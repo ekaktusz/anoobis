@@ -51,8 +51,7 @@ func swipe_character() -> void:
 	if processed_dead_count >= 10:
 		underworld.evaluate_win_condition()
 		trigger_break_selector()
-	else:
-		get_new_character()
+	get_new_character()
 
 
 func get_new_character() -> void:
