@@ -31,7 +31,8 @@ func get_secret_negative_properties() -> Array[PropertyData]:
 		if negative_property.is_secret:
 			secret_negative_properties.append(negative_property)
 	return secret_negative_properties
-	
+
+
 func get_secret_positive_properties() -> Array[PropertyData]:
 	var secret_positive_properties : Array[PropertyData]
 	for positive_property in self.positive_properties:

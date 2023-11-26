@@ -1,21 +1,20 @@
 extends Control
 
+signal character_changed(new_character: CharacterData)
+signal character_sent_to_hell(character: CharacterData)
+signal character_sent_to_heaven(character: CharacterData)
+
+static var level : int
 var processed_dead_count : int
-static var level : int = 0
+var current_character: CharacterData
 
 @onready var dead_count_label : Node = $TurnNumberLabel
 @onready var rank_display_label : Node = $LevelLabel
 @onready var character_name : Node = $NameLabel
 @onready var underworld : Node =  $Underworld
-@onready var ConsPropertiesView : Node = $ConsPropertiesView
-@onready var ProsPropertiesView : Node = $ProsPropertiesView
+@onready var const_properties_view : Node = $ConsPropertiesView
+@onready var pros_properties_view : Node = $ProsPropertiesView
 
-
-signal character_changed(new_character: CharacterData)
-signal character_sent_to_hell(character: CharacterData)
-signal character_sent_to_heaven(character: CharacterData)
-
-var current_character: CharacterData
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -81,8 +80,8 @@ func rank_up() -> void:
 	if level == 3:
 		underworld.enable_underworld_quests(level)
 	elif level == 5:
-		ConsPropertiesView.set_property_values_visible()
-		ProsPropertiesView.set_property_values_visible()
+		const_properties_view.set_property_values_visible()
+		pros_properties_view.set_property_values_visible()
 
 
 func update_rank_title() -> void:
