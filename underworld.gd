@@ -6,31 +6,31 @@ var dead_counter : int = 0
 var heaven_quest_accepted : bool = false
 var hell_quest_accepted : bool = false
 
-@onready var Heaven = $Heaven
-@onready var Hell = $Hell
-@onready var UnderworldSelector = $UnderworldSelector
-@onready var HeavenScoreLabel = $Heaven/HeavenBackgroundPanel/ScoreLabel
-@onready var HellScoreLabel = $Hell/HellBackgroundPanel/ScoreLabel
-@onready var HellQuestButton = $Hell/HellBackgroundPanel/AcceptHellQuest
-@onready var HeavenQuestButton = $Heaven/HeavenBackgroundPanel/AcceptHeavenQuest
+@onready var heaven = $Heaven
+@onready var hell = $Hell
+@onready var underworld_selector = $UnderworldSelector
+@onready var heaven_score_label = $Heaven/HeavenBackgroundPanel/ScoreLabel
+@onready var hell_score_label = $Hell/HellBackgroundPanel/ScoreLabel
+@onready var hell_quest_button = $Hell/HellBackgroundPanel/AcceptHellQuest
+@onready var heaven_quest_button = $Heaven/HeavenBackgroundPanel/AcceptHeavenQuest
 
 signal underworld_left()
 
 
 func _on_to_hell_button_pressed() -> void:
-	UnderworldSelector.set_visible(false)
-	Hell.set_visible(true)
+	underworld_selector.set_visible(false)
+	hell.set_visible(true)
 
 
 func _on_to_heaven_button_pressed() -> void:
-	UnderworldSelector.set_visible(false)
-	Heaven.set_visible(true)
+	underworld_selector.set_visible(false)
+	heaven.set_visible(true)
 
 
 func _on_back_pressed() -> void:
-	UnderworldSelector.set_visible(true)
-	Heaven.set_visible(false)
-	Hell.set_visible(false)
+	underworld_selector.set_visible(true)
+	heaven.set_visible(false)
+	hell.set_visible(false)
 
 	underworld_left.emit()
 
@@ -39,14 +39,14 @@ func _on_tinder_scene_character_sent_to_heaven(character : CharacterData) -> voi
 	heaven_score += character.get_soul_value_sum()
 	dead_counter += 1
 
-	HeavenScoreLabel.text = "Heaven score is: " + str(heaven_score)
+	heaven_score_label.text = "Heaven score is: " + str(heaven_score)
 
 
 func _on_tinder_scene_character_sent_to_hell(character) -> void:
 	hell_score += character.get_soul_value_sum()
 	dead_counter += 1
 
-	HellScoreLabel.text = "Hell score is: " + str(hell_score)
+	hell_score_label.text = "Hell score is: " + str(hell_score)
 
 
 func evaluate_win_condition() -> void:
@@ -83,15 +83,15 @@ func game_over() -> void:
 
 
 func enable_underworld_quests() -> void:
-	HellQuestButton.set_visible(true)
-	HeavenQuestButton.set_visible(true)
+	hell_quest_button.set_visible(true)
+	heaven_quest_button.set_visible(true)
 
 
 func _on_accept_hell_quest_pressed() -> void:
 	hell_quest_accepted = true
-	HellQuestButton.set_visible(false)
+	hell_quest_button.set_visible(false)
 
 
 func _on_accept_heaven_quest_pressed() -> void:
 	heaven_quest_accepted = true
-	HeavenQuestButton.set_visible(false)
+	heaven_quest_button.set_visible(false)
