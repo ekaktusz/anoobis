@@ -18,9 +18,9 @@ var current_character: CharacterData
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	reset_dead_count()
+	self.level = 0
 	rank_display_label.text = RankDefinitions.get_rank(level)
 	get_new_character()
-	self.level = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
