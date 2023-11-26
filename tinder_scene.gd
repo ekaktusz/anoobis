@@ -20,6 +20,7 @@ func _ready():
 	reset_dead_count()
 	rank_display_label.text = RankDefinitions.get_rank(level)
 	get_new_character()
+	self.level = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,6 +48,8 @@ func swipe_character() -> void:
 	if processed_dead_count >= 10:
 		underworld.evaluate_win_condition()
 		trigger_break_selector()
+		rank_up()
+
 	get_new_character()
 
 
@@ -73,11 +76,14 @@ func trigger_break_selector() -> void:
 
 func rank_up() -> void:
 	level += 1
-	rank_display_label.text = RankDefinitions.get_rank(level)
 	underworld.execute_rank_up_event(level)
+
+
+func update_rank_title() -> void:
+	rank_display_label.text = RankDefinitions.get_rank(level)
 
 
 func _on_where_to_selector_underworld_left() -> void:
 	underworld.set_visible(false)
-	rank_up()
+	update_rank_title()
 	reset_dead_count()
