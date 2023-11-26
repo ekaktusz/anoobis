@@ -82,14 +82,6 @@ func game_over() -> void:
 	SceneTransition.change_scene_to_file("res://menu_scene.tscn")
 
 
-func _on_accept_hell_quest_toggled(button_pressed: bool) -> void:
-	hell_quest_accepted = button_pressed
-
-
-func _on_accept_heaven_quest_toggled(button_pressed: bool) -> void:
-	heaven_quest_accepted = button_pressed
-
-
 func execute_rank_up_event(level : int) -> void:
 	if (level == 3):
 		HellQuestButton.set_visible(true)
@@ -97,3 +89,15 @@ func execute_rank_up_event(level : int) -> void:
 
 	elif(level == 5):
 		pass
+
+
+func _on_accept_hell_quest_pressed() -> void:
+	hell_quest_accepted = true
+	HeavenQuestButton.set_visible(false)
+	HellQuestButton.set_visible(false)
+
+
+func _on_accept_heaven_quest_pressed() -> void:
+	heaven_quest_accepted = true
+	HeavenQuestButton.set_visible(false)
+	HellQuestButton.set_visible(false)
