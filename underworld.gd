@@ -83,17 +83,15 @@ func game_over() -> void:
 
 
 func enable_underworld_quests() -> void:
-		HellQuestButton.set_visible(true)
-		HeavenQuestButton.set_visible(true)
+	HellQuestButton.set_visible(true)
+	HeavenQuestButton.set_visible(true)
 
 
 func _on_accept_hell_quest_pressed() -> void:
 	hell_quest_accepted = true
-	HeavenQuestButton.set_visible(false)
 	HellQuestButton.set_visible(false)
 
 
 func _on_accept_heaven_quest_pressed() -> void:
 	heaven_quest_accepted = true
 	HeavenQuestButton.set_visible(false)
-	HellQuestButton.set_visible(false)

@@ -78,7 +78,7 @@ func trigger_break_selector() -> void:
 func rank_up() -> void:
 	level += 1
 	if level == 3:
-		underworld.enable_underworld_quests(level)
+		underworld.enable_underworld_quests()
 	elif level == 5:
 		const_properties_view.set_property_values_visible()
 		pros_properties_view.set_property_values_visible()
