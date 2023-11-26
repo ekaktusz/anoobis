@@ -13,8 +13,6 @@ signal character_changed(new_character: CharacterData)
 signal character_sent_to_hell(character: CharacterData)
 signal character_sent_to_heaven(character: CharacterData)
 
-const PortraitView = preload("res://portrait_view.tscn")
-
 var current_character: CharacterData
 
 # Called when the node enters the scene tree for the first time.
@@ -54,9 +52,8 @@ func swipe_character() -> void:
 
 func get_new_character() -> void:
 	self.current_character = CharacterDatabase.get_random_character()
-	self.current_character.portrait_view = PortraitView.instantiate()
 
-	character_name.text = current_character.character_name
+	character_name.text = self.current_character.character_name
 	character_changed.emit(self.current_character)
 
 
