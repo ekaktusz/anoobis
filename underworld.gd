@@ -11,6 +11,8 @@ var hell_quest_accepted : bool = false
 @onready var UnderworldSelector = $UnderworldSelector
 @onready var HeavenScoreLabel = $Heaven/HeavenBackgroundPanel/ScoreLabel
 @onready var HellScoreLabel = $Hell/HellBackgroundPanel/ScoreLabel
+@onready var HellQuestButton = $Hell/HellBackgroundPanel/AcceptHellQuest
+@onready var HeavenQuestButton = $Heaven/HeavenBackgroundPanel/AcceptHeavenQuest
 
 signal underworld_left()
 
@@ -86,3 +88,12 @@ func _on_accept_hell_quest_toggled(button_pressed: bool) -> void:
 
 func _on_accept_heaven_quest_toggled(button_pressed: bool) -> void:
 	heaven_quest_accepted = button_pressed
+
+
+func execute_rank_up_event(level : int) -> void:
+	if (level == 3):
+		HellQuestButton.set_visible(true)
+		HeavenQuestButton.set_visible(true)
+
+	elif(level == 5):
+		pass

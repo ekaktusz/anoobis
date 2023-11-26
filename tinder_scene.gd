@@ -74,6 +74,7 @@ func trigger_break_selector() -> void:
 func rank_up() -> void:
 	level += 1
 	rank_display_label.text = RankDefinitions.get_rank(level)
+	underworld.execute_rank_up_event(level)
 
 
 func _on_where_to_selector_underworld_left() -> void:
