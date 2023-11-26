@@ -79,10 +79,11 @@ func trigger_break_selector() -> void:
 func rank_up() -> void:
 	level += 1
 	if level == 3:
-		underworld.execute_rank_up_event(level)
+		underworld.enable_underworld_quests(level)
 	elif level == 5:
 		ConsPropertiesView.set_property_values_visible()
 		ProsPropertiesView.set_property_values_visible()
+
 
 func update_rank_title() -> void:
 	rank_display_label.text = RankDefinitions.get_rank(level)

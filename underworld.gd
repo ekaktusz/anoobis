@@ -82,13 +82,9 @@ func game_over() -> void:
 	SceneTransition.change_scene_to_file("res://menu_scene.tscn")
 
 
-func execute_rank_up_event(level : int) -> void:
-	if (level == 3):
+func enable_underworld_quests() -> void:
 		HellQuestButton.set_visible(true)
 		HeavenQuestButton.set_visible(true)
-
-	elif(level == 5):
-		pass
 
 
 func _on_accept_hell_quest_pressed() -> void:
