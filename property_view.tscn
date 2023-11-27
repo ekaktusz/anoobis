@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://property_view.gd" id="1_8utd3"]
 [ext_resource type="Texture2D" uid="uid://b5fimrxpkskcf" path="res://assets/images/bullet_point.png" id="1_pdery"]
-[ext_resource type="Theme" uid="uid://dl3j051kdxri3" path="res://game_theme.tres" id="3_1c2ko"]
+[ext_resource type="Theme" uid="uid://bixc6mxs53sp4" path="res://game_theme.tres" id="3_1c2ko"]
 
 [node name="PropertyView" type="HBoxContainer"]
 script = ExtResource("1_8utd3")

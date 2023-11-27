@@ -6,6 +6,7 @@ enum PROPERTIES_VIEW_MODE { Cons, Pros }
 @export var mode: PROPERTIES_VIEW_MODE
 
 var properties: Array[PropertyData]
+var are_property_values_visible : bool = false
 
 func _ready():
 	var title_label = $MarginContainer/VBoxContainer/Title
@@ -28,6 +29,11 @@ func _update_gui():
 
 	for property in self.properties:
 		var current_property_view = PropertyView.instantiate()
+		property.is_value_visible = are_property_values_visible
+
 		current_property_view.initialize(property)
 		property_container.add_child(current_property_view)
 
+
+func set_property_values_visible() -> void:
+	self.are_property_values_visible = true

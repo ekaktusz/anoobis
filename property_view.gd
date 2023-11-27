@@ -8,3 +8,6 @@ func initialize(property_data: PropertyData) -> void:
 
 	if self.property_data.is_secret:
 		$PropertyDescription.text = "secret"
+
+	if self.property_data.is_value_visible:
+		$PropertyDescription.text += " (" + str(property_data.value) + ")"
