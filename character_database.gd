@@ -1,5 +1,7 @@
 extends Node
 
+const PortraitView = preload("res://portrait_view.tscn")
+
 var negative_properties_normal: Array[PropertyData] = [
 	PropertyData.new(-1, "Used cheat codes in video games", false),
 	PropertyData.new(-1, "Did not wash their teeth after a fish-dinner", false),
@@ -70,7 +72,7 @@ var negative_properties_normal: Array[PropertyData] = [
 	PropertyData.new(-10, "Released a swarm of locusts to Cairo", false),
 ]
 
-var positive_properties_normal: Array[PropertyData] = [	
+var positive_properties_normal: Array[PropertyData] = [
 	PropertyData.new(1, "Fed their pet every day", false),
 	PropertyData.new(1, "Knitted a sweater for their brother Kevin", false),
 	PropertyData.new(1, "Brought snacks for board game night", false),
@@ -173,22 +175,11 @@ var lastnames = ["the Unworthy", "the Worst", "the Meh", "the Neutral", "the Und
 					  "the Morbid"
 					]
 
-var characters: Array[CharacterData] = get_characters(10)
 
 var in_heaven_characters: Array[CharacterData]
 var in_hell_characters: Array[CharacterData]
 
-func get_characters(number_of_characters: int):
-	var characters :Array[CharacterData] = []
-	while characters.size() < number_of_characters:
-		characters.append((CharacterData.new(
-		get_random_fullname(),
-		get_random_properties(positive_properties_normal,3),
-		get_random_properties(negative_properties_normal,3), 
-		null
-		)))
-	return characters
-	
+
 func get_random_properties(properties_array: Array[PropertyData], number_of_properties)-> Array[PropertyData]:
 	var result_array : Array[PropertyData] = []
 	while result_array.size() < number_of_properties:
@@ -196,12 +187,18 @@ func get_random_properties(properties_array: Array[PropertyData], number_of_prop
 		if (result_array.find(random_element) == -1):
 			result_array.append(random_element)
 	return result_array
-	
+
+
 func get_random_fullname() -> String:
 	return firstnames.pick_random() + lastnames.pick_random()
-	
+
+
 func get_random_character() -> CharacterData:
-	if self.characters.size() == 0:
-		return null	
-	var rand_index: int = randi() % self.characters.size()
-	return self.characters[rand_index]
+	var character = CharacterData.new(
+		get_random_fullname(),
+		get_random_properties(positive_properties_normal,3),
+		get_random_properties(negative_properties_normal,3),
+		PortraitView.instantiate()
+	)
+
+	return character
