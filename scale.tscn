@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://b5lkspwgwwpc4"]
 
 [ext_resource type="Script" path="res://scale.gd" id="1_ognxn"]
-[ext_resource type="Texture2D" path="res://assets/images/scale/03_merleg_rud_comp.png" id="2_nvvms"]
+[ext_resource type="Texture2D" uid="uid://dk6dacgmfo5n4" path="res://assets/images/scale/03_merleg_rud_comp.png" id="2_nvvms"]
 [ext_resource type="Script" path="res://ScalePicture.gd" id="3_emhsc"]
-[ext_resource type="Texture2D" path="res://assets/images/scale/03_merleg_kozep_comp.png" id="4_kckpl"]
-[ext_resource type="Texture2D" path="res://assets/images/scale/03_merleg_talca1_comp.png" id="5_vky3u"]
-[ext_resource type="Texture2D" path="res://assets/images/scale/03_merleg_talca2_comp.png" id="6_6it2d"]
+[ext_resource type="Texture2D" uid="uid://l2t0bn75uvdo" path="res://assets/images/scale/03_merleg_kozep_comp.png" id="4_kckpl"]
+[ext_resource type="Texture2D" uid="uid://cball4qs77wl4" path="res://assets/images/scale/03_merleg_talca1_comp.png" id="5_vky3u"]
+[ext_resource type="Texture2D" uid="uid://borghmv63onyj" path="res://assets/images/scale/03_merleg_talca2_comp.png" id="6_6it2d"]
 
 [node name="Scale" type="Control"]
 layout_mode = 3

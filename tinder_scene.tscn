@@ -135,10 +135,10 @@ layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 957.0
-offset_top = 964.0
-offset_right = 957.0
-offset_bottom = 964.0
+offset_left = 961.0
+offset_top = 529.0
+offset_right = 961.0
+offset_bottom = 529.0
 
 [node name="ToHellButton" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0.34902)
