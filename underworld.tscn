@@ -29,38 +29,53 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Back" type="Button" parent="Heaven/HeavenBackgroundPanel"]
+[node name="ScoreLabel" type="Label" parent="Heaven/HeavenBackgroundPanel"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 175.0
+offset_bottom = 61.0
+text = "Heaven score is : 0"
+
+[node name="HeavenActions" type="VBoxContainer" parent="Heaven/HeavenBackgroundPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -87.5
+offset_top = -48.0
+offset_right = 87.5
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Back" type="Button" parent="Heaven/HeavenBackgroundPanel/HeavenActions"]
+layout_mode = 2
 text = "Back to Tinder screen"
 
-[node name="ScoreLabel" type="Label" parent="Heaven/HeavenBackgroundPanel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Heaven score is : 0"
-
-[node name="AcceptHeavenQuest" type="Button" parent="Heaven/HeavenBackgroundPanel"]
+[node name="AcceptHeavenQuest" type="Button" parent="Heaven/HeavenBackgroundPanel/HeavenActions"]
 visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -4.0
-offset_right = 4.0
-offset_bottom = 8.0
-grow_horizontal = 2
+layout_mode = 2
 text = "Accept heaven quest"
+
+[node name="Quest" type="VBoxContainer" parent="Heaven/HeavenBackgroundPanel/HeavenActions"]
+layout_mode = 2
+
+[node name="QuestDescription" type="Label" parent="Heaven/HeavenBackgroundPanel/HeavenActions/Quest"]
+layout_mode = 2
+text = "HEAVEN QUEST DESCRIPTION"
+
+[node name="QuestDecisionButtons" type="HBoxContainer" parent="Heaven/HeavenBackgroundPanel/HeavenActions/Quest"]
+layout_mode = 2
+
+[node name="AcceptHeavenQuest" type="Button" parent="Heaven/HeavenBackgroundPanel/HeavenActions/Quest/QuestDecisionButtons"]
+layout_mode = 2
+text = "Accept"
+
+[node name="DeclineHeavenQuest" type="Button" parent="Heaven/HeavenBackgroundPanel/HeavenActions/Quest/QuestDecisionButtons"]
+layout_mode = 2
+text = "Decline"
 
 [node name="Hell" type="Control" parent="."]
 visible = false
@@ -80,7 +95,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0235294, 0.0235294, 0.0235294, 1)
 
-[node name="Back" type="Button" parent="Hell/HellBackgroundPanel"]
+[node name="ScoreLabel" type="Label" parent="Hell/HellBackgroundPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hell score is : 0"
+
+[node name="HellActions" type="VBoxContainer" parent="Hell/HellBackgroundPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -88,30 +109,38 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -87.5
-offset_top = -15.5
+offset_top = -48.0
 offset_right = 87.5
-offset_bottom = 15.5
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Back" type="Button" parent="Hell/HellBackgroundPanel/HellActions"]
+layout_mode = 2
 text = "Back to Tinder screen"
 
-[node name="ScoreLabel" type="Label" parent="Hell/HellBackgroundPanel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Hell score is : 0"
-
-[node name="AcceptHellQuest" type="Button" parent="Hell/HellBackgroundPanel"]
+[node name="AcceptHellQuest" type="Button" parent="Hell/HellBackgroundPanel/HellActions"]
 visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -70.0
-offset_right = 70.0
-offset_bottom = 31.0
-grow_horizontal = 2
+layout_mode = 2
 text = "Accept hell quest"
+
+[node name="Quest" type="VBoxContainer" parent="Hell/HellBackgroundPanel/HellActions"]
+layout_mode = 2
+
+[node name="QuestDescription" type="Label" parent="Hell/HellBackgroundPanel/HellActions/Quest"]
+layout_mode = 2
+text = "HELL QUEST DESCRIPTION"
+
+[node name="QuestDecisionButtons" type="HBoxContainer" parent="Hell/HellBackgroundPanel/HellActions/Quest"]
+layout_mode = 2
+
+[node name="AcceptHellQuest" type="Button" parent="Hell/HellBackgroundPanel/HellActions/Quest/QuestDecisionButtons"]
+layout_mode = 2
+text = "Accept"
+
+[node name="DeclineHellQuest" type="Button" parent="Hell/HellBackgroundPanel/HellActions/Quest/QuestDecisionButtons"]
+layout_mode = 2
+text = "Decline"
 
 [node name="UnderworldSelector" type="ColorRect" parent="."]
 layout_mode = 1
@@ -145,11 +174,11 @@ text = "Go to Hell
 layout_mode = 2
 text = "Go to Heaven"
 
-[connection signal="pressed" from="Heaven/HeavenBackgroundPanel/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Heaven/HeavenBackgroundPanel/Back" to="Heaven" method="_on_button_pressed" flags=18]
-[connection signal="pressed" from="Heaven/HeavenBackgroundPanel/AcceptHeavenQuest" to="." method="_on_accept_heaven_quest_pressed"]
-[connection signal="pressed" from="Hell/HellBackgroundPanel/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Hell/HellBackgroundPanel/Back" to="Hell" method="_on_back_pressed" flags=18]
-[connection signal="pressed" from="Hell/HellBackgroundPanel/AcceptHellQuest" to="." method="_on_accept_hell_quest_pressed"]
+[connection signal="pressed" from="Heaven/HeavenBackgroundPanel/HeavenActions/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Heaven/HeavenBackgroundPanel/HeavenActions/Back" to="Heaven" method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="Heaven/HeavenBackgroundPanel/HeavenActions/AcceptHeavenQuest" to="." method="_on_accept_heaven_quest_pressed"]
+[connection signal="pressed" from="Hell/HellBackgroundPanel/HellActions/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Hell/HellBackgroundPanel/HellActions/Back" to="Hell" method="_on_back_pressed" flags=18]
+[connection signal="pressed" from="Hell/HellBackgroundPanel/HellActions/AcceptHellQuest" to="." method="_on_accept_hell_quest_pressed"]
 [connection signal="pressed" from="UnderworldSelector/HBoxContainer/ToHellButton" to="." method="_on_to_hell_button_pressed"]
 [connection signal="pressed" from="UnderworldSelector/HBoxContainer/ToHeavenButton" to="." method="_on_to_heaven_button_pressed"]
