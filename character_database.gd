@@ -190,7 +190,7 @@ func get_random_properties(properties_array: Array[PropertyData], number_of_prop
 
 
 func get_random_fullname() -> String:
-	return firstnames.pick_random() + lastnames.pick_random()
+	return firstnames.pick_random()+ ', ' + lastnames.pick_random()
 
 
 func get_random_character() -> CharacterData:

@@ -20,11 +20,13 @@ signal underworld_left()
 func _on_to_hell_button_pressed() -> void:
 	underworld_selector.set_visible(false)
 	hell.set_visible(true)
+	print(NpcDialogs.croc_speak(floor(dead_counter / 10)))
 
 
 func _on_to_heaven_button_pressed() -> void:
 	underworld_selector.set_visible(false)
 	heaven.set_visible(true)
+	print(NpcDialogs.cat_speak(floor(dead_counter / 10)))
 
 
 func _on_back_pressed() -> void:
