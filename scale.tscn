@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5lkspwgwwpc4"]
+[gd_scene load_steps=7 format=3 uid="uid://b5lkspwgwwpc4"]
 
-[ext_resource type="Script" path="res://Label.gd" id="1_2au8i"]
 [ext_resource type="Script" path="res://scale.gd" id="1_ognxn"]
+[ext_resource type="Texture2D" path="res://assets/images/scale/03_merleg_rud_comp.png" id="2_nvvms"]
 [ext_resource type="Script" path="res://ScalePicture.gd" id="3_emhsc"]
-[ext_resource type="Texture2D" uid="uid://dv0if8nq54b84" path="res://assets/images/scale.png" id="3_kty0e"]
+[ext_resource type="Texture2D" path="res://assets/images/scale/03_merleg_kozep_comp.png" id="4_kckpl"]
+[ext_resource type="Texture2D" path="res://assets/images/scale/03_merleg_talca1_comp.png" id="5_vky3u"]
+[ext_resource type="Texture2D" path="res://assets/images/scale/03_merleg_talca2_comp.png" id="6_6it2d"]
 
 [node name="Scale" type="Control"]
 layout_mode = 3
@@ -28,34 +30,53 @@ grow_vertical = 2
 
 [node name="ScalePicture" type="TextureRect" parent="Container"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -268.0
-offset_top = -84.0
-offset_right = 264.0
-offset_bottom = 110.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(266, 97)
-texture = ExtResource("3_kty0e")
+layout_mode = 0
+offset_left = -963.0
+offset_top = -538.0
+offset_right = 954.0
+offset_bottom = 536.0
+pivot_offset = Vector2(961, 837)
+texture = ExtResource("2_nvvms")
 expand_mode = 1
-stretch_mode = 5
 script = ExtResource("3_emhsc")
+metadata/_edit_use_anchors_ = true
 
-[node name="ScaleValue" type="Label" parent="Container"]
-unique_name_in_owner = true
+[node name="ScaleLeg" type="TextureRect" parent="Container"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -15.0
-offset_top = 72.0
-offset_right = 4.0
-offset_bottom = 95.0
+offset_left = -963.0
+offset_top = -537.0
+offset_right = 957.0
+offset_bottom = 540.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.329412, 0.572549, 0.780392, 1)
-theme_override_font_sizes/font_size = 24
-script = ExtResource("1_2au8i")
+pivot_offset = Vector2(266, 97)
+texture = ExtResource("4_kckpl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ScalePlateLeft" type="TextureRect" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -541.0
+offset_right = 955.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(266, 97)
+texture = ExtResource("5_vky3u")
+stretch_mode = 5
+
+[node name="ScalePlateRight" type="TextureRect" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -964.0
+offset_top = -540.0
+offset_right = 953.0
+offset_bottom = 540.0
+pivot_offset = Vector2(266, 97)
+texture = ExtResource("6_6it2d")
+stretch_mode = 5
