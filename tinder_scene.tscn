@@ -7,12 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://b5lkspwgwwpc4" path="res://scale.tscn" id="4_68rii"]
 [ext_resource type="Theme" uid="uid://bixc6mxs53sp4" path="res://game_theme.tres" id="4_btjjv"]
 [ext_resource type="FontFile" uid="uid://be8jb3h077tii" path="res://assets/fonts/Roman SD.ttf" id="5_flaah"]
-[ext_resource type="StyleBox" path="res://hell_quest_btn_style.tres" id="8_bnp4i"]
-[ext_resource type="StyleBox" path="res://hover_dislike_style.tres" id="8_i63kk"]
+[ext_resource type="StyleBox" uid="uid://rh6q75qmagpe" path="res://hell_quest_btn_style.tres" id="8_bnp4i"]
+[ext_resource type="StyleBox" uid="uid://dhh0h5haqsepf" path="res://hover_dislike_style.tres" id="8_i63kk"]
 [ext_resource type="Texture2D" uid="uid://cno861nk463jf" path="res://assets/images/soul.png" id="8_r11d4"]
-[ext_resource type="StyleBox" path="res://hell_quest_btn_style_hover.tres" id="9_syh15"]
-[ext_resource type="StyleBox" path="res://heaven_quest_btn_style.tres" id="10_7sghi"]
-[ext_resource type="StyleBox" path="res://heaven_quest_btn_style_hover.tres" id="11_hmsvt"]
+[ext_resource type="StyleBox" uid="uid://cs5sc5k8laa54" path="res://hell_quest_btn_style_hover.tres" id="9_syh15"]
+[ext_resource type="StyleBox" uid="uid://wpo57pxm4o0i" path="res://heaven_quest_btn_style.tres" id="10_7sghi"]
+[ext_resource type="StyleBox" uid="uid://cpbd6ff7nqoax" path="res://heaven_quest_btn_style_hover.tres" id="11_hmsvt"]
 [ext_resource type="PackedScene" uid="uid://dw0x6jys7euaw" path="res://underworld.tscn" id="14_48rvw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sio5"]
@@ -135,10 +135,10 @@ layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 957.0
-offset_top = 964.0
-offset_right = 957.0
-offset_bottom = 964.0
+offset_left = 961.0
+offset_top = 529.0
+offset_right = 961.0
+offset_bottom = 529.0
 
 [node name="ToHellButton" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0.34902)
