@@ -6,7 +6,10 @@ extends Control
 
 var heaven_score = 50
 var hell_score = -50
-var scale_plate_default_y_position =-545
+var plate_left_default_x_position =-960
+var plate_left_default_y_position =-541
+var plate_right_default_x_position =-964
+var plate_right_default_y_position =-540
 
 
 func _on_tinder_scene_character_sent_to_heaven(character):
@@ -33,13 +36,27 @@ func calculate_rotation():
 	print("heaven current score: ", heaven_score )
 	print("hell current score: ", hell_score )
 	move_plates(heaven_score, hell_score)
-	
 	return deg_to_rad(scaled_hell_score + scaled_heaven_score)
 
 func move_plates(heaven_score:int, hell_score:int):
 	
 	print(scale_plate_right.position.x)
 	print(scale_plate_right.position.y)
-	scale_plate_right.set_position(Vector2(scale_plate_right.position.x, scale_plate_default_y_position+(hell_score+heaven_score)))
-	scale_plate_left.set_position(Vector2(scale_plate_left.position.x, scale_plate_default_y_position-(hell_score+heaven_score)))
+	scale_plate_right.set_position(Vector2(get_right_plate_x(), plate_right_default_y_position+(hell_score+heaven_score)))
+	scale_plate_left.set_position(Vector2(get_left_plate_x(), plate_left_default_y_position-(hell_score+heaven_score)))
 
+func get_left_plate_x():
+	var x_coord = scale_plate_left.position.x
+	if (heaven_score+hell_score < -50):
+		x_coord = plate_left_default_x_position + 5	
+	elif (heaven_score+hell_score < -80):
+		x_coord = plate_left_default_x_position + 8	
+	return x_coord
+		
+func get_right_plate_x():
+	var x_coord = scale_plate_right.position.x
+	if (heaven_score+hell_score < -50):
+		x_coord = plate_right_default_x_position - 5
+	elif(heaven_score+hell_score < -80):
+		x_coord = plate_right_default_x_position - 8
+	return x_coord
