@@ -60,6 +60,7 @@ layout_mode = 2
 text = "Accept heaven quest"
 
 [node name="Quest" type="VBoxContainer" parent="Heaven/HeavenBackgroundPanel/HeavenActions"]
+visible = false
 layout_mode = 2
 
 [node name="QuestDescription" type="Label" parent="Heaven/HeavenBackgroundPanel/HeavenActions/Quest"]
@@ -125,6 +126,7 @@ layout_mode = 2
 text = "Accept hell quest"
 
 [node name="Quest" type="VBoxContainer" parent="Hell/HellBackgroundPanel/HellActions"]
+visible = false
 layout_mode = 2
 
 [node name="QuestDescription" type="Label" parent="Hell/HellBackgroundPanel/HellActions/Quest"]

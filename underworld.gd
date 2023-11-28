@@ -6,6 +6,26 @@ var dead_counter : int = 0
 var heaven_quest_accepted : bool = false
 var hell_quest_accepted : bool = false
 
+var hell_quest_descriptions : Array[String] = [
+	"Send 1 soul to Heaven who does not belong there",
+	"Send a balanced (equal PRO and CON) soul to Hell",
+	"Send all souls to Heaven who would belong to Hell in a round",
+	"Make Heaven's score go under +25",
+	"Make Hell overflow with Evil (-100)",
+]
+
+var heaven_quest_descriptions : Array[String] = [
+	"Send more people to Heaven than Hell in a round",
+	"Send 3 souls to Heaven with a +8 or higher score",
+	"Send all souls to Heaven in a round",
+	"Make Hell's score go above -25",
+	"Make Heaven overflow with goodness (+100)",
+]
+
+var current_hell_quest_index : int = 0
+var current_heaven_quest_index : int = 0
+
+
 @onready var heaven = $Heaven
 @onready var hell = $Hell
 @onready var underworld_selector = $UnderworldSelector
@@ -13,6 +33,12 @@ var hell_quest_accepted : bool = false
 @onready var hell_score_label = $Hell/HellBackgroundPanel/ScoreLabel
 @onready var hell_quest_button = $Hell/HellBackgroundPanel/AcceptHellQuest
 @onready var heaven_quest_button = $Heaven/HeavenBackgroundPanel/AcceptHeavenQuest
+
+@onready var heaven_quest = $Heaven/HeavenBackgroundPanel/HeavenActions/Quest
+@onready var hell_quest = $Hell/HellBackgroundPanel/HellActions/Quest
+@onready var heaven_quest_description = $Heaven/HeavenBackgroundPanel/HeavenActions/Quest/QuestDescription
+@onready var hell_quest_description = $Hell/HellBackgroundPanel/HellActions/Quest/QuestDescription
+
 
 signal underworld_left()
 
@@ -83,8 +109,11 @@ func game_over() -> void:
 
 
 func enable_underworld_quests() -> void:
-	hell_quest_button.set_visible(true)
-	heaven_quest_button.set_visible(true)
+	hell_quest.set_visible(true)
+	hell_quest_description.set_text(hell_quest_descriptions[current_hell_quest_index])
+
+	heaven_quest.set_visible(true)
+	heaven_quest_description.set_text(heaven_quest_descriptions[current_heaven_quest_index])
 
 
 func _on_accept_hell_quest_pressed() -> void:
