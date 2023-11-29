@@ -15,16 +15,22 @@ var hell_quest_accepted : bool = false
 @onready var heaven_quest_button = $Heaven/HeavenBackgroundPanel/AcceptHeavenQuest
 
 signal underworld_left()
+signal open_hell_dialog(level)
+signal open_heaven_dialog(level)
 
 
 func _on_to_hell_button_pressed() -> void:
 	underworld_selector.set_visible(false)
 	hell.set_visible(true)
+	open_hell_dialog.emit(floor(dead_counter / 10))
+	#print(NpcDialogs.croc_speak(floor(dead_counter / 10)))
 
 
 func _on_to_heaven_button_pressed() -> void:
 	underworld_selector.set_visible(false)
 	heaven.set_visible(true)
+	open_heaven_dialog.emit(floor(dead_counter / 10))
+	#print(NpcDialogs.cat_speak(floor(dead_counter / 10)))
 
 
 func _on_back_pressed() -> void:
