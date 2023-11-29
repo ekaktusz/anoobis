@@ -48,16 +48,27 @@ var people_sent_to_heaven_with_8_plus_score : int = 0
 # heaven lvl3
 var all_souls_sent_to_heaven_in_round : bool = true
 
+# hell lvl1
+var soul_sent_where_it_doesnt_belong : bool = false
+# hell lvl2
+var balanced_sent_to_hell : bool = false
+# hell lvl3
+var all_negative_soul_in_heaven : bool = true
+
 
 func evaluate_quest_completion() -> void:
 	if accepted_hell_quest_index == 0:
-		pass
+		if soul_sent_where_it_doesnt_belong:
+			set_next_hell_quest()
 	elif accepted_hell_quest_index == 1:
-		pass
+		if balanced_sent_to_hell:
+			set_next_hell_quest()
 	elif accepted_hell_quest_index == 2:
-		pass
+		if all_negative_soul_in_heaven:
+			set_next_hell_quest()
 	elif accepted_hell_quest_index == 3:
-		pass
+		if heaven_score < 25:
+			set_next_hell_quest()
 	elif accepted_hell_quest_index == 4:
 		pass
 
@@ -78,9 +89,15 @@ func evaluate_quest_completion() -> void:
 
 
 func set_next_heaven_quest() -> void:
-	print("quest no. " + str(next_heaven_quest_index) + " completed.")
+	print("heaven quest no. " + str(next_heaven_quest_index) + " completed.")
 	next_heaven_quest_index += 1
 	heaven_quest_description.set_text(heaven_quest_descriptions[next_heaven_quest_index])
+
+
+func set_next_hell_quest() -> void:
+	print("hell quest no. " + str(next_hell_quest_index) + " completed.")
+	next_hell_quest_index += 1
+	hell_quest_description.set_text(hell_quest_descriptions[next_hell_quest_index])
 
 
 func _on_to_hell_button_pressed() -> void:
@@ -96,6 +113,7 @@ func _on_to_heaven_button_pressed() -> void:
 func reset_quest_state() -> void:
 	all_souls_sent_to_heaven_in_round = true
 	people_sent_to_hell_and_heaven_balance = 0
+	# TODO: add all variables
 
 
 func _on_back_pressed() -> void:
@@ -111,6 +129,8 @@ func _on_tinder_scene_character_sent_to_heaven(character : CharacterData) -> voi
 	people_sent_to_hell_and_heaven_balance += 1
 	if character.get_soul_value_sum() >= 8:
 		people_sent_to_heaven_with_8_plus_score += 1
+	if character.get_soul_value_sum() < 0:
+		soul_sent_where_it_doesnt_belong = true
 	heaven_score += character.get_soul_value_sum()
 	dead_counter += 1
 
@@ -120,6 +140,13 @@ func _on_tinder_scene_character_sent_to_heaven(character : CharacterData) -> voi
 func _on_tinder_scene_character_sent_to_hell(character) -> void:
 	all_souls_sent_to_heaven_in_round = false
 	people_sent_to_hell_and_heaven_balance -= 1
+
+	if character.get_soul_value_sum() > 0:
+		soul_sent_where_it_doesnt_belong = true
+	elif character.get_soul_value_sum() == 0:
+		balanced_sent_to_hell = true
+	else:
+		all_negative_soul_in_heaven = false
 
 	hell_score += character.get_soul_value_sum()
 	dead_counter += 1
