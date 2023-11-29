@@ -111,9 +111,12 @@ func _on_to_heaven_button_pressed() -> void:
 
 
 func reset_quest_state() -> void:
-	all_souls_sent_to_heaven_in_round = true
 	people_sent_to_hell_and_heaven_balance = 0
-	# TODO: add all variables
+	people_sent_to_heaven_with_8_plus_score = 0
+	all_souls_sent_to_heaven_in_round = true
+	soul_sent_where_it_doesnt_belong = false
+	balanced_sent_to_hell = false
+	all_negative_soul_in_heaven = true
 
 
 func _on_back_pressed() -> void:
