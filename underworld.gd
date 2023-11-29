@@ -41,7 +41,11 @@ var accepted_heaven_quest_index : int = -1
 
 signal underworld_left()
 
-# heaven lvl5
+# heaven lvl1
+var people_sent_to_hell_and_heaven_balance : int = 0
+# heaven lvl2
+var people_sent_to_heaven_with_8_plus_score : int = 0
+# heaven lvl3
 var all_souls_sent_to_heaven_in_round : bool = true
 
 func evaluate_quest_completion() -> void:
@@ -57,17 +61,24 @@ func evaluate_quest_completion() -> void:
 		pass
 
 	if accepted_heaven_quest_index == 0:
-		pass
+		if people_sent_to_hell_and_heaven_balance > 0:
+			next_heaven_quest_index += 1
+			print("1st heaven quest completed")
 	elif accepted_heaven_quest_index == 1:
-		pass
+		if people_sent_to_heaven_with_8_plus_score >= 3:
+			next_heaven_quest_index += 1
+			print("2nd heaven quest completed")
 	elif accepted_heaven_quest_index == 2:
 		if all_souls_sent_to_heaven_in_round:
 			next_heaven_quest_index += 1
 			print("3rd heaven quest completed")
 	elif accepted_heaven_quest_index == 3:
-		pass
+		if hell_score > -25:
+			next_heaven_quest_index += 1
+			print("4th heaven quest completed")
 	elif accepted_heaven_quest_index == 4:
 		pass
+
 
 func _on_to_hell_button_pressed() -> void:
 	underworld_selector.set_visible(false)
@@ -79,15 +90,24 @@ func _on_to_heaven_button_pressed() -> void:
 	heaven.set_visible(true)
 
 
+func reset_quest_state() -> void:
+	all_souls_sent_to_heaven_in_round = true
+	people_sent_to_hell_and_heaven_balance = 0
+
+
 func _on_back_pressed() -> void:
 	underworld_selector.set_visible(true)
 	heaven.set_visible(false)
 	hell.set_visible(false)
+	reset_quest_state()
 
 	underworld_left.emit()
 
 
 func _on_tinder_scene_character_sent_to_heaven(character : CharacterData) -> void:
+	people_sent_to_hell_and_heaven_balance += 1
+	if character.get_soul_value_sum() >= 8:
+		people_sent_to_heaven_with_8_plus_score += 1
 	heaven_score += character.get_soul_value_sum()
 	dead_counter += 1
 
@@ -95,6 +115,9 @@ func _on_tinder_scene_character_sent_to_heaven(character : CharacterData) -> voi
 
 
 func _on_tinder_scene_character_sent_to_hell(character) -> void:
+	all_souls_sent_to_heaven_in_round = false
+	people_sent_to_hell_and_heaven_balance -= 1
+
 	hell_score += character.get_soul_value_sum()
 	dead_counter += 1
 
