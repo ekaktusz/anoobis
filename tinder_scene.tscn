@@ -175,6 +175,7 @@ theme_override_fonts/font = ExtResource("5_flaah")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = ExtResource("8_bnp4i")
 text = "HELL QUEST"
+autowrap_mode = 3
 
 [node name="HeavenQuest" type="Label" parent="."]
 layout_mode = 0
@@ -187,6 +188,7 @@ theme_override_fonts/font = ExtResource("5_flaah")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = ExtResource("10_7sghi")
 text = "HEAVEN QUEST"
+autowrap_mode = 3
 
 [node name="Fire" type="Sprite2D" parent="."]
 position = Vector2(1025, 170)
