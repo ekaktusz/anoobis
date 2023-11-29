@@ -103,6 +103,5 @@ func _on_where_to_selector_underworld_left() -> void:
 
 
 func update_quest_descriptions() -> void:
-	if level >= 3:
-		hell_quest.text = underworld.get_current_hell_quest_description()
-		heaven_quest.text = underworld.get_current_heaven_quest_description()
+	underworld.update_hell_quest_label(hell_quest)
+	underworld.update_heaven_quest_label(heaven_quest)
