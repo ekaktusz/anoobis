@@ -24,12 +24,8 @@ func _ready():
 	self.level = 0
 	rank_display_label.text = RankDefinitions.get_rank(level)
 	get_new_character()
-	set_initial_quests()
+	update_quest_descriptions()
 
-
-func set_initial_quests() -> void:
-	hell_quest.text = "Send 5 souls to Hell"
-	heaven_quest.text = "Send 5 souls to Heaven"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -103,5 +99,5 @@ func _on_where_to_selector_underworld_left() -> void:
 
 
 func update_quest_descriptions() -> void:
-	underworld.update_hell_quest_label(hell_quest)
-	underworld.update_heaven_quest_label(heaven_quest)
+	hell_quest.text = underworld.get_current_hell_quest_description()
+	heaven_quest.text = underworld.get_current_heaven_quest_description()

@@ -41,6 +41,9 @@ var accepted_heaven_quest_index : int = -1
 
 signal underworld_left()
 
+
+# heaven  lvl0
+var sent_to_heaven_counter : int = 0
 # heaven lvl1
 var people_sent_to_hell_and_heaven_balance : int = 0
 # heaven lvl2
@@ -48,6 +51,8 @@ var people_sent_to_heaven_with_8_plus_score : int = 0
 # heaven lvl3
 var all_souls_sent_to_heaven_in_round : bool = true
 
+# hell  lvl0
+var sent_to_hell_counter : int = 0
 # hell lvl1
 var soul_sent_where_it_doesnt_belong : bool = false
 # hell lvl2
@@ -130,6 +135,8 @@ func _on_back_pressed() -> void:
 
 func _on_tinder_scene_character_sent_to_heaven(character : CharacterData) -> void:
 	people_sent_to_hell_and_heaven_balance += 1
+	sent_to_heaven_counter += 1
+
 	if character.get_soul_value_sum() >= 8:
 		people_sent_to_heaven_with_8_plus_score += 1
 	if character.get_soul_value_sum() < 0:
@@ -143,6 +150,7 @@ func _on_tinder_scene_character_sent_to_heaven(character : CharacterData) -> voi
 func _on_tinder_scene_character_sent_to_hell(character) -> void:
 	all_souls_sent_to_heaven_in_round = false
 	people_sent_to_hell_and_heaven_balance -= 1
+	sent_to_hell_counter += 1
 
 	if character.get_soul_value_sum() > 0:
 		soul_sent_where_it_doesnt_belong = true
@@ -219,10 +227,24 @@ func _on_decline_heaven_quest_pressed() -> void:
 	pass # Replace with function body.
 
 
-func update_heaven_quest_label(label : Label) -> void:
-	if accepted_heaven_quest_index < 0 : return
-	label.text = heaven_quest_descriptions[accepted_heaven_quest_index]
+func get_current_heaven_quest_description() -> String:
+	var description = ""
 
-func update_hell_quest_label(label : Label) -> void:
-	if accepted_hell_quest_index < 0 : return
-	label.text = hell_quest_descriptions[accepted_hell_quest_index]
+	if accepted_heaven_quest_index >= 0 :
+		description = heaven_quest_descriptions[accepted_heaven_quest_index]
+	elif sent_to_heaven_counter < 5 :
+		description = "Send 5 souls to Heaven"
+
+	return description
+
+
+func get_current_hell_quest_description() -> String:
+	var description = ""
+
+	if accepted_hell_quest_index >= 0 :
+		description = hell_quest_descriptions[accepted_hell_quest_index]
+	elif sent_to_hell_counter < 5 :
+		description = "Send 5 souls to Hell"
+
+	return description
+
