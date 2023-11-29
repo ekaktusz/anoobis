@@ -16,8 +16,10 @@ texture = ExtResource("1_pdery")
 expand_mode = 4
 
 [node name="PropertyDescription" type="Label" parent="."]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("3_1c2ko")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "had slaces"
+autowrap_mode = 3
