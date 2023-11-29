@@ -3,6 +3,7 @@ extends Control
 signal character_changed(new_character: CharacterData)
 signal character_sent_to_hell(character: CharacterData)
 signal character_sent_to_heaven(character: CharacterData)
+signal open_tinder_dialog(level)
 
 static var level : int
 var processed_dead_count : int
@@ -21,7 +22,8 @@ func _ready():
 	self.level = 0
 	rank_display_label.text = RankDefinitions.get_rank(level)
 	get_new_character()
-	print(NpcDialogs.anubis_speak(level))
+	open_tinder_dialog.emit(level)
+	#print(NpcDialogs.anubis_speak(level))
 
 
 func _input(event: InputEvent) -> void:
@@ -87,4 +89,5 @@ func _on_where_to_selector_underworld_left() -> void:
 	underworld.set_visible(false)
 	update_rank_title()
 	reset_dead_count()
-	print(NpcDialogs.anubis_speak(level))
+	open_tinder_dialog.emit(level)	
+#	print(NpcDialogs.anubis_speak(level))

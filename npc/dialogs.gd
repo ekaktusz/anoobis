@@ -42,8 +42,8 @@ func anubis_speak(level: int) -> String:
 	return anubis_dialogs.filter(func(dialog): return dialog.level == level+1)[0].text
 
 func croc_speak(level: int) -> String:
-	return croc_bro_dialogs.filter(func(dialog): return dialog.level == level+1)[0].text
+	return croc_bro_dialogs.filter(func(dialog): return dialog.level == level)[0].text
 	
-func cat_speak(level: int) -> String:
-	return cat_godess_dialogs.filter(func(dialog): return dialog.level == level+1)[0].text
+func goddess_speak(level: int) -> String:
+	return cat_godess_dialogs.filter(func(dialog): return dialog.level == level)[0].text
 	
