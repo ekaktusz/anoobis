@@ -14,6 +14,8 @@ var current_character: CharacterData
 @onready var underworld : Node =  $Underworld
 @onready var const_properties_view : Node = $ConsPropertiesView
 @onready var pros_properties_view : Node = $ProsPropertiesView
+@onready var hell_quest : Node = $HellQuest
+@onready var heaven_quest : Node = $HeavenQuest
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +24,12 @@ func _ready():
 	self.level = 0
 	rank_display_label.text = RankDefinitions.get_rank(level)
 	get_new_character()
+	set_initial_quests()
 
+
+func set_initial_quests() -> void:
+	hell_quest.text = "Send 5 souls to Hell"
+	heaven_quest.text = "Send 5 souls to Heaven"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -87,8 +94,15 @@ func rank_up() -> void:
 func update_rank_title() -> void:
 	rank_display_label.text = RankDefinitions.get_rank(level)
 
-
+# TODO: this is not where to selector anymore
 func _on_where_to_selector_underworld_left() -> void:
 	underworld.set_visible(false)
 	update_rank_title()
 	reset_dead_count()
+	update_quest_descriptions()
+
+
+func update_quest_descriptions() -> void:
+	if level >= 3:
+		hell_quest.text = underworld.get_current_hell_quest_description()
+		heaven_quest.text = underworld.get_current_heaven_quest_description()

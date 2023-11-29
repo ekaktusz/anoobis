@@ -217,3 +217,11 @@ func _on_decline_hell_quest_pressed() -> void:
 
 func _on_decline_heaven_quest_pressed() -> void:
 	pass # Replace with function body.
+
+
+func get_current_heaven_quest_description() -> String:
+	return heaven_quest_descriptions[accepted_heaven_quest_index]
+
+
+func get_current_hell_quest_description() -> String:
+	return hell_quest_descriptions[accepted_hell_quest_index]

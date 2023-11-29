@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://gh4wifppmunc"]
+[gd_scene load_steps=15 format=3 uid="uid://gh4wifppmunc"]
 
 [ext_resource type="Script" path="res://tinder_scene.gd" id="1_w104e"]
 [ext_resource type="PackedScene" uid="uid://70k7ofhbtbhy" path="res://properties_view.tscn" id="2_1d4s5"]
@@ -10,9 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://rh6q75qmagpe" path="res://hell_quest_btn_style.tres" id="8_bnp4i"]
 [ext_resource type="StyleBox" uid="uid://dhh0h5haqsepf" path="res://hover_dislike_style.tres" id="8_i63kk"]
 [ext_resource type="Texture2D" uid="uid://cno861nk463jf" path="res://assets/images/soul.png" id="8_r11d4"]
-[ext_resource type="StyleBox" uid="uid://cs5sc5k8laa54" path="res://hell_quest_btn_style_hover.tres" id="9_syh15"]
 [ext_resource type="StyleBox" uid="uid://wpo57pxm4o0i" path="res://heaven_quest_btn_style.tres" id="10_7sghi"]
-[ext_resource type="StyleBox" uid="uid://cpbd6ff7nqoax" path="res://heaven_quest_btn_style_hover.tres" id="11_hmsvt"]
 [ext_resource type="PackedScene" uid="uid://dw0x6jys7euaw" path="res://underworld.tscn" id="14_48rvw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sio5"]
@@ -166,32 +164,28 @@ mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_xp0qr")
 theme_override_styles/hover = ExtResource("8_i63kk")
 
-[node name="HellQuestButton" type="Button" parent="."]
+[node name="HellQuest" type="Label" parent="."]
 layout_mode = 0
 offset_left = 310.0
 offset_top = 42.0
 offset_right = 653.0
 offset_bottom = 173.0
-focus_mode = 0
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("5_flaah")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = ExtResource("8_bnp4i")
-theme_override_styles/hover = ExtResource("9_syh15")
 text = "HELL QUEST"
 
-[node name="HeavenQuest" type="Button" parent="."]
+[node name="HeavenQuest" type="Label" parent="."]
 layout_mode = 0
 offset_left = 1291.0
 offset_top = 42.0
 offset_right = 1634.0
 offset_bottom = 173.0
-focus_mode = 0
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("5_flaah")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = ExtResource("10_7sghi")
-theme_override_styles/hover = ExtResource("11_hmsvt")
 text = "HEAVEN QUEST"
 
 [node name="Fire" type="Sprite2D" parent="."]
@@ -212,6 +206,4 @@ layout_mode = 1
 [connection signal="character_sent_to_hell" from="." to="Underworld" method="_on_tinder_scene_character_sent_to_hell"]
 [connection signal="pressed" from="ToHellButton" to="." method="_on_hell_button_pressed"]
 [connection signal="pressed" from="ToHeavenButton" to="." method="_on_heaven_button_pressed"]
-[connection signal="pressed" from="HellQuestButton" to="." method="_on_hell_quest_button_pressed"]
-[connection signal="pressed" from="HeavenQuest" to="." method="_on_heaven_quest_pressed"]
 [connection signal="underworld_left" from="Underworld" to="." method="_on_where_to_selector_underworld_left"]
