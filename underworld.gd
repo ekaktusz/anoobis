@@ -48,6 +48,7 @@ var people_sent_to_heaven_with_8_plus_score : int = 0
 # heaven lvl3
 var all_souls_sent_to_heaven_in_round : bool = true
 
+
 func evaluate_quest_completion() -> void:
 	if accepted_hell_quest_index == 0:
 		pass
@@ -62,22 +63,24 @@ func evaluate_quest_completion() -> void:
 
 	if accepted_heaven_quest_index == 0:
 		if people_sent_to_hell_and_heaven_balance > 0:
-			next_heaven_quest_index += 1
-			print("1st heaven quest completed")
+			set_next_heaven_quest()
 	elif accepted_heaven_quest_index == 1:
 		if people_sent_to_heaven_with_8_plus_score >= 3:
-			next_heaven_quest_index += 1
-			print("2nd heaven quest completed")
+			set_next_heaven_quest()
 	elif accepted_heaven_quest_index == 2:
 		if all_souls_sent_to_heaven_in_round:
-			next_heaven_quest_index += 1
-			print("3rd heaven quest completed")
+			set_next_heaven_quest()
 	elif accepted_heaven_quest_index == 3:
 		if hell_score > -25:
-			next_heaven_quest_index += 1
-			print("4th heaven quest completed")
+			set_next_heaven_quest()
 	elif accepted_heaven_quest_index == 4:
 		pass
+
+
+func set_next_heaven_quest() -> void:
+	print("quest no. " + str(next_heaven_quest_index) + " completed.")
+	next_heaven_quest_index += 1
+	heaven_quest_description.set_text(heaven_quest_descriptions[next_heaven_quest_index])
 
 
 func _on_to_hell_button_pressed() -> void:
@@ -122,6 +125,11 @@ func _on_tinder_scene_character_sent_to_hell(character) -> void:
 	dead_counter += 1
 
 	hell_score_label.text = "Hell score is: " + str(hell_score)
+
+
+func evaluate_end_of_turn() -> void:
+	evaluate_win_condition()
+	evaluate_quest_completion()
 
 
 func evaluate_win_condition() -> void:

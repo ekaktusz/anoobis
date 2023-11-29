@@ -47,7 +47,7 @@ func _on_hell_button_pressed() -> void:
 func swipe_character() -> void:
 	increase_processed_dead_counter()
 	if processed_dead_count >= 10:
-		underworld.evaluate_win_condition()
+		underworld.evaluate_end_of_turn()
 		trigger_break_selector()
 		rank_up()
 
