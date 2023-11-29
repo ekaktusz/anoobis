@@ -54,11 +54,6 @@ grow_vertical = 2
 layout_mode = 2
 text = "Back to Tinder screen"
 
-[node name="AcceptHeavenQuest" type="Button" parent="Heaven/HeavenBackgroundPanel/HeavenActions"]
-visible = false
-layout_mode = 2
-text = "Accept heaven quest"
-
 [node name="Quest" type="VBoxContainer" parent="Heaven/HeavenBackgroundPanel/HeavenActions"]
 visible = false
 layout_mode = 2
@@ -120,11 +115,6 @@ grow_vertical = 2
 layout_mode = 2
 text = "Back to Tinder screen"
 
-[node name="AcceptHellQuest" type="Button" parent="Hell/HellBackgroundPanel/HellActions"]
-visible = false
-layout_mode = 2
-text = "Accept hell quest"
-
 [node name="Quest" type="VBoxContainer" parent="Hell/HellBackgroundPanel/HellActions"]
 visible = false
 layout_mode = 2
@@ -178,9 +168,7 @@ text = "Go to Heaven"
 
 [connection signal="pressed" from="Heaven/HeavenBackgroundPanel/HeavenActions/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Heaven/HeavenBackgroundPanel/HeavenActions/Back" to="Heaven" method="_on_button_pressed" flags=18]
-[connection signal="pressed" from="Heaven/HeavenBackgroundPanel/HeavenActions/AcceptHeavenQuest" to="." method="_on_accept_heaven_quest_pressed"]
 [connection signal="pressed" from="Hell/HellBackgroundPanel/HellActions/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Hell/HellBackgroundPanel/HellActions/Back" to="Hell" method="_on_back_pressed" flags=18]
-[connection signal="pressed" from="Hell/HellBackgroundPanel/HellActions/AcceptHellQuest" to="." method="_on_accept_hell_quest_pressed"]
 [connection signal="pressed" from="UnderworldSelector/HBoxContainer/ToHellButton" to="." method="_on_to_hell_button_pressed"]
 [connection signal="pressed" from="UnderworldSelector/HBoxContainer/ToHeavenButton" to="." method="_on_to_heaven_button_pressed"]

@@ -114,13 +114,14 @@ func enable_underworld_quests() -> void:
 
 	heaven_quest.set_visible(true)
 	heaven_quest_description.set_text(heaven_quest_descriptions[current_heaven_quest_index])
-
-
+# TODO: a generic quest acceptor button is needed
+# TODO: this should be reconnected to the functionality after completing the last quest.
 func _on_accept_hell_quest_pressed() -> void:
 	hell_quest_accepted = true
 	hell_quest_button.set_visible(false)
 
-
+# TODO: this should be reconnected to the functionality after completing the last quest.
 func _on_accept_heaven_quest_pressed() -> void:
 	heaven_quest_accepted = true
 	heaven_quest_button.set_visible(false)
+
