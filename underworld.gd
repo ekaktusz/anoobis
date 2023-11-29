@@ -3,8 +3,6 @@ extends Control
 var hell_score : int = -50
 var heaven_score : int = 50
 var dead_counter : int = 0
-var heaven_quest_accepted : bool = false
-var hell_quest_accepted : bool = false
 
 var hell_quest_descriptions : Array[String] = [
 	"Send 1 soul to Heaven who does not belong there",
@@ -27,21 +25,6 @@ var next_heaven_quest_index : int = 0
 var accepted_hell_quest_index : int = -1
 var accepted_heaven_quest_index : int = -1
 
-@onready var heaven = $Heaven
-@onready var hell = $Hell
-@onready var underworld_selector = $UnderworldSelector
-@onready var heaven_score_label = $Heaven/HeavenBackgroundPanel/ScoreLabel
-@onready var hell_score_label = $Hell/HellBackgroundPanel/ScoreLabel
-
-@onready var heaven_quest = $Heaven/HeavenBackgroundPanel/HeavenActions/Quest
-@onready var hell_quest = $Hell/HellBackgroundPanel/HellActions/Quest
-@onready var heaven_quest_description = $Heaven/HeavenBackgroundPanel/HeavenActions/Quest/QuestDescription
-@onready var hell_quest_description = $Hell/HellBackgroundPanel/HellActions/Quest/QuestDescription
-
-
-signal underworld_left()
-
-
 # heaven  lvl0
 var sent_to_heaven_counter : int = 0
 # heaven lvl1
@@ -59,6 +42,18 @@ var soul_sent_where_it_doesnt_belong : bool = false
 var balanced_sent_to_hell : bool = false
 # hell lvl3
 var all_negative_soul_in_heaven : bool = true
+
+@onready var heaven = $Heaven
+@onready var hell = $Hell
+@onready var underworld_selector = $UnderworldSelector
+@onready var heaven_score_label = $Heaven/HeavenBackgroundPanel/ScoreLabel
+@onready var hell_score_label = $Hell/HellBackgroundPanel/ScoreLabel
+@onready var heaven_quest = $Heaven/HeavenBackgroundPanel/HeavenActions/Quest
+@onready var hell_quest = $Hell/HellBackgroundPanel/HellActions/Quest
+@onready var heaven_quest_description = $Heaven/HeavenBackgroundPanel/HeavenActions/Quest/QuestDescription
+@onready var hell_quest_description = $Hell/HellBackgroundPanel/HellActions/Quest/QuestDescription
+
+signal underworld_left()
 
 
 func evaluate_quest_completion() -> void:
@@ -172,14 +167,14 @@ func evaluate_end_of_turn() -> void:
 
 func evaluate_win_condition() -> void:
 	if dead_counter >= 100:
-		if heaven_quest_accepted or hell_quest_accepted:
+		if accepted_heaven_quest_index == 4 or accepted_hell_quest_index == 4:
 			print("YOUR LOSER: Accepted an underworld quest but ended up balanced")
 		else:
 			print("YOUR WINNER: True ending")
 		game_over()
 
 	if hell_score <= -100:
-		if hell_quest_accepted:
+		if accepted_hell_quest_index == 4:
 			print("YOUR WINNER: Completed hell quest")
 		else:
 			print("YOUR LOSER: Hell got unbalanced")
@@ -189,7 +184,7 @@ func evaluate_win_condition() -> void:
 		game_over()
 
 	if heaven_score >= 100:
-		if heaven_quest_accepted:
+		if accepted_heaven_quest_index == 4:
 			print("YOUR WINNER: Completed heaven quest")
 		else:
 			print("YOUR LOSER: Heaven got unbalanced")
@@ -209,12 +204,12 @@ func enable_underworld_quests() -> void:
 
 	heaven_quest.set_visible(true)
 	heaven_quest_description.set_text(heaven_quest_descriptions[next_heaven_quest_index])
-# TODO: a generic quest acceptor button is needed
-# TODO: this should be reconnected to the functionality after completing the last quest.
+
+
 func _on_accept_hell_quest_pressed() -> void:
 	accepted_hell_quest_index = next_hell_quest_index
 
-# TODO: this should be reconnected to the functionality after completing the last quest.
+
 func _on_accept_heaven_quest_pressed() -> void:
 	accepted_heaven_quest_index = next_heaven_quest_index
 
