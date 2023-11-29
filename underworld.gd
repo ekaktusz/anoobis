@@ -22,9 +22,10 @@ var heaven_quest_descriptions : Array[String] = [
 	"Make Heaven overflow with goodness (+100)",
 ]
 
-var current_hell_quest_index : int = 0
-var current_heaven_quest_index : int = 0
-
+var next_hell_quest_index : int = 0
+var next_heaven_quest_index : int = 0
+var accepted_hell_quest_index : int = -1
+var accepted_heaven_quest_index : int = -1
 
 @onready var heaven = $Heaven
 @onready var hell = $Hell
@@ -40,6 +41,33 @@ var current_heaven_quest_index : int = 0
 
 signal underworld_left()
 
+# heaven lvl5
+var all_souls_sent_to_heaven_in_round : bool = true
+
+func evaluate_quest_completion() -> void:
+	if accepted_hell_quest_index == 0:
+		pass
+	elif accepted_hell_quest_index == 1:
+		pass
+	elif accepted_hell_quest_index == 2:
+		pass
+	elif accepted_hell_quest_index == 3:
+		pass
+	elif accepted_hell_quest_index == 4:
+		pass
+
+	if accepted_heaven_quest_index == 0:
+		pass
+	elif accepted_heaven_quest_index == 1:
+		pass
+	elif accepted_heaven_quest_index == 2:
+		if all_souls_sent_to_heaven_in_round:
+			next_heaven_quest_index += 1
+			print("3rd heaven quest completed")
+	elif accepted_heaven_quest_index == 3:
+		pass
+	elif accepted_heaven_quest_index == 4:
+		pass
 
 func _on_to_hell_button_pressed() -> void:
 	underworld_selector.set_visible(false)
@@ -108,18 +136,18 @@ func game_over() -> void:
 
 func enable_underworld_quests() -> void:
 	hell_quest.set_visible(true)
-	hell_quest_description.set_text(hell_quest_descriptions[current_hell_quest_index])
+	hell_quest_description.set_text(hell_quest_descriptions[next_hell_quest_index])
 
 	heaven_quest.set_visible(true)
-	heaven_quest_description.set_text(heaven_quest_descriptions[current_heaven_quest_index])
+	heaven_quest_description.set_text(heaven_quest_descriptions[next_heaven_quest_index])
 # TODO: a generic quest acceptor button is needed
 # TODO: this should be reconnected to the functionality after completing the last quest.
 func _on_accept_hell_quest_pressed() -> void:
-	hell_quest_accepted = true
+	accepted_hell_quest_index = next_hell_quest_index
 
 # TODO: this should be reconnected to the functionality after completing the last quest.
 func _on_accept_heaven_quest_pressed() -> void:
-	heaven_quest_accepted = true
+	accepted_heaven_quest_index = next_heaven_quest_index
 
 
 func _on_decline_hell_quest_pressed() -> void:
