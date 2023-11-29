@@ -31,8 +31,6 @@ var current_heaven_quest_index : int = 0
 @onready var underworld_selector = $UnderworldSelector
 @onready var heaven_score_label = $Heaven/HeavenBackgroundPanel/ScoreLabel
 @onready var hell_score_label = $Hell/HellBackgroundPanel/ScoreLabel
-@onready var hell_quest_button = $Hell/HellBackgroundPanel/AcceptHellQuest
-@onready var heaven_quest_button = $Heaven/HeavenBackgroundPanel/AcceptHeavenQuest
 
 @onready var heaven_quest = $Heaven/HeavenBackgroundPanel/HeavenActions/Quest
 @onready var hell_quest = $Hell/HellBackgroundPanel/HellActions/Quest
@@ -118,10 +116,15 @@ func enable_underworld_quests() -> void:
 # TODO: this should be reconnected to the functionality after completing the last quest.
 func _on_accept_hell_quest_pressed() -> void:
 	hell_quest_accepted = true
-	hell_quest_button.set_visible(false)
 
 # TODO: this should be reconnected to the functionality after completing the last quest.
 func _on_accept_heaven_quest_pressed() -> void:
 	heaven_quest_accepted = true
-	heaven_quest_button.set_visible(false)
 
+
+func _on_decline_hell_quest_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_decline_heaven_quest_pressed() -> void:
+	pass # Replace with function body.
