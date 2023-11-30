@@ -89,7 +89,8 @@ func evaluate_win_condition() -> void:
 		game_over()
 
 func game_over() -> void:
-	SceneTransition.change_scene_to_file("res://game_screens/menu_scene.tscn")
+	var menu_scene = preload("res://game_screens/menu_scene.tscn").instantiate()
+	SceneTransition.change_scene(menu_scene)
 
 func enable_underworld_quests() -> void:
 	hell_quest.enable_hell_quests()
