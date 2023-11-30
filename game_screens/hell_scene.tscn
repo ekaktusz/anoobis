@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://b018n8734ln7h"]
+[gd_scene load_steps=2 format=3 uid="uid://b018n8734ln7h"]
 
-[node name="hell_scene" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://bmnse52tkjyja" path="res://assets/images/backgrounds/hell_background.png" id="1_6nhcn"]
+
+[node name="hell_scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6nhcn")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1760.0
+offset_top = 454.0
+offset_right = 1882.0
+offset_bottom = 720.0

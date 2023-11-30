@@ -21,6 +21,7 @@ SceneTransition="*res://utils/scene_transition.tscn"
 CharacterDatabase="*res://character/character_database.gd"
 RankDefinitions="*res://rank_definitions.gd"
 NpcDialogs="*res://npc/dialogs.gd"
+GlobalGameData="*res://global_game_data.gd"
 
 [display]
 

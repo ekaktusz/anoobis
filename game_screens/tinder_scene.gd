@@ -1,13 +1,11 @@
 extends Control
 
+var current_character: CharacterData
+
 signal character_changed(new_character: CharacterData)
 signal character_sent_to_hell(character: CharacterData)
 signal character_sent_to_heaven(character: CharacterData)
 signal open_tinder_dialog(level)
-
-static var level: int
-var processed_dead_count: int
-var current_character: CharacterData
 
 @onready var dead_count_label: Node = $TurnNumberLabel
 @onready var rank_display_label: Node = $LevelLabel
@@ -20,10 +18,10 @@ var current_character: CharacterData
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	reset_dead_count()
-	self.level = 0
-	rank_display_label.text = RankDefinitions.get_rank(level)
+	GlobalGameData.level = 0
+	rank_display_label.text = RankDefinitions.get_rank(GlobalGameData.level)
 	get_new_character()
-	open_tinder_dialog.emit(level)
+	open_tinder_dialog.emit(GlobalGameData.level)
 	#print(NpcDialogs.anubis_speak(level))
 
 
@@ -44,7 +42,7 @@ func _on_hell_button_pressed() -> void:
 
 func swipe_character() -> void:
 	increase_processed_dead_counter()
-	if processed_dead_count >= 10:
+	if GlobalGameData.processed_dead_count >= 10:
 		underworld.evaluate_win_condition()
 		trigger_break_selector()
 		rank_up()
@@ -60,13 +58,13 @@ func get_new_character() -> void:
 
 
 func reset_dead_count() -> void:
-	processed_dead_count = 0
+	GlobalGameData.processed_dead_count = 0
 	dead_count_label.text = "0/10"
 
 
 func increase_processed_dead_counter():
-	processed_dead_count += 1
-	dead_count_label.text = str(processed_dead_count) + "/10"
+	GlobalGameData.processed_dead_count += 1
+	dead_count_label.text = str(GlobalGameData.processed_dead_count) + "/10"
 
 
 func trigger_break_selector() -> void:
@@ -74,21 +72,21 @@ func trigger_break_selector() -> void:
 
 
 func rank_up() -> void:
-	level += 1
-	if level == 3:
+	GlobalGameData.level += 1
+	if GlobalGameData.level == 3:
 		underworld.enable_underworld_quests()
-	elif level == 5:
+	elif GlobalGameData.level == 5:
 		const_properties_view.set_property_values_visible()
 		pros_properties_view.set_property_values_visible()
 
 
 func update_rank_title() -> void:
-	rank_display_label.text = RankDefinitions.get_rank(level)
+	rank_display_label.text = RankDefinitions.get_rank(GlobalGameData.level)
 
 
 func _on_where_to_selector_underworld_left() -> void:
 	underworld.set_visible(false)
 	update_rank_title()
 	reset_dead_count()
-	open_tinder_dialog.emit(level)
+	open_tinder_dialog.emit(GlobalGameData.level)
 #	print(NpcDialogs.anubis_speak(level))

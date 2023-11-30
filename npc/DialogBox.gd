@@ -5,9 +5,10 @@ signal dialog_closed()
 var text_speed = 0.05
 var phrase_num = 0
 var finished = false
-var anubis_picture_path ="res://assets/images/npcs/anubis.png"
-var croc_picture_path ="res://assets/images/npcs/croc_bro.png"
-var goddess_picture_path ="res://assets/images/npcs/goddess.png"
+
+var anubis_picture = preload("res://assets/images/npcs/anubis.png")
+var croc_picture = preload("res://assets/images/npcs/croc_bro.png")
+var goddess_picture = preload("res://assets/images/npcs/goddess.png")
 
 	
 func _process(_delta):
@@ -19,21 +20,21 @@ func _process(_delta):
 func _on_dialog_open_tinder_dialog(level):
 	finished = false
 	$Timer.wait_time = text_speed
-	$Anubis.texture = load(anubis_picture_path)	
+	$Anubis.texture = anubis_picture
 	$Anubis.set_visible(true)
 	next_phrase("Anubis", NpcDialogs.anubis_speak(level))
 
 func _on_dialog_open_hell_dialog(level):
 	finished = false
 	$Timer.wait_time = text_speed
-	$CrocBro.texture = load(croc_picture_path)
+	$CrocBro.texture = croc_picture
 	$CrocBro.set_visible(true)
 	next_phrase("Croc Bro", NpcDialogs.croc_speak(level))
 		
 func _on_dialog_open_heaven_dialog(level):
 	finished = false
 	$Timer.wait_time = text_speed
-	$Goddess.texture = load(goddess_picture_path)
+	$Goddess.texture = goddess_picture
 	$Goddess.set_visible(true)
 	next_phrase("Cat Goddess", NpcDialogs.goddess_speak(level))
 		
