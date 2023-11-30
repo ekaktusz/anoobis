@@ -120,8 +120,8 @@ func get_current_hell_quest_description() -> String:
 
 
 func _on_quest_hell_quest_completed(reward_score) -> void:
-	hell_score += reward_score
+	GlobalGameData.hell_score += reward_score
 
 
 func _on_quest_heaven_quest_completed(reward_score) -> void:
-	heaven_score += reward_score
+	GlobalGameData.heaven_score += reward_score
