@@ -18,7 +18,6 @@ signal underworld_left()
 signal open_hell_dialog(level)
 signal open_heaven_dialog(level)
 
-
 func _on_to_hell_button_pressed() -> void:
 	underworld_selector.set_visible(false)
 	hell.set_visible(true)

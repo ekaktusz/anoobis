@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scale/scale.gd" id="1_tdfrs"]
 [ext_resource type="Texture2D" uid="uid://dk6dacgmfo5n4" path="res://assets/images/scale/03_merleg_rud_comp.png" id="2_vxxl1"]
-[ext_resource type="Script" path="res://ScalePicture.gd" id="3_q6wi5"]
+[ext_resource type="Script" path="res://scale/ScalePicture.gd" id="3_mbytp"]
 [ext_resource type="Texture2D" uid="uid://l2t0bn75uvdo" path="res://assets/images/scale/03_merleg_kozep_comp.png" id="4_0tj3p"]
 [ext_resource type="Texture2D" uid="uid://cball4qs77wl4" path="res://assets/images/scale/03_merleg_talca1_comp.png" id="5_bq2er"]
 [ext_resource type="Texture2D" uid="uid://borghmv63onyj" path="res://assets/images/scale/03_merleg_talca2_comp.png" id="6_0qv8g"]
@@ -38,7 +38,7 @@ offset_bottom = 536.0
 pivot_offset = Vector2(961, 837)
 texture = ExtResource("2_vxxl1")
 expand_mode = 1
-script = ExtResource("3_q6wi5")
+script = ExtResource("3_mbytp")
 metadata/_edit_use_anchors_ = true
 
 [node name="ScaleLeg" type="TextureRect" parent="Container"]
