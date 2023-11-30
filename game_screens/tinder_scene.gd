@@ -5,7 +5,6 @@ var current_character: CharacterData
 signal character_changed(new_character: CharacterData)
 signal character_sent_to_hell(character: CharacterData)
 signal character_sent_to_heaven(character: CharacterData)
-signal open_tinder_dialog(level)
 
 @onready var dead_count_label: Node = $TurnNumberLabel
 @onready var rank_display_label: Node = $LevelLabel
@@ -14,16 +13,12 @@ signal open_tinder_dialog(level)
 @onready var const_properties_view: Node = $ConsPropertiesView
 @onready var pros_properties_view: Node = $ProsPropertiesView
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	BackgroundMusicPlayer.play_anubis_music()
 	reset_dead_count()
-	GlobalGameData.level = 0
 	rank_display_label.text = RankDefinitions.get_rank(GlobalGameData.level)
 	get_new_character()
-	#open_tinder_dialog.emit(GlobalGameData.level)
-	#print(NpcDialogs.anubis_speak(level))
 
 
 func _input(event: InputEvent) -> void:
@@ -79,15 +74,3 @@ func rank_up() -> void:
 	elif GlobalGameData.level == 5:
 		const_properties_view.set_property_values_visible()
 		pros_properties_view.set_property_values_visible()
-
-
-func update_rank_title() -> void:
-	rank_display_label.text = RankDefinitions.get_rank(GlobalGameData.level)
-
-
-func _on_where_to_selector_underworld_left() -> void:
-	underworld.set_visible(false)
-	update_rank_title()
-	reset_dead_count()
-	open_tinder_dialog.emit(GlobalGameData.level)
-#	print(NpcDialogs.anubis_speak(level))

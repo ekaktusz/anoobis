@@ -1,8 +1,100 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbplxfw06opmb"]
+[gd_scene load_steps=4 format=3 uid="uid://bepeidkxa3s67"]
 
-[ext_resource type="Script" path="res://npc/DialogBox.gd" id="1_o58ck"]
-[ext_resource type="Script" path="res://npc/Dialog.gd" id="1_opocp"]
 [ext_resource type="Theme" uid="uid://bixc6mxs53sp4" path="res://styles/game_theme.tres" id="3_440ut"]
+
+[sub_resource type="GDScript" id="GDScript_oosiu"]
+script/source = "extends Control
+
+signal open_hell_dialog(level)
+signal open_heaven_dialog(level)
+signal open_tinder_dialog(level)
+
+func _on_dialog_box_dialog_closed():
+	self.set_visible(false)
+
+
+func _on_underworld_open_hell_dialog(level):
+	open_hell_dialog.emit(level)
+	self.set_visible(true)
+
+
+func _on_underworld_open_heaven_dialog(level):
+	open_heaven_dialog.emit(level)
+	self.set_visible(true)
+
+
+func _on_tinder_scene_open_tinder_dialog(level):
+	open_tinder_dialog.emit(level)
+	self.set_visible(true)
+"
+
+[sub_resource type="GDScript" id="GDScript_1xkg4"]
+script/source = "extends ColorRect
+
+signal dialog_closed()
+
+var text_speed = 0.05
+var phrase_num = 0
+var finished = false
+
+var anubis_picture = preload(\"res://assets/images/npcs/anubis.png\")
+var croc_picture = preload(\"res://assets/images/npcs/kroki.png\")
+var goddess_picture = preload(\"res://assets/images/npcs/bastet.png\")
+
+enum DIALOG_BOX_MODE { Tinder, Hell, Heaven }
+@export var dialog_box_mode: DIALOG_BOX_MODE
+	
+func _process(_delta):
+	if Input.is_action_just_pressed(\"ui_accept\"):
+		text_speed = 0.01
+	if Input.is_action_just_pressed(\"ui_cancel\"):
+		close_dialog()
+		
+func _on_dialog_open_tinder_dialog(level):
+	finished = false
+	$Timer.wait_time = text_speed
+	$Anubis.texture = anubis_picture
+	$Anubis.set_visible(true)
+	next_phrase(\"Anubis\", NpcDialogs.anubis_speak(level))
+
+func _on_dialog_open_hell_dialog(level):
+	finished = false
+	$Timer.wait_time = text_speed
+	$CrocBro.texture = croc_picture
+	$CrocBro.set_visible(true)
+	next_phrase(\"Croc Bro\", NpcDialogs.croc_speak(level))
+		
+func _on_dialog_open_heaven_dialog(level):
+	finished = false
+	$Timer.wait_time = text_speed
+	$Goddess.texture = goddess_picture
+	$Goddess.set_visible(true)
+	next_phrase(\"Cat Goddess\", NpcDialogs.goddess_speak(level))
+		
+func next_phrase(name: String, text: String):
+	if (finished):
+		queue_free()
+		return
+	finished = false
+	
+	$Name.bbcode_text = name
+	$Text.bbcode_text = text
+	$Text.visible_characters = 0
+	
+	while $Text.visible_characters < len($Text.text):
+		$Text.visible_characters += 1
+		await get_tree().create_timer(text_speed).timeout
+		
+	finished = true
+	phrase_num += 1
+	return
+	
+func close_dialog():
+	$Anubis.set_visible(false)
+	$CrocBro.set_visible(false)
+	$Goddess.set_visible(false)
+	dialog_closed.emit()
+"
 
 [node name="Dialog" type="Control"]
 layout_mode = 3
@@ -15,7 +107,7 @@ offset_right = 167.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_opocp")
+script = SubResource("GDScript_oosiu")
 
 [node name="DialogBox" type="ColorRect" parent="."]
 layout_mode = 0
@@ -23,7 +115,7 @@ offset_left = 60.0
 offset_top = 790.0
 offset_right = 924.0
 offset_bottom = 1044.0
-script = ExtResource("1_o58ck")
+script = SubResource("GDScript_1xkg4")
 
 [node name="Name" type="RichTextLabel" parent="DialogBox"]
 layout_mode = 0
