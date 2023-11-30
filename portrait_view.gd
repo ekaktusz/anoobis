@@ -13,25 +13,21 @@ static var noses : Array[Resource]
 static var mouths : Array[Resource]
 static var hairs : Array[Hair]
 
-# TODO: this depends on always being 3 hair variants
 static var beards = [
 	[
 		preload("res://assets/images/face_parts/beard_A1.png"),
 		preload("res://assets/images/face_parts/beard_A2.png"),
 		preload("res://assets/images/face_parts/beard_A3.png"),
-		null,
 	],
 	[
 		preload("res://assets/images/face_parts/beard_B1.png"),
 		preload("res://assets/images/face_parts/beard_B2.png"),
 		preload("res://assets/images/face_parts/beard_B3.png"),
-		null,
 	],
 	[
 		preload("res://assets/images/face_parts/beard_C1.png"),
 		preload("res://assets/images/face_parts/beard_C2.png"),
 		preload("res://assets/images/face_parts/beard_C3.png"),
-		null,
 	],
 ]
 
@@ -120,7 +116,11 @@ func _set_next_skin() -> void:
 func _set_next_beard() -> void:
 	current_beard_id = (current_beard_id + 1)%beards.size()
 	var color_variant = hairs[current_hair_id].color_number
-	$BeardTexture.texture = beards[current_beard_id][color_variant]
+	if color_variant < beards[0].size():
+		$BeardTexture.texture = beards[current_beard_id][color_variant]
+	else:
+		$BeardTexture.texture = null
+
 
 func _set_random_parts() -> void:
 	var rand_hair : int = randi()%hairs.size()
@@ -128,7 +128,7 @@ func _set_random_parts() -> void:
 	var random_hair = hairs[rand_hair]
 	$FrontHairTexture.texture = random_hair.hair_front
 	$BackHairTexture.texture = random_hair.hair_back
-	if(randi_range(1,4) > 3):
+	if(randi_range(1,4) > 3) and (random_hair.color_number < beards[0].size()):
 		$BeardTexture.texture = beards[randi() % beards.size()][random_hair.color_number]
 	else:
 		$BeardTexture.texture = null
