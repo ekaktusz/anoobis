@@ -11,7 +11,8 @@ func _ready():
 func _process(delta):
 	pass
 
-var tinder_scene = preload("res://game_screens/tinder_scene.tscn").instantiate()
+
 func _on_back_button_pressed():
+	var tinder_scene = preload("res://game_screens/tinder_scene.tscn").instantiate()
 	SceneTransition.change_scene(tinder_scene)
 	pass # Replace with function body.

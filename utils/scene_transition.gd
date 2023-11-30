@@ -17,11 +17,21 @@ func _process(delta):
 func change_scene_to_file(target: String) -> void:
 	$AnimationPlayer.play("dissolve")
 	await $AnimationPlayer.animation_finished
+	
+	# Remove the current scene
+	var current_scene = get_tree().root.get_child(get_tree().root.get_child_count() - 1)
+	get_tree().root.remove_child(current_scene)
+	
 	get_tree().root.add_child(tinder_scene)
 	$AnimationPlayer.play_backwards("dissolve")
 	
 func change_scene(scene: Node) -> void:
 	$AnimationPlayer.play("dissolve")
 	await $AnimationPlayer.animation_finished
+	
+	# Remove the current scene
+	var current_scene = get_tree().root.get_child(get_tree().root.get_child_count() - 1)
+	get_tree().root.remove_child(current_scene)
+	
 	get_tree().root.add_child(scene)
 	$AnimationPlayer.play_backwards("dissolve")
