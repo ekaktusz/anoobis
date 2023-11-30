@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://gh4wifppmunc"]
+[gd_scene load_steps=16 format=3 uid="uid://gh4wifppmunc"]
 
 [ext_resource type="Script" path="res://tinder_scene.gd" id="1_w104e"]
 [ext_resource type="PackedScene" uid="uid://70k7ofhbtbhy" path="res://properties_view.tscn" id="2_1d4s5"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cno861nk463jf" path="res://assets/images/soul.png" id="8_r11d4"]
 [ext_resource type="StyleBox" uid="uid://wpo57pxm4o0i" path="res://heaven_quest_btn_style.tres" id="10_7sghi"]
 [ext_resource type="PackedScene" uid="uid://dw0x6jys7euaw" path="res://underworld.tscn" id="14_48rvw"]
+[ext_resource type="PackedScene" uid="uid://bbplxfw06opmb" path="res://npc/Dialog.tscn" id="16_pjmel"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sio5"]
 bg_color = Color(0.996078, 0.952941, 0.823529, 1)
@@ -199,6 +200,9 @@ texture = ExtResource("8_r11d4")
 visible = false
 layout_mode = 1
 
+[node name="Dialog" parent="." instance=ExtResource("16_pjmel")]
+layout_mode = 1
+
 [connection signal="character_changed" from="." to="ConsPropertiesView" method="_on_tinder_scene_character_changed"]
 [connection signal="character_changed" from="." to="ProsPropertiesView" method="_on_tinder_scene_character_changed"]
 [connection signal="character_changed" from="." to="CharacterViewScene" method="_on_tinder_scene_character_changed"]
@@ -206,6 +210,10 @@ layout_mode = 1
 [connection signal="character_sent_to_heaven" from="." to="Underworld" method="_on_tinder_scene_character_sent_to_heaven"]
 [connection signal="character_sent_to_hell" from="." to="Scale" method="_on_tinder_scene_character_sent_to_hell"]
 [connection signal="character_sent_to_hell" from="." to="Underworld" method="_on_tinder_scene_character_sent_to_hell"]
+[connection signal="open_tinder_dialog" from="." to="Dialog" method="_on_tinder_scene_open_tinder_dialog"]
 [connection signal="pressed" from="ToHellButton" to="." method="_on_hell_button_pressed"]
 [connection signal="pressed" from="ToHeavenButton" to="." method="_on_heaven_button_pressed"]
+[connection signal="open_heaven_dialog" from="Underworld" to="Dialog" method="_on_underworld_open_heaven_dialog"]
+[connection signal="open_hell_dialog" from="Underworld" to="Dialog" method="_on_underworld_open_hell_dialog"]
 [connection signal="underworld_left" from="Underworld" to="." method="_on_where_to_selector_underworld_left"]
+[connection signal="open_tinder_dialog" from="Dialog" to="Dialog" method="_on_open_tinder_dialog"]
