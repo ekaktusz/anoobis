@@ -45,6 +45,7 @@ func swipe_character() -> void:
 	if GlobalGameData.processed_dead_count >= 10:
 		underworld.evaluate_end_of_turn()
 		trigger_break_selector()
+		rank_up()
 
 	get_new_character()
 
