@@ -26,6 +26,10 @@ func _on_skin_button_pressed() -> void:
 	character_node._set_next_skin()
 
 
+func _on_beard_button_pressed() -> void:
+	character_node._set_next_beard()
+
+
 func _on_generate_button_pressed() -> void:
 	character_node._set_random_parts()
 
