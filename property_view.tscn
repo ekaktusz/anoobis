@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://property_view.gd" id="1_8utd3"]
 [ext_resource type="Texture2D" uid="uid://b5fimrxpkskcf" path="res://assets/images/bullet_point.png" id="1_pdery"]
-[ext_resource type="Theme" uid="uid://bixc6mxs53sp4" path="res://game_theme.tres" id="3_1c2ko"]
+[ext_resource type="Theme" uid="uid://bixc6mxs53sp4" path="res://styles/game_theme.tres" id="3_vm7gf"]
 
 [node name="PropertyView" type="HBoxContainer"]
 script = ExtResource("1_8utd3")
@@ -17,7 +17,7 @@ expand_mode = 4
 
 [node name="PropertyDescription" type="Label" parent="."]
 layout_mode = 2
-theme = ExtResource("3_1c2ko")
+theme = ExtResource("3_vm7gf")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "had slaces"
