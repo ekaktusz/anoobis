@@ -123,7 +123,10 @@ func _set_random_parts() -> void:
 	var random_hair = hairs[rand_hair]
 	$FrontHairTexture.texture = random_hair.hair_front
 	$BackHairTexture.texture = random_hair.hair_back
-	$BeardTexture.texture = beards[randi() % beards.size()][random_hair.color_number]
+	if(randi_range(1,4) > 3):
+		$BeardTexture.texture = beards[randi() % beards.size()][random_hair.color_number]
+	else:
+		$BeardTexture.texture = null
 
 	current_eye_id = randi()%eyes.size()
 	$EyesTexture.texture = eyes[current_eye_id]
