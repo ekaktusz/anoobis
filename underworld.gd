@@ -19,9 +19,11 @@ signal open_hell_dialog(level)
 signal open_heaven_dialog(level)
 
 func _on_to_hell_button_pressed() -> void:
-	underworld_selector.set_visible(false)
-	hell.set_visible(true)
-	open_hell_dialog.emit(floor(dead_counter / 10))
+	#underworld_selector.set_visible(false)
+	#hell.set_visible(true)
+	#open_hell_dialog.emit(floor(dead_counter / 10))
+	var hell_scene = preload("res://game_screens/hell_scene.tscn").instantiate()
+	SceneTransition.change_scene(hell_scene)
 	#print(NpcDialogs.croc_speak(floor(dead_counter / 10)))
 
 func _on_to_heaven_button_pressed() -> void:

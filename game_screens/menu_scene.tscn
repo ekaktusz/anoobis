@@ -34,17 +34,20 @@ script = ExtResource("1_feb58")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-offset_right = 1989.0
-offset_bottom = 1131.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_yx5kr")
+expand_mode = 2
 
 [node name="StartButton" type="Button" parent="."]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
-offset_left = 768.0
-offset_top = 680.0
-offset_right = 1237.0
-offset_bottom = 830.0
+offset_left = 737.0
+offset_top = 647.0
+offset_right = 1189.0
+offset_bottom = 797.0
 size_flags_vertical = 0
 focus_mode = 0
 mouse_default_cursor_shape = 2

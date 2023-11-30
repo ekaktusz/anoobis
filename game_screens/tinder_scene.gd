@@ -17,6 +17,7 @@ signal open_tinder_dialog(level)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	BackgroundMusicPlayer.play_anubis_music()
 	reset_dead_count()
 	GlobalGameData.level = 0
 	rank_display_label.text = RankDefinitions.get_rank(GlobalGameData.level)
