@@ -12,6 +12,8 @@ static var skins : Array[Resource]
 static var noses : Array[Resource]
 static var mouths : Array[Resource]
 static var hairs : Array[Hair]
+
+# TODO: this depends on always being 3 hair variants
 static var beards = [
 	[
 		preload("res://assets/images/face_parts/beard_A1.png"),
@@ -63,6 +65,9 @@ static func load_assets() -> void:
 				hairs.push_back(get_hair_from_asset(dir, file_name))
 
 		file_name = dir.get_next()
+
+	# Add bold hair
+	hairs.append(Hair.new())
 
 
 static func get_hair_from_asset(dir : DirAccess, file_name : String) -> Hair:
