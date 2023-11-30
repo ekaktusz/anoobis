@@ -26,9 +26,15 @@ func _on_skin_button_pressed() -> void:
 	character_node._set_next_skin()
 
 
+func _on_beard_button_pressed() -> void:
+	character_node._set_next_beard()
+
+
 func _on_generate_button_pressed() -> void:
 	character_node._set_random_parts()
 
 
 func _on_exit_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://tinder_scene.tscn")
+
+
