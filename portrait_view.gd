@@ -11,12 +11,14 @@ static var skins : Array[Resource]
 static var noses : Array[Resource]
 static var mouths : Array[Resource]
 static var hairs : Array[Hair]
+static var beards : Array[Resource]
 
 var current_hair_id : int
 var current_eye_id : int
 var current_skin_id : int
 var current_nose_id : int
 var current_mouth_id : int
+var current_beard_id : int
 
 # Static constructor for loading assets only once
 static func _static_init():
@@ -37,6 +39,8 @@ static func load_assets() -> void:
 				noses.push_back(load(FACE_PARTS_PATH+file_name))
 			elif file_name.begins_with("skin"):
 				skins.push_back(load(FACE_PARTS_PATH+file_name))
+			elif file_name.begins_with("beard"):
+				beards.push_back(load(FACE_PARTS_PATH+file_name))
 			elif (file_name.begins_with("hair") and file_name.ends_with("_front.png")):
 				hairs.push_back(get_hair_from_asset(dir, file_name))
 
@@ -87,6 +91,10 @@ func _set_next_skin() -> void:
 	current_skin_id = (current_skin_id + 1)%skins.size()
 	$SkinTexture.texture = skins[current_skin_id]
 
+
+func _set_next_beard() -> void:
+	current_beard_id = (current_beard_id + 1)%beards.size()
+	$BeardTexture.texture = beards[current_beard_id]
 
 func _set_random_parts() -> void:
 	var rand_hair : int = randi()%hairs.size()
