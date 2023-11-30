@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://b5lkspwgwwpc4"]
 
-[ext_resource type="Script" path="res://scale.gd" id="1_ognxn"]
-[ext_resource type="Texture2D" uid="uid://dk6dacgmfo5n4" path="res://assets/images/scale/03_merleg_rud_comp.png" id="2_nvvms"]
-[ext_resource type="Script" path="res://ScalePicture.gd" id="3_emhsc"]
-[ext_resource type="Texture2D" uid="uid://l2t0bn75uvdo" path="res://assets/images/scale/03_merleg_kozep_comp.png" id="4_kckpl"]
-[ext_resource type="Texture2D" uid="uid://cball4qs77wl4" path="res://assets/images/scale/03_merleg_talca1_comp.png" id="5_vky3u"]
-[ext_resource type="Texture2D" uid="uid://borghmv63onyj" path="res://assets/images/scale/03_merleg_talca2_comp.png" id="6_6it2d"]
+[ext_resource type="Script" path="res://scale/scale.gd" id="1_tdfrs"]
+[ext_resource type="Texture2D" uid="uid://dk6dacgmfo5n4" path="res://assets/images/scale/03_merleg_rud_comp.png" id="2_vxxl1"]
+[ext_resource type="Script" path="res://ScalePicture.gd" id="3_q6wi5"]
+[ext_resource type="Texture2D" uid="uid://l2t0bn75uvdo" path="res://assets/images/scale/03_merleg_kozep_comp.png" id="4_0tj3p"]
+[ext_resource type="Texture2D" uid="uid://cball4qs77wl4" path="res://assets/images/scale/03_merleg_talca1_comp.png" id="5_bq2er"]
+[ext_resource type="Texture2D" uid="uid://borghmv63onyj" path="res://assets/images/scale/03_merleg_talca2_comp.png" id="6_0qv8g"]
 
 [node name="Scale" type="Control"]
 layout_mode = 3
@@ -16,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_ognxn")
+script = ExtResource("1_tdfrs")
 
 [node name="Container" type="Control" parent="."]
 layout_mode = 1
@@ -36,9 +36,9 @@ offset_top = -538.0
 offset_right = 954.0
 offset_bottom = 536.0
 pivot_offset = Vector2(961, 837)
-texture = ExtResource("2_nvvms")
+texture = ExtResource("2_vxxl1")
 expand_mode = 1
-script = ExtResource("3_emhsc")
+script = ExtResource("3_q6wi5")
 metadata/_edit_use_anchors_ = true
 
 [node name="ScaleLeg" type="TextureRect" parent="Container"]
@@ -51,7 +51,7 @@ offset_right = 957.0
 offset_bottom = 540.0
 grow_horizontal = 2
 pivot_offset = Vector2(266, 97)
-texture = ExtResource("4_kckpl")
+texture = ExtResource("4_0tj3p")
 expand_mode = 1
 stretch_mode = 5
 
@@ -67,7 +67,7 @@ offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(266, 97)
-texture = ExtResource("5_vky3u")
+texture = ExtResource("5_bq2er")
 stretch_mode = 5
 
 [node name="ScalePlateRight" type="TextureRect" parent="Container"]
@@ -78,5 +78,5 @@ offset_top = -540.0
 offset_right = 953.0
 offset_bottom = 540.0
 pivot_offset = Vector2(266, 97)
-texture = ExtResource("6_6it2d")
+texture = ExtResource("6_0qv8g")
 stretch_mode = 5
