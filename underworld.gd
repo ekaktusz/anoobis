@@ -61,30 +61,38 @@ signal open_heaven_dialog(level)
 func evaluate_quest_completion() -> void:
 	if accepted_hell_quest_index == 0:
 		if soul_sent_where_it_doesnt_belong:
+			hell_score -= 5
 			set_next_hell_quest()
 	elif accepted_hell_quest_index == 1:
 		if balanced_sent_to_hell:
+			hell_score -= 5
 			set_next_hell_quest()
 	elif accepted_hell_quest_index == 2:
 		if all_negative_soul_in_heaven:
+			hell_score -= 5
 			set_next_hell_quest()
 	elif accepted_hell_quest_index == 3:
 		if heaven_score < 25:
+			hell_score -= 10
 			set_next_hell_quest()
 	elif accepted_hell_quest_index == 4:
 		pass
 
 	if accepted_heaven_quest_index == 0:
 		if people_sent_to_hell_and_heaven_balance > 0:
+			heaven_score += 5
 			set_next_heaven_quest()
 	elif accepted_heaven_quest_index == 1:
 		if people_sent_to_heaven_with_8_plus_score >= 3:
+			heaven_score += 5
 			set_next_heaven_quest()
 	elif accepted_heaven_quest_index == 2:
 		if all_souls_sent_to_heaven_in_round:
+			heaven_score += 5
 			set_next_heaven_quest()
 	elif accepted_heaven_quest_index == 3:
 		if hell_score > -25:
+			heaven_score += 10
 			set_next_heaven_quest()
 	elif accepted_heaven_quest_index == 4:
 		pass
