@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw0x6jys7euaw"]
+[gd_scene load_steps=4 format=3 uid="uid://dw0x6jys7euaw"]
 
 [ext_resource type="Script" path="res://underworld.gd" id="1_65wwq"]
+[ext_resource type="Script" path="res://heaven_quest.gd" id="2_q8dll"]
+[ext_resource type="Script" path="res://hell_quest.gd" id="3_1cwih"]
 
 [node name="Underworld" type="Control"]
 layout_mode = 3
@@ -57,6 +59,7 @@ text = "Back to Tinder screen"
 [node name="Quest" type="VBoxContainer" parent="Heaven/HeavenBackgroundPanel/HeavenActions"]
 visible = false
 layout_mode = 2
+script = ExtResource("2_q8dll")
 
 [node name="QuestDescription" type="Label" parent="Heaven/HeavenBackgroundPanel/HeavenActions/Quest"]
 layout_mode = 2
@@ -118,6 +121,7 @@ text = "Back to Tinder screen"
 [node name="Quest" type="VBoxContainer" parent="Hell/HellBackgroundPanel/HellActions"]
 visible = false
 layout_mode = 2
+script = ExtResource("3_1cwih")
 
 [node name="QuestDescription" type="Label" parent="Hell/HellBackgroundPanel/HellActions/Quest"]
 layout_mode = 2
