@@ -1,6 +1,6 @@
 extends MarginContainer
 
-const PropertyView = preload("res://property_view.tscn")
+const PropertyView = preload("res://character/property_view.tscn")
 
 enum PROPERTIES_VIEW_MODE { Cons, Pros }
 @export var mode: PROPERTIES_VIEW_MODE

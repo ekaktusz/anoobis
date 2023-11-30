@@ -11,7 +11,9 @@ var negative_properties_normal: Array[PropertyData] = [
 	PropertyData.new(-1, "Only played with AAA games", false),
 	PropertyData.new(-1, "Lied about his favourite film to make themselves cooler", false),
 	PropertyData.new(-2, "Threw the trash into their neighbor's bin", false),
-	PropertyData.new(-2, "Ate all of the fancy nuts out of the trail mix, leaving none for others", false),
+	PropertyData.new(
+		-2, "Ate all of the fancy nuts out of the trail mix, leaving none for others", false
+	),
 	PropertyData.new(-2, "Stole a mushroom", false),
 	PropertyData.new(-2, "Picked up salary raise for their colleague's work", false),
 	PropertyData.new(-2, "Bragged about doing yoga every day", false),
@@ -59,13 +61,17 @@ var negative_properties_normal: Array[PropertyData] = [
 	PropertyData.new(-9, "Farted and blamed it on their spouse", false),
 	PropertyData.new(-9, "Fed their spouse to the crocodiles", false),
 	PropertyData.new(-9, "Had slaves", false),
-	PropertyData.new(-9, "Was married to their sibling, even though they were not ascendants of the gods", false),
+	PropertyData.new(
+		-9, "Was married to their sibling, even though they were not ascendants of the gods", false
+	),
 	PropertyData.new(-9, "Told people the eclipse is the start of the Apocalypse", false),
 	PropertyData.new(-9, "Had an intimate relationship with their goat", false),
 	PropertyData.new(-9, "Poisoned the only well in the city", false),
 	PropertyData.new(-10, "Helped the Greek invaders to conquer Egypt", false),
 	PropertyData.new(-10, "Burnt down the Great Library of Alexandria", false),
-	PropertyData.new(-10, "Told to their kids they are going to Memphis to buy cigarettes never to return", false),
+	PropertyData.new(
+		-10, "Told to their kids they are going to Memphis to buy cigarettes never to return", false
+	),
 	PropertyData.new(-10, "Turned the water of the Nile red with the blood of innocents", false),
 	PropertyData.new(-10, "Used pre-existing assets at game jams", false),
 	PropertyData.new(-10, "Killed a cat", false),
@@ -117,7 +123,9 @@ var positive_properties_normal: Array[PropertyData] = [
 	PropertyData.new(7, "Built a migration route for frogs", false),
 	PropertyData.new(7, "Built a public toilet", false),
 	PropertyData.new(7, "Held a cookie sale for the lepers", false),
-	PropertyData.new(7, "Scribed down the famous broccoli and cheese soup recipe of Ramses II", false),
+	PropertyData.new(
+		7, "Scribed down the famous broccoli and cheese soup recipe of Ramses II", false
+	),
 	PropertyData.new(7, "Respected intellectual property rights", false),
 	PropertyData.new(8, "Gave away free scrolls", false),
 	PropertyData.new(8, "Was very good at listening to others", false),
@@ -144,6 +152,7 @@ var negative_properties_secret: Array[PropertyData] = [
 	PropertyData.new(-6, "Was part of an organized crime family", true),
 	PropertyData.new(-7, "Was a vampire", true),
 ]
+
 var positive_properties_secret: Array[PropertyData] = [
 	PropertyData.new(1, "Their Secret Osiris gifts were always on point", true),
 	PropertyData.new(2, "Never bragged about his great-uncle who invented the wheel", true),
@@ -151,54 +160,192 @@ var positive_properties_secret: Array[PropertyData] = [
 	PropertyData.new(6, "Wrote the original script of the Lion King", true),
 	PropertyData.new(9, "They were Batman", true)
 ]
-var firstnames = ["Ashur", "Tarmek", "Shumak", "Abasi", "Abubakar", "Akiiki", "Amenhotep", "Ba", "Baahir", "Baal",
-				  "Bab", "Babita", "Badi", "Bebti", "Bomani", "Bastet", "Chatuluka", "Chigaru", "Chione", "Dalila",
-				  "Dakarai", "Dendera", "Donkor", "Ebo", "Echidna", "Edjo", "Fenuku", "Femi", "Eshe", "Hanbal",
-				  "Hapi", "Hapu", "Hathor", "Hatshepsut", "Hu", "Issa", "Jafari", "Jamila", "Kamilah", "Kakra",
-				  "Kafele", "Kamuzu", "Kanika", "Kek", "Kissa", "Lapis", "Lateef", "Layla", "Lotus", "Luzige",
-				  "Lisimba", "Maat", "Madu", "Maibe", "Mafuane", "Menkaura", "Moshe", "Msamaki", "Mukamutara",
-				  "Naeem", "Nassor", "Nathifa", "Neema", "Niu", "Niut", "Nkuku", "Nun", "Nuru", "Oba", "Olabisi",
-				  "Omorose", "Onuris", "Osahar", "Paki", "Ptolemy", "Pili", "Radames", "Rashida", "Runihura", "Sabah",
-				  "Sabola", "Sagira", "Sanura", "Sebak", "Sefu", "Selma", "Sekhet", "Shukura", "Siti", "Sutekh",
-				  "Tabia", "Tahirah", "Tau", "Tarik", "Thabit", "Thutmose", "Uadjit", "Ufa", "Ur", "Urbi", "Usi",
-				  "Ur Atum", "Wamukota", "Walidah", "Yafeu", "Zahra", "Zahur", "Zalika", "Zaid"
-				]
 
-var lastnames = ["the Unworthy", "the Worst", "the Meh", "the Neutral", "the Underachiever", "the Robust",
-					  "the Coward", "the Keg", "the Vulture", "the Radiant", "the Ambitious", "the Valiant",
-					  "the Bright", "the Dull", "the Bland", "the Forgotten", "the Hardcore", "the Rigid",
-					  "the Fierce", "the Tenacious", "the Amiable", "the Fearless", "the Real", "the Vivacious",
-					  "the Flexible", "the Shrewd", "the Cunning", "the Brave", "the Two-Faced", "the Relentless",
-					  "the Reckless", "the Lone Wolf", "the Great", "the Awesome", "the Tall", "the Fearsome",
-					  "the Shy", "the Handsome", "the Short", "the Unlikely", "the Wholesome", "the Destined One",
-					  "the Unfortunate", "the Lucky", "the Amateur", "the Inappropriate", "the Cringe", "the Awkward",
-					  "the Morbid"
-					]
+const firstNames: Array[String] = [
+	"Ashur",
+	"Tarmek",
+	"Shumak",
+	"Abasi",
+	"Abubakar",
+	"Akiiki",
+	"Amenhotep",
+	"Ba",
+	"Baahir",
+	"Baal",
+	"Bab",
+	"Babita",
+	"Badi",
+	"Bebti",
+	"Bomani",
+	"Bastet",
+	"Chatuluka",
+	"Chigaru",
+	"Chione",
+	"Dalila",
+	"Dakarai",
+	"Dendera",
+	"Donkor",
+	"Ebo",
+	"Echidna",
+	"Edjo",
+	"Fenuku",
+	"Femi",
+	"Eshe",
+	"Hanbal",
+	"Hapi",
+	"Hapu",
+	"Hathor",
+	"Hatshepsut",
+	"Hu",
+	"Issa",
+	"Jafari",
+	"Jamila",
+	"Kamilah",
+	"Kakra",
+	"Kafele",
+	"Kamuzu",
+	"Kanika",
+	"Kek",
+	"Kissa",
+	"Lapis",
+	"Lateef",
+	"Layla",
+	"Lotus",
+	"Luzige",
+	"Lisimba",
+	"Maat",
+	"Madu",
+	"Maibe",
+	"Mafuane",
+	"Menkaura",
+	"Moshe",
+	"Msamaki",
+	"Mukamutara",
+	"Naeem",
+	"Nassor",
+	"Nathifa",
+	"Neema",
+	"Niu",
+	"Niut",
+	"Nkuku",
+	"Nun",
+	"Nuru",
+	"Oba",
+	"Olabisi",
+	"Omorose",
+	"Onuris",
+	"Osahar",
+	"Paki",
+	"Ptolemy",
+	"Pili",
+	"Radames",
+	"Rashida",
+	"Runihura",
+	"Sabah",
+	"Sabola",
+	"Sagira",
+	"Sanura",
+	"Sebak",
+	"Sefu",
+	"Selma",
+	"Sekhet",
+	"Shukura",
+	"Siti",
+	"Sutekh",
+	"Tabia",
+	"Tahirah",
+	"Tau",
+	"Tarik",
+	"Thabit",
+	"Thutmose",
+	"Uadjit",
+	"Ufa",
+	"Ur",
+	"Urbi",
+	"Usi",
+	"Ur Atum",
+	"Wamukota",
+	"Walidah",
+	"Yafeu",
+	"Zahra",
+	"Zahur",
+	"Zalika",
+	"Zaid"
+]
+
+const lastNames: Array[String] = [
+	"the Unworthy",
+	"the Worst",
+	"the Meh",
+	"the Neutral",
+	"the Underachiever",
+	"the Robust",
+	"the Coward",
+	"the Keg",
+	"the Vulture",
+	"the Radiant",
+	"the Ambitious",
+	"the Valiant",
+	"the Bright",
+	"the Dull",
+	"the Bland",
+	"the Forgotten",
+	"the Hardcore",
+	"the Rigid",
+	"the Fierce",
+	"the Tenacious",
+	"the Amiable",
+	"the Fearless",
+	"the Real",
+	"the Vivacious",
+	"the Flexible",
+	"the Shrewd",
+	"the Cunning",
+	"the Brave",
+	"the Two-Faced",
+	"the Relentless",
+	"the Reckless",
+	"the Lone Wolf",
+	"the Great",
+	"the Awesome",
+	"the Tall",
+	"the Fearsome",
+	"the Shy",
+	"the Handsome",
+	"the Short",
+	"the Unlikely",
+	"the Wholesome",
+	"the Destined One",
+	"the Unfortunate",
+	"the Lucky",
+	"the Amateur",
+	"the Inappropriate",
+	"the Cringe",
+	"the Awkward",
+	"the Morbid"
+]
 
 
-var in_heaven_characters: Array[CharacterData]
-var in_hell_characters: Array[CharacterData]
-
-
-func get_random_properties(properties_array: Array[PropertyData], number_of_properties)-> Array[PropertyData]:
-	var result_array : Array[PropertyData] = []
+func get_random_properties(
+	properties_array: Array[PropertyData], number_of_properties
+) -> Array[PropertyData]:
+	var result_array: Array[PropertyData] = []
 	while result_array.size() < number_of_properties:
-		var random_element = properties_array.pick_random();
-		if (result_array.find(random_element) == -1):
+		var random_element = properties_array.pick_random()
+		if result_array.find(random_element) == -1:
 			result_array.append(random_element)
 	return result_array
 
 
 func get_random_fullname() -> String:
-	return firstnames.pick_random()+ ', ' + lastnames.pick_random()
+	return firstNames.pick_random() + ", " + lastNames.pick_random()
 
 
 func get_random_character() -> CharacterData:
 	var character = CharacterData.new(
 		get_random_fullname(),
-		get_random_properties(positive_properties_normal,3),
-		get_random_properties(negative_properties_normal,3),
+		get_random_properties(positive_properties_normal, 3),
+		get_random_properties(negative_properties_normal, 3),
 		CharacterPortraitView.instantiate()
 	)
-
 	return character

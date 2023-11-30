@@ -17,7 +17,7 @@ config/icon="res://assets/icon.png"
 
 [autoload]
 
-SceneTransition="*res://scene_transition.tscn"
+SceneTransition="*res://utils/scene_transition.tscn"
 CharacterDatabase="*res://character/character_database.gd"
 RankDefinitions="*res://rank_definitions.gd"
 NpcDialogs="*res://npc/dialogs.gd"
