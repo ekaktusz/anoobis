@@ -1,4 +1,4 @@
-class_name PortraitView extends AspectRatioContainer
+class_name CharacterPortraitView extends AspectRatioContainer
 
 static var FACE_PARTS_PATH : String = "res://assets/images/face_parts/"
 

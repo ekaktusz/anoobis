@@ -31,4 +31,4 @@ func _on_generate_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://tinder_scene.tscn")
+	get_tree().change_scene_to_file("res://game_screens/tinder_scene.tscn")

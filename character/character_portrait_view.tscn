@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://crdjlfgux2jt3"]
 
-[ext_resource type="Script" path="res://portrait_view.gd" id="1_tsrr6"]
+[ext_resource type="Script" path="res://character/character_portrait_view.gd" id="1_7mjef"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sapyp"]
 load_path = "res://.godot/imported/hair_A_back.png-43162ca916699e29fb25e45a5f4f03bf.ctex"
@@ -20,7 +20,7 @@ load_path = "res://.godot/imported/nose_A.png-4759844ea8f96885b041d219cd7f5b6a.c
 [node name="Character" type="AspectRatioContainer"]
 offset_right = 72.0
 offset_bottom = 72.0
-script = ExtResource("1_tsrr6")
+script = ExtResource("1_7mjef")
 
 [node name="BackHairTexture" type="TextureRect" parent="."]
 layout_mode = 2

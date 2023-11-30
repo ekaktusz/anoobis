@@ -3,12 +3,12 @@ class_name CharacterData extends Node
 var character_name: String
 var negative_properties: Array[PropertyData]
 var positive_properties: Array[PropertyData]
-var portrait_view: PortraitView
+var portrait_view: CharacterPortraitView
 
 func _init(character_name: String = "asd",
 		   positive_properties: Array[PropertyData] = [],
 		   negative_properties: Array[PropertyData] = [],
-		   portrait_view: PortraitView = null):
+		   portrait_view: CharacterPortraitView = null):
 	self.character_name = character_name
 	self.positive_properties = positive_properties
 	self.negative_properties = negative_properties

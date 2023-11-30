@@ -1,6 +1,6 @@
 extends Node
 
-const PortraitView = preload("res://portrait_view.tscn")
+const CharacterPortraitView = preload("res://character/character_portrait_view.tscn")
 
 var negative_properties_normal: Array[PropertyData] = [
 	PropertyData.new(-1, "Used cheat codes in video games", false),
@@ -198,7 +198,7 @@ func get_random_character() -> CharacterData:
 		get_random_fullname(),
 		get_random_properties(positive_properties_normal,3),
 		get_random_properties(negative_properties_normal,3),
-		PortraitView.instantiate()
+		CharacterPortraitView.instantiate()
 	)
 
 	return character

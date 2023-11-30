@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c82so3ni2qkcb"]
 
-[ext_resource type="Script" path="res://menu_scene.gd" id="1_ip1xw"]
-[ext_resource type="Texture2D" uid="uid://cxu2vwf8gse55" path="res://assets/images/background.jpg" id="2_w5xx4"]
-[ext_resource type="FontFile" uid="uid://be8jb3h077tii" path="res://assets/fonts/Roman SD.ttf" id="3_uky2e"]
+[ext_resource type="Script" path="res://game_screens/menu_scene.gd" id="1_feb58"]
+[ext_resource type="Texture2D" uid="uid://cxu2vwf8gse55" path="res://assets/images/background.jpg" id="2_dtp3f"]
+[ext_resource type="FontFile" uid="uid://be8jb3h077tii" path="res://assets/fonts/Roman SD.ttf" id="3_d8phf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6or6r"]
 bg_color = Color(0.239216, 0.286275, 0.0627451, 1)
@@ -28,11 +28,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ip1xw")
+script = ExtResource("1_feb58")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_w5xx4")
+texture = ExtResource("2_dtp3f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -42,7 +42,7 @@ layout_mode = 2
 size_flags_vertical = 6
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 20
-theme_override_fonts/font = ExtResource("3_uky2e")
+theme_override_fonts/font = ExtResource("3_d8phf")
 theme_override_font_sizes/font_size = 250
 text = "Anoobis"
 horizontal_alignment = 1

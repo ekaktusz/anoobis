@@ -28,7 +28,7 @@ func _ready():
 
 func _input(event: InputEvent) -> void:
 	if ((event as InputEvent).is_action_pressed("OpenCharacterGenerator")):
-		get_tree().change_scene_to_file("res://character_generator.tscn")
+		get_tree().change_scene_to_file("res://character/character_generator.tscn")
 
 
 func _on_heaven_button_pressed() -> void:

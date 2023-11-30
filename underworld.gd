@@ -85,7 +85,7 @@ func evaluate_win_condition() -> void:
 
 
 func game_over() -> void:
-	SceneTransition.change_scene_to_file("res://menu_scene.tscn")
+	SceneTransition.change_scene_to_file("res://game_screens/menu_scene.tscn")
 
 
 func enable_underworld_quests() -> void:
