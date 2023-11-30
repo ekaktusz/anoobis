@@ -7,3 +7,11 @@ var level: int = 0
 var hell_score : int = -50
 var heaven_score : int = 50
 var dead_counter : int = 0
+
+
+func reset_global_data():
+	processed_dead_count = 0
+	level = 0
+	hell_score = -50
+	heaven_score = 50
+	dead_counter = 0

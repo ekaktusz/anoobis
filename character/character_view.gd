@@ -11,5 +11,4 @@ func change_character(new_character: CharacterData):
 	add_child(new_character.portrait_view)
 
 func _on_tinder_scene_character_changed(new_character):
-	print("Name:", new_character.character_name)
 	change_character(new_character)
