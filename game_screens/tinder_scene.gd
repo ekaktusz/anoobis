@@ -5,16 +5,17 @@ signal character_sent_to_hell(character: CharacterData)
 signal character_sent_to_heaven(character: CharacterData)
 signal open_tinder_dialog(level)
 
-static var level : int
-var processed_dead_count : int
+static var level: int
+var processed_dead_count: int
 var current_character: CharacterData
 
-@onready var dead_count_label : Node = $TurnNumberLabel
-@onready var rank_display_label : Node = $LevelLabel
-@onready var character_name : Node = $NameLabel
-@onready var underworld : Node =  $Underworld
-@onready var const_properties_view : Node = $ConsPropertiesView
-@onready var pros_properties_view : Node = $ProsPropertiesView
+@onready var dead_count_label: Node = $TurnNumberLabel
+@onready var rank_display_label: Node = $LevelLabel
+@onready var character_name: Node = $NameLabel
+@onready var underworld: Node = $Underworld
+@onready var const_properties_view: Node = $ConsPropertiesView
+@onready var pros_properties_view: Node = $ProsPropertiesView
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,7 +28,7 @@ func _ready():
 
 
 func _input(event: InputEvent) -> void:
-	if ((event as InputEvent).is_action_pressed("OpenCharacterGenerator")):
+	if (event as InputEvent).is_action_pressed("OpenCharacterGenerator"):
 		get_tree().change_scene_to_file("res://character/character_generator.tscn")
 
 
@@ -65,7 +66,7 @@ func reset_dead_count() -> void:
 
 func increase_processed_dead_counter():
 	processed_dead_count += 1
-	dead_count_label.text =  str(processed_dead_count) +"/10"
+	dead_count_label.text = str(processed_dead_count) + "/10"
 
 
 func trigger_break_selector() -> void:
@@ -89,5 +90,5 @@ func _on_where_to_selector_underworld_left() -> void:
 	underworld.set_visible(false)
 	update_rank_title()
 	reset_dead_count()
-	open_tinder_dialog.emit(level)	
+	open_tinder_dialog.emit(level)
 #	print(NpcDialogs.anubis_speak(level))
