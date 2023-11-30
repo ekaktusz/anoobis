@@ -137,7 +137,6 @@ func get_current_hell_quest_description() -> String:
 	return hell_quest.get_current_hell_quest_description()
 
 
-
 func _on_quest_hell_quest_completed(reward_score) -> void:
 	hell_score += reward_score
 

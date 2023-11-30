@@ -171,12 +171,10 @@ layout_mode = 2
 text = "Go to Heaven"
 
 [connection signal="pressed" from="Heaven/HeavenBackgroundPanel/HeavenActions/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Heaven/HeavenBackgroundPanel/HeavenActions/Back" to="Heaven" method="_on_button_pressed" flags=18]
 [connection signal="heaven_quest_completed" from="Heaven/HeavenBackgroundPanel/HeavenActions/Quest" to="." method="_on_quest_heaven_quest_completed"]
 [connection signal="pressed" from="Heaven/HeavenBackgroundPanel/HeavenActions/Quest/QuestDecisionButtons/AcceptHeavenQuest" to="." method="_on_accept_heaven_quest_pressed"]
 [connection signal="pressed" from="Heaven/HeavenBackgroundPanel/HeavenActions/Quest/QuestDecisionButtons/DeclineHeavenQuest" to="." method="_on_decline_heaven_quest_pressed"]
 [connection signal="pressed" from="Hell/HellBackgroundPanel/HellActions/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Hell/HellBackgroundPanel/HellActions/Back" to="Hell" method="_on_back_pressed" flags=18]
 [connection signal="hell_quest_completed" from="Hell/HellBackgroundPanel/HellActions/Quest" to="." method="_on_quest_hell_quest_completed"]
 [connection signal="pressed" from="Hell/HellBackgroundPanel/HellActions/Quest/QuestDecisionButtons/AcceptHellQuest" to="." method="_on_accept_hell_quest_pressed"]
 [connection signal="pressed" from="Hell/HellBackgroundPanel/HellActions/Quest/QuestDecisionButtons/DeclineHellQuest" to="." method="_on_decline_hell_quest_pressed"]
