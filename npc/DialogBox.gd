@@ -7,9 +7,11 @@ var phrase_num = 0
 var finished = false
 
 var anubis_picture = preload("res://assets/images/npcs/anubis.png")
-var croc_picture = preload("res://assets/images/npcs/croc_bro.png")
-var goddess_picture = preload("res://assets/images/npcs/goddess.png")
+var croc_picture = preload("res://assets/images/npcs/kroki.png")
+var goddess_picture = preload("res://assets/images/npcs/bastet.png")
 
+enum DIALOG_BOX_MODE { Tinder, Hell, Heaven }
+@export var dialog_box_mode: DIALOG_BOX_MODE
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):

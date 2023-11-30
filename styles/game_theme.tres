@@ -1,12 +1,11 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bixc6mxs53sp4"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bixc6mxs53sp4"]
 
-[ext_resource type="FontFile" uid="uid://bjmqa32sthym1" path="res://assets/fonts/cinzel.ttf" id="2_eof3w"]
 [ext_resource type="FontFile" uid="uid://b7i3iehtdcx3v" path="res://assets/fonts/raleway.ttf" id="2_pjnhs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uw8pc"]
 
 [resource]
-default_font = ExtResource("2_eof3w")
+default_font = ExtResource("2_pjnhs")
 default_font_size = 30
 Label/fonts/font = ExtResource("2_pjnhs")
 Label/styles/normal = SubResource("StyleBoxEmpty_uw8pc")

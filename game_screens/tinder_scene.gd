@@ -22,7 +22,7 @@ func _ready():
 	GlobalGameData.level = 0
 	rank_display_label.text = RankDefinitions.get_rank(GlobalGameData.level)
 	get_new_character()
-	open_tinder_dialog.emit(GlobalGameData.level)
+	#open_tinder_dialog.emit(GlobalGameData.level)
 	#print(NpcDialogs.anubis_speak(level))
 
 
