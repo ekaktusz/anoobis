@@ -15,6 +15,8 @@ var current_character: CharacterData
 @onready var underworld : Node =  $Underworld
 @onready var const_properties_view : Node = $ConsPropertiesView
 @onready var pros_properties_view : Node = $ProsPropertiesView
+@onready var hell_quest : Node = $HellQuest
+@onready var heaven_quest : Node = $HeavenQuest
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,8 +24,8 @@ func _ready():
 	self.level = 0
 	rank_display_label.text = RankDefinitions.get_rank(level)
 	get_new_character()
+	update_quest_descriptions()
 	open_tinder_dialog.emit(level)
-	#print(NpcDialogs.anubis_speak(level))
 
 
 func _input(event: InputEvent) -> void:
@@ -44,7 +46,7 @@ func _on_hell_button_pressed() -> void:
 func swipe_character() -> void:
 	increase_processed_dead_counter()
 	if processed_dead_count >= 10:
-		underworld.evaluate_win_condition()
+		underworld.evaluate_end_of_turn()
 		trigger_break_selector()
 		rank_up()
 
@@ -84,10 +86,15 @@ func rank_up() -> void:
 func update_rank_title() -> void:
 	rank_display_label.text = RankDefinitions.get_rank(level)
 
-
+# TODO: this is not where to selector anymore
 func _on_where_to_selector_underworld_left() -> void:
 	underworld.set_visible(false)
 	update_rank_title()
 	reset_dead_count()
-	open_tinder_dialog.emit(level)	
-#	print(NpcDialogs.anubis_speak(level))
+	update_quest_descriptions()
+	open_tinder_dialog.emit(level)
+
+
+func update_quest_descriptions() -> void:
+	hell_quest.text = underworld.get_current_hell_quest_description()
+	heaven_quest.text = underworld.get_current_heaven_quest_description()
