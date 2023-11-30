@@ -48,7 +48,6 @@ func swipe_character() -> void:
 	if processed_dead_count >= 10:
 		underworld.evaluate_end_of_turn()
 		trigger_break_selector()
-		rank_up()
 
 	get_new_character()
 
@@ -76,9 +75,9 @@ func trigger_break_selector() -> void:
 
 func rank_up() -> void:
 	level += 1
-	if level == 3:
+	if level == 2:
 		underworld.enable_underworld_quests()
-	elif level == 5:
+	elif level == 4:
 		const_properties_view.set_property_values_visible()
 		pros_properties_view.set_property_values_visible()
 
@@ -89,6 +88,7 @@ func update_rank_title() -> void:
 # TODO: this is not where to selector anymore
 func _on_where_to_selector_underworld_left() -> void:
 	underworld.set_visible(false)
+	rank_up()
 	update_rank_title()
 	reset_dead_count()
 	update_quest_descriptions()
