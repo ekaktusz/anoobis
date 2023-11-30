@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0oykyjsf86lh"]
+
+[ext_resource type="Script" path="res://character/character_view.gd" id="1_jd4i5"]
+[ext_resource type="PackedScene" uid="uid://crdjlfgux2jt3" path="res://character/character_portrait_view.tscn" id="2_5t3u5"]
+
+[node name="CharacterViewScene" type="MarginContainer"]
+custom_minimum_size = Vector2(500, 500)
+script = ExtResource("1_jd4i5")
+
+[node name="PortraitContainer" parent="." instance=ExtResource("2_5t3u5")]
+layout_mode = 2

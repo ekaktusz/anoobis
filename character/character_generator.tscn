@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://punfu476axs3"]
+
+[ext_resource type="Script" path="res://character/character_generator.gd" id="1_ggyww"]
+[ext_resource type="PackedScene" uid="uid://crdjlfgux2jt3" path="res://character/character_portrait_view.tscn" id="2_6m771"]
+
+[node name="CharacterGenerator" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ggyww")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CreateCharacter" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Character generation"
+
+[node name="Character" parent="VBoxContainer" instance=ExtResource("2_6m771")]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+
+[node name="GeneratePartsHBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HairButton" type="Button" parent="VBoxContainer/GeneratePartsHBox"]
+layout_mode = 2
+text = "Hair"
+
+[node name="EyesButton" type="Button" parent="VBoxContainer/GeneratePartsHBox"]
+layout_mode = 2
+text = "Eyes"
+
+[node name="SkinButton" type="Button" parent="VBoxContainer/GeneratePartsHBox"]
+layout_mode = 2
+text = "Skin"
+
+[node name="NoseButton" type="Button" parent="VBoxContainer/GeneratePartsHBox"]
+layout_mode = 2
+text = "Nose"
+
+[node name="MouthButton" type="Button" parent="VBoxContainer/GeneratePartsHBox"]
+layout_mode = 2
+text = "Mouth"
+
+[node name="BeardButton" type="Button" parent="VBoxContainer/GeneratePartsHBox"]
+layout_mode = 2
+text = "Beard"
+
+[node name="GenerateButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Generate"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/HairButton" to="." method="_on_hair_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/EyesButton" to="." method="_on_eyes_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/SkinButton" to="." method="_on_skin_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/NoseButton" to="." method="_on_nose_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/MouthButton" to="." method="_on_mouth_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GeneratePartsHBox/BeardButton" to="." method="_on_beard_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GenerateButton" to="." method="_on_generate_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

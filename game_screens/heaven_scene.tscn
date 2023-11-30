@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://v2ja3pxdrwix"]
+
+[ext_resource type="Script" path="res://game_screens/heaven_scene.gd" id="1_ybots"]
+[ext_resource type="Texture2D" uid="uid://c0k385ldsugs0" path="res://assets/images/backgrounds/heaven_background.png" id="2_pautw"]
+[ext_resource type="PackedScene" uid="uid://dpxut23sbwn73" path="res://npc/dialog_box_reborn.tscn" id="3_kou28"]
+
+[node name="heaven" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ybots")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 1959.0
+offset_bottom = 1109.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pautw")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 38.0
+offset_top = 454.0
+offset_right = 188.0
+offset_bottom = 773.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Back to game"
+
+[node name="DialogBoxReborn" parent="." instance=ExtResource("3_kou28")]
+dialog_box_mode = 2
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

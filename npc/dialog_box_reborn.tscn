@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpxut23sbwn73"]
+
+[ext_resource type="Script" path="res://npc/dialog_box_reborn.gd" id="1_dee3c"]
+[ext_resource type="StyleBox" uid="uid://77rodbabxyi" path="res://styles/dialog_box_style.tres" id="2_weqkx"]
+[ext_resource type="FontFile" uid="uid://bjmqa32sthym1" path="res://assets/fonts/cinzel.ttf" id="3_xaqem"]
+[ext_resource type="Theme" uid="uid://bixc6mxs53sp4" path="res://styles/game_theme.tres" id="4_1pfqk"]
+[ext_resource type="Texture2D" uid="uid://b1tagarfrktv5" path="res://assets/images/npcs/anubis.png" id="5_it0xi"]
+
+[node name="DialogBoxReborn" type="Node2D"]
+script = ExtResource("1_dee3c")
+
+[node name="NamePanel" type="Panel" parent="."]
+offset_left = 487.0
+offset_top = 697.0
+offset_right = 1085.0
+offset_bottom = 817.0
+theme_override_styles/panel = ExtResource("2_weqkx")
+
+[node name="NameLabel" type="Label" parent="NamePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_xaqem")
+theme_override_font_sizes/font_size = 50
+text = "Anoobis a szexdoktor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialogPanel" type="Panel" parent="."]
+offset_left = 391.0
+offset_top = 793.0
+offset_right = 1725.0
+offset_bottom = 1084.0
+theme_override_styles/panel = ExtResource("2_weqkx")
+
+[node name="DialogLabel" type="RichTextLabel" parent="DialogPanel"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 17.0
+offset_right = 1312.0
+offset_bottom = 278.0
+theme = ExtResource("4_1pfqk")
+text = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
+
+[node name="GodSprite" type="Sprite2D" parent="."]
+position = Vector2(298, 744)
+scale = Vector2(2.69466, 2.69466)
+texture = ExtResource("5_it0xi")

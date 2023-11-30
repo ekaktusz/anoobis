@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://crdjlfgux2jt3"]
+
+[ext_resource type="Script" path="res://character/character_portrait_view.gd" id="1_7mjef"]
+[ext_resource type="Texture2D" uid="uid://bxtagprrai31x" path="res://assets/images/face_parts/beard_A1.png" id="2_hy8qe"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sapyp"]
+load_path = "res://.godot/imported/hair_A_back.png-43162ca916699e29fb25e45a5f4f03bf.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sysx3"]
+load_path = "res://.godot/imported/skin_A1.png-76cac0830684e20284e1774950b4cf4c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2ecpb"]
+load_path = "res://.godot/imported/eyes_A.png-28ab78449753ece71a560df543572310.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bpgc4"]
+load_path = "res://.godot/imported/mouth_A.png-cf6dc86a640661c8fceba43f99c57a06.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7emgq"]
+load_path = "res://.godot/imported/nose_A.png-4759844ea8f96885b041d219cd7f5b6a.ctex"
+
+[node name="Character" type="AspectRatioContainer"]
+offset_right = 72.0
+offset_bottom = 72.0
+script = ExtResource("1_7mjef")
+
+[node name="BackHairTexture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_sapyp")
+
+[node name="SkinTexture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_sysx3")
+
+[node name="FrontHairTexture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_sapyp")
+
+[node name="EyesTexture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_2ecpb")
+
+[node name="MouthTexture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_bpgc4")
+
+[node name="NoseTexture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_7emgq")
+
+[node name="BeardTexture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_hy8qe")
