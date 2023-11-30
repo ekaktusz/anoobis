@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dko4l5ipopn3s"]
+
+[ext_resource type="AudioStream" uid="uid://cjdcqa7hslrc3" path="res://assets/music/ANUBIS.wav" id="1_ikyjd"]
+[ext_resource type="Script" path="res://utils/background_music_player.gd" id="2_ypitw"]
+
+[node name="background_music_player" type="AudioStreamPlayer"]
+stream = ExtResource("1_ikyjd")
+bus = &"Music"
+script = ExtResource("2_ypitw")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://b018n8734ln7h"]
+
+[ext_resource type="Texture2D" uid="uid://bmnse52tkjyja" path="res://assets/images/backgrounds/hell_background.png" id="1_6nhcn"]
+[ext_resource type="Script" path="res://game_screens/hell_scene.gd" id="1_pgjjg"]
+[ext_resource type="PackedScene" uid="uid://dpxut23sbwn73" path="res://npc/dialog_box_reborn.tscn" id="3_piko4"]
+
+[node name="hell_scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pgjjg")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6nhcn")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1760.0
+offset_top = 454.0
+offset_right = 1882.0
+offset_bottom = 720.0
+
+[node name="DialogBoxReborn" parent="." instance=ExtResource("3_piko4")]
+dialog_box_mode = 1
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
