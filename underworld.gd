@@ -26,9 +26,10 @@ func _on_to_hell_button_pressed() -> void:
 
 
 func _on_to_heaven_button_pressed() -> void:
-	underworld_selector.set_visible(false)
-	heaven.set_visible(true)
-	open_heaven_dialog.emit(floor(dead_counter / 10))
+	#underworld_selector.set_visible(false)
+	#heaven.set_visible(true)
+	#open_heaven_dialog.emit(floor(dead_counter / 10))
+	SceneTransition.change_scene_to_file("res://game_screens/heaven_scene.tscn")
 	#print(NpcDialogs.cat_speak(floor(dead_counter / 10)))
 
 

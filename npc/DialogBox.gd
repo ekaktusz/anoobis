@@ -5,9 +5,9 @@ signal dialog_closed()
 var text_speed = 0.05
 var phrase_num = 0
 var finished = false
-var anubis_picture_path ="res://assets/images/anubis.png"
-var croc_picture_path ="res://assets/images/croc_bro.png"
-var goddess_picture_path ="res://assets/images/goddess.png"
+var anubis_picture_path ="res://assets/images/npcs/anubis.png"
+var croc_picture_path ="res://assets/images/npcs/croc_bro.png"
+var goddess_picture_path ="res://assets/images/npcs/goddess.png"
 
 	
 func _process(_delta):

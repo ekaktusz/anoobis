@@ -45,3 +45,4 @@ layout_mode = 2
 
 [node name="PropertyView" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_namr4")]
 layout_mode = 2
+theme = ExtResource("2_edrgu")
