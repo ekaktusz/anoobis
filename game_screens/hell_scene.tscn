@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b018n8734ln7h"]
+[gd_scene load_steps=8 format=3 uid="uid://b018n8734ln7h"]
 
 [ext_resource type="Script" path="res://game_screens/hell_scene.gd" id="1_pgjjg"]
 [ext_resource type="Texture2D" uid="uid://cus42ouva080c" path="res://assets/images/screens/hell_screen/hell_bg.png" id="2_50xmr"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dghcgeucuwun8" path="res://assets/images/screens/hell_screen/hell_eloter.png" id="3_qpy2k"]
 [ext_resource type="Texture2D" uid="uid://daicvfngyetr7" path="res://assets/images/screens/hell_screen/hell_emberek.png" id="4_udlye"]
 [ext_resource type="Texture2D" uid="uid://cfu4hpqx38oxs" path="res://assets/images/screens/hell_screen/visszanyil.png" id="5_3vo01"]
+[ext_resource type="FontFile" uid="uid://bjmqa32sthym1" path="res://assets/fonts/cinzel.ttf" id="7_gw68w"]
 
 [node name="hell_scene" type="Control"]
 layout_mode = 3
@@ -55,7 +56,34 @@ ignore_texture_size = true
 stretch_mode = 3
 
 [node name="DialogBoxReborn" parent="." instance=ExtResource("3_piko4")]
+visible = false
 dialog_box_mode = 1
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1179.0
+offset_top = 63.0
+offset_right = 1782.0
+offset_bottom = 159.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_gw68w")
+theme_override_font_sizes/font_size = 70
+text = "Hell Value"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HellValueLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1163.0
+offset_top = 137.0
+offset_right = 1766.0
+offset_bottom = 257.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_gw68w")
+theme_override_font_sizes/font_size = 100
+text = "-50"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="BackButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="mouse_exited" from="BackButton" to="." method="_on_back_button_mouse_exited"]
