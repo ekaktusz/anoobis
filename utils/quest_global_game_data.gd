@@ -26,3 +26,6 @@ var people_sent_to_hell_and_heaven_balance : int = 0
 var people_sent_to_heaven_with_8_plus_score : int = 0
 # heaven lvl3
 var all_souls_sent_to_heaven_in_round : bool = true
+
+var hell_quest_completed_in_current_turn = false
+var heaven_quest_completed_in_current_turn = false

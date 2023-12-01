@@ -35,6 +35,8 @@ func _on_tinder_scene_character_sent_to_heaven(character : CharacterData) -> voi
 	GlobalGameData.dead_counter += 1
 
 	heaven_score_label.text = "Heaven score is: " + str(GlobalGameData.heaven_score)
+	
+	evaluate_quest_completion()
 
 
 func _on_tinder_scene_character_sent_to_hell(character) -> void:
@@ -46,10 +48,12 @@ func _on_tinder_scene_character_sent_to_hell(character) -> void:
 	GlobalGameData.dead_counter += 1
 
 	hell_score_label.text = "Hell score is: " + str(GlobalGameData.hell_score)
+	
+	evaluate_quest_completion()
 
 func evaluate_end_of_turn() -> void:
 	evaluate_win_condition()
-	evaluate_quest_completion()
+	#evaluate_quest_completion()
 
 
 func evaluate_win_condition() -> void:
@@ -70,7 +74,6 @@ func evaluate_win_condition() -> void:
 		print("YOUR LOSER: Hell got unbalanced")
 		game_over()
 
-
 	if GlobalGameData.heaven_score >= 100:
 		if heaven_quest.is_secret_quest_accepted():
 			print("YOUR WINNER: Completed heaven quest")
@@ -89,22 +92,8 @@ func game_over() -> void:
 func enable_underworld_quests() -> void:
 	hell_quest.enable_hell_quests()
 	heaven_quest.enable_heaven_quests()
-
-func _on_accept_hell_quest_pressed() -> void:
 	hell_quest.accept_next_quest()
-
-
-func _on_accept_heaven_quest_pressed() -> void:
 	heaven_quest.accept_next_quest()
-
-
-func _on_decline_hell_quest_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_decline_heaven_quest_pressed() -> void:
-	pass # Replace with function body.
-
 
 func get_current_heaven_quest_description() -> String:
 	return heaven_quest.get_current_heaven_quest_description()
@@ -112,7 +101,7 @@ func get_current_heaven_quest_description() -> String:
 
 func get_current_hell_quest_description() -> String:
 	return hell_quest.get_current_hell_quest_description()
-
+	
 
 func _on_quest_hell_quest_completed(reward_score) -> void:
 	GlobalGameData.hell_score += reward_score
