@@ -3,6 +3,8 @@ extends Control
 var heaven_quest_accepted : bool = false
 var hell_quest_accepted : bool = false
 
+signal asd
+
 @onready var underworld_selector = $UnderworldSelector
 @onready var heaven_score_label = $Heaven/HeavenBackgroundPanel/ScoreLabel
 @onready var hell_score_label = $Hell/HellBackgroundPanel/ScoreLabel
@@ -12,15 +14,6 @@ var hell_quest_accepted : bool = false
 func evaluate_quest_completion() -> void:
 	hell_quest.evaluate_hell_quests()
 	heaven_quest.evaluate_heaven_quests()
-
-
-func _on_to_hell_button_pressed() -> void:
-	var hell_scene = preload("res://game_screens/hell_scene.tscn").instantiate()
-	SceneTransition.change_scene(hell_scene)
-
-func _on_to_heaven_button_pressed() -> void:
-	var heaven_scene = preload("res://game_screens/heaven_scene.tscn").instantiate()
-	SceneTransition.change_scene(heaven_scene)
 
 
 func reset_quest_state() -> void:

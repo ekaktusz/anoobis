@@ -30,12 +30,12 @@ func _input(event: InputEvent) -> void:
 		get_tree().change_scene_to_file("res://character/character_generator.tscn")
 
 
-func _on_heaven_button_pressed() -> void:
+func _on_to_heaven_button_pressed() -> void:
 	character_sent_to_heaven.emit(self.current_character)
 	swipe_character()
 
 
-func _on_hell_button_pressed() -> void:
+func _on_to_hell_button_pressed() -> void:
 	character_sent_to_hell.emit(self.current_character)
 	swipe_character()
 
@@ -86,3 +86,12 @@ func update_quest_descriptions() -> void:
 	hell_quest.text = underworld.get_current_hell_quest_description()
 	heaven_quest.text = underworld.get_current_heaven_quest_description()
 
+
+func _on_hell_button_pressed():
+	var hell_scene = preload("res://game_screens/hell_scene.tscn").instantiate()
+	SceneTransition.change_scene(hell_scene)
+
+
+func _on_heaven_button_pressed():
+	var heaven_scene = preload("res://game_screens/heaven_scene.tscn").instantiate()
+	SceneTransition.change_scene(heaven_scene)
