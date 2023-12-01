@@ -14,6 +14,7 @@ signal character_sent_to_heaven(character: CharacterData)
 @onready var pros_properties_view : Node = $ProsPropertiesView
 @onready var hell_quest : Node = $HellQuest
 @onready var heaven_quest : Node = $HeavenQuest
+@onready var underworld_selector = $underworld_selector
 
 
 # Called when the node enters the scene tree for the first time.
@@ -68,13 +69,14 @@ func increase_processed_dead_counter():
 
 
 func trigger_break_selector() -> void:
-	underworld.set_visible(true)
+	
+	underworld_selector.set_visible(true)
 
 
 func rank_up() -> void:
 	GlobalGameData.level += 1
-	if GlobalGameData.level == 2:
-		underworld.enable_underworld_quests()
+#	if GlobalGameData.level == 2:
+#		underworld.enable_underworld_quests()
 		
 ## no longer needed - poperty visible connected to global level directly
 #	elif GlobalGameData.level == 4:

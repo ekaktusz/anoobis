@@ -48,6 +48,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_e7guc")
 
 [node name="DialogLabel" type="RichTextLabel" parent="AnubisBox/Control"]
+layout_mode = 0
 offset_left = 573.0
 offset_top = 746.0
 offset_right = 1664.0
@@ -104,6 +105,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_e7guc")
 
 [node name="DialogLabel" type="RichTextLabel" parent="KrokiBox/Control"]
+layout_mode = 0
 offset_left = 573.0
 offset_top = 746.0
 offset_right = 1664.0
@@ -159,6 +161,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_e7guc")
 
 [node name="DialogLabel" type="RichTextLabel" parent="BastBox/Control"]
+layout_mode = 0
 offset_left = 573.0
 offset_top = 746.0
 offset_right = 1664.0
