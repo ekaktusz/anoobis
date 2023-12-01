@@ -80,9 +80,12 @@ func _process(delta):
 	if not self.finished and dialog_label.visible_characters < len(dialog_label.text):
 		dialog_label.visible_characters += 1
 		await get_tree().create_timer(text_speed).timeout
-	else:
+	
+	if not self.finished and dialog_label.visible_characters >= len(dialog_label.text):
 		self.finished = true
 		phrase_num += 1
+		text_speed = 0.05
+		#next_phrase()
 	
 
 func next_phrase():

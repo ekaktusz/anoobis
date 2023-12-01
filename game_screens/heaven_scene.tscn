@@ -58,6 +58,7 @@ visible = false
 dialog_box_mode = 2
 
 [node name="Title" type="Label" parent="."]
+layout_mode = 0
 offset_left = 138.0
 offset_top = 66.0
 offset_right = 741.0
@@ -69,7 +70,8 @@ text = "Heaven Value"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HeavenValueLabel" type="Label" parent="."]
+[node name="HeavenValueLabel2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 134.0
 offset_right = 729.0
