@@ -29,7 +29,7 @@ func _update_gui():
 	for property in self.properties:
 		var current_property_view = PropertyView.instantiate()
 		property.is_value_visible = GlobalGameData.level >= 4
-
+	
 		current_property_view.initialize(property)
 		property_container.add_child(current_property_view)
 

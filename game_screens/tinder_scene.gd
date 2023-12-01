@@ -17,6 +17,9 @@ signal character_sent_to_heaven(character: CharacterData)
 @onready var underworld_selector = $underworld_selector
 @onready var to_heaven_button = $ToHeavenButton
 @onready var to_hell_button = $ToHellButton
+@onready var eye_of_horus_colored = $EyeOfHorusColored
+
+
 
 var hell_quest_completed: bool = false
 var heaven_quest_completed: bool = false
@@ -54,6 +57,9 @@ func get_new_character() -> void:
 	self.current_character = CharacterDatabase.get_random_character()
 
 	character_name.text = self.current_character.character_name
+	if (GlobalGameData.level >= 4):
+		eye_of_horus_colored.set_visible(true)
+		
 	character_changed.emit(self.current_character)
 
 
