@@ -14,6 +14,7 @@ signal character_sent_to_heaven(character: CharacterData)
 @onready var pros_properties_view : Node = $ProsPropertiesView
 @onready var hell_quest : Node = $HellQuest
 @onready var heaven_quest : Node = $HeavenQuest
+@onready var underworld_selector = $underworld_selector
 
 
 # Called when the node enters the scene tree for the first time.
@@ -76,7 +77,8 @@ func increase_processed_dead_counter():
 
 
 func trigger_break_selector() -> void:
-	underworld.set_visible(true)
+	
+	underworld_selector.set_visible(true)
 
 
 func rank_up() -> void:
@@ -93,13 +95,3 @@ func rank_up() -> void:
 func update_quest_descriptions() -> void:
 	hell_quest.text = underworld.get_current_hell_quest_description()
 	heaven_quest.text = underworld.get_current_heaven_quest_description()
-
-
-func _on_hell_button_pressed():
-	var hell_scene = preload("res://game_screens/hell_scene.tscn").instantiate()
-	SceneTransition.change_scene(hell_scene)
-
-
-func _on_heaven_button_pressed():
-	var heaven_scene = preload("res://game_screens/heaven_scene.tscn").instantiate()
-	SceneTransition.change_scene(heaven_scene)

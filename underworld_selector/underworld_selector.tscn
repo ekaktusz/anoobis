@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpuyufc8oosgp"]
+
+[ext_resource type="Script" path="res://underworld_selector/underworld_selector.gd" id="1_53t18"]
+[ext_resource type="Texture2D" uid="uid://d0dltanb3d45t" path="res://assets/images/npcs/anubis.png" id="1_sjusi"]
+[ext_resource type="Texture2D" uid="uid://dy8sfk43ok67t" path="res://assets/images/to_hell.png" id="3_8bl4c"]
+[ext_resource type="FontFile" uid="uid://b7i3iehtdcx3v" path="res://assets/fonts/raleway.ttf" id="4_mrnde"]
+[ext_resource type="Texture2D" uid="uid://cedmpkkvf47xs" path="res://assets/images/to_heaven.png" id="4_r3ryj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjcgd"]
+bg_color = Color(0, 0, 0, 0.698039)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.882353)
+
+[node name="underworld_selector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -68.0
+offset_right = -4.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_53t18")
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+offset_left = -7.0
+offset_top = 50.0
+offset_right = 1950.0
+offset_bottom = 1173.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rjcgd")
+
+[node name="Anubis" type="Sprite2D" parent="."]
+position = Vector2(962, 666)
+scale = Vector2(3.83992, 3.83992)
+texture = ExtResource("1_sjusi")
+
+[node name="PlayerToHellButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 816.0
+offset_right = 507.0
+offset_bottom = 871.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_8bl4c")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="PlayerToHellButton"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 16.0
+offset_right = 196.0
+offset_bottom = 62.0
+rotation = -0.00457371
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_mrnde")
+theme_override_font_sizes/font_size = 24
+text = "TO HELL"
+
+[node name="PlayerToHeavenButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1187.0
+offset_top = 809.0
+offset_right = 1394.0
+offset_bottom = 878.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("4_r3ryj")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="PlayerToHeavenButton"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 22.5
+offset_right = 202.0
+offset_bottom = 68.5
+rotation = -0.00457371
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_mrnde")
+theme_override_font_sizes/font_size = 24
+text = "TO HEAVEN"
+
+[connection signal="mouse_entered" from="PlayerToHellButton" to="." method="_on_player_to_hell_button_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerToHellButton" to="." method="_on_player_to_hell_button_mouse_exited"]
+[connection signal="pressed" from="PlayerToHellButton" to="." method="_on_player_to_hell_button_pressed"]
+[connection signal="mouse_entered" from="PlayerToHeavenButton" to="." method="_on_player_to_heaven_button_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerToHeavenButton" to="." method="_on_player_to_heaven_button_mouse_exited"]
+[connection signal="pressed" from="PlayerToHeavenButton" to="." method="_on_player_to_heaven_button_pressed"]
