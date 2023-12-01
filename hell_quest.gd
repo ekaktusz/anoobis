@@ -8,7 +8,7 @@ var hell_quest_descriptions : Array[String] = [
 	"Make Hell overflow with Evil (-100)",
 ]
 
-@onready var quest_description = $QuestDescription
+@onready var quest_description =  get_tree().get_root().get_node("tinder_scene/HellQuest")
 
 
 signal hell_quest_completed(reward_score)
@@ -27,9 +27,10 @@ func get_current_hell_quest_description() -> String:
 
 
 func set_next_hell_quest() -> void:
+	quest_description.set_text("")
+	QuestGlobalGameData.hell_quest_completed_in_current_turn = true
 	print("hell quest no. " + str(QuestGlobalGameData.next_hell_quest_index) + " completed.")
 	QuestGlobalGameData.next_hell_quest_index += 1
-	quest_description.set_text(hell_quest_descriptions[QuestGlobalGameData.next_hell_quest_index])
 
 
 func update_heaven_score(score : int) -> void:
@@ -37,7 +38,14 @@ func update_heaven_score(score : int) -> void:
 
 
 func evaluate_hell_quests() -> void:
-	if QuestGlobalGameData.accepted_hell_quest_index == 0:
+	if QuestGlobalGameData.hell_quest_completed_in_current_turn:
+		return
+		
+	if QuestGlobalGameData.accepted_hell_quest_index == -1:
+		if GlobalGameData.in_hell_characters.size() > 4:
+			hell_quest_completed.emit(5)
+			set_next_hell_quest()
+	elif QuestGlobalGameData.accepted_hell_quest_index == 0:
 		if QuestGlobalGameData.soul_sent_where_it_doesnt_belong:
 			hell_quest_completed.emit(-5)
 			set_next_hell_quest()
