@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dokdiw24rdwcu"
-path="res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"
+uid="uid://hioi1gnaqi3k"
+path="res://.godot/imported/npc szovegdoboz.png-602499bef24aa6813f0ae7c27c1435e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/npcs/kroki.png"
-dest_files=["res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"]
+source_file="res://assets/images/screens/hell_screen/npc szovegdoboz.png"
+dest_files=["res://.godot/imported/npc szovegdoboz.png-602499bef24aa6813f0ae7c27c1435e6.ctex"]
 
 [params]
 

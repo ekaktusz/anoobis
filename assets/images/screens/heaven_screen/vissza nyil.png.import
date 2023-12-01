@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dokdiw24rdwcu"
-path="res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"
+uid="uid://dnc7sw70g2h13"
+path="res://.godot/imported/vissza nyil.png-40f13cc08f65788ba304dc115f02b900.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/npcs/kroki.png"
-dest_files=["res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"]
+source_file="res://assets/images/screens/heaven_screen/vissza nyil.png"
+dest_files=["res://.godot/imported/vissza nyil.png-40f13cc08f65788ba304dc115f02b900.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dokdiw24rdwcu"
-path="res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"
+uid="uid://dghcgeucuwun8"
+path="res://.godot/imported/hell_eloter.png-c9026910065700266108863df024d1fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/npcs/kroki.png"
-dest_files=["res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"]
+source_file="res://assets/images/screens/hell_screen/hell_eloter.png"
+dest_files=["res://.godot/imported/hell_eloter.png-c9026910065700266108863df024d1fe.ctex"]
 
 [params]
 

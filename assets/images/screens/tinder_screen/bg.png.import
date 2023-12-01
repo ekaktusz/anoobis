@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dokdiw24rdwcu"
-path="res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"
+uid="uid://dm3uu8y7luc6w"
+path="res://.godot/imported/bg.png-f577f04972c12aff79ce4b1a7b9c7c56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/npcs/kroki.png"
-dest_files=["res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"]
+source_file="res://assets/images/screens/tinder_screen/bg.png"
+dest_files=["res://.godot/imported/bg.png-f577f04972c12aff79ce4b1a7b9c7c56.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dokdiw24rdwcu"
-path="res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"
+uid="uid://dw3b8cejaec6d"
+path="res://.godot/imported/visszanyil.png-dcd31002d28a26653d6c6efb827b1da0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/npcs/kroki.png"
-dest_files=["res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"]
+source_file="res://assets/images/screens/hell_screen/visszanyil.png"
+dest_files=["res://.godot/imported/visszanyil.png-dcd31002d28a26653d6c6efb827b1da0.ctex"]
 
 [params]
 

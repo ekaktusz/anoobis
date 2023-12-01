@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dokdiw24rdwcu"
-path="res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"
+uid="uid://daicvfngyetr7"
+path="res://.godot/imported/hell_emberek.png-8d19c5381dfc1252850ddae912fb3fd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/npcs/kroki.png"
-dest_files=["res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"]
+source_file="res://assets/images/screens/hell_screen/hell_emberek.png"
+dest_files=["res://.godot/imported/hell_emberek.png-8d19c5381dfc1252850ddae912fb3fd5.ctex"]
 
 [params]
 

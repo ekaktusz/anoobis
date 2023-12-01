@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dokdiw24rdwcu"
-path="res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"
+uid="uid://dihvram3lv7pm"
+path="res://.godot/imported/pipa.png-04cdf7294f5750cf7a96228d5dbf86ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/npcs/kroki.png"
-dest_files=["res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"]
+source_file="res://assets/images/screens/hell_screen/pipa.png"
+dest_files=["res://.godot/imported/pipa.png-04cdf7294f5750cf7a96228d5dbf86ca.ctex"]
 
 [params]
 

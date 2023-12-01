@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dokdiw24rdwcu"
-path="res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"
+uid="uid://bhwjk08ergyxr"
+path="res://.godot/imported/eloter_basic_right_quest.png-b9fdb0f422435d6d47d366e926497673.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/npcs/kroki.png"
-dest_files=["res://.godot/imported/kroki.png-59a03304d63a9e924ed48491776c274b.ctex"]
+source_file="res://assets/images/screens/tinder_screen/eloter_basic_right_quest.png"
+dest_files=["res://.godot/imported/eloter_basic_right_quest.png-b9fdb0f422435d6d47d366e926497673.ctex"]
 
 [params]
 

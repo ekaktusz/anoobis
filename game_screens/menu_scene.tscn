@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c82so3ni2qkcb"]
+[gd_scene load_steps=9 format=3 uid="uid://c82so3ni2qkcb"]
 
 [ext_resource type="Script" path="res://game_screens/menu_scene.gd" id="1_feb58"]
-[ext_resource type="Texture2D" uid="uid://biumucliqxncn" path="res://assets/images/backgrounds/menu_background.png" id="2_yx5kr"]
+[ext_resource type="Texture2D" uid="uid://beawnv7ro7g0d" path="res://assets/images/backgrounds/menu_background.png" id="2_yx5kr"]
 [ext_resource type="FontFile" uid="uid://bjmqa32sthym1" path="res://assets/fonts/cinzel.ttf" id="3_1ff76"]
 [ext_resource type="Theme" uid="uid://bixc6mxs53sp4" path="res://styles/game_theme.tres" id="4_b65yb"]
 
@@ -16,6 +16,24 @@ border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uxxlv"]
 bg_color = Color(0.364706, 0.419608, 0.215686, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nle7u"]
+bg_color = Color(0.294118, 0.25098, 0.243137, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhfqo"]
+bg_color = Color(0.619608, 0.509804, 0.356863, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
@@ -57,7 +75,24 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6or6r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uxxlv")
 text = "Start Game"
 
+[node name="StartButton2" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+offset_left = 699.0
+offset_top = 848.0
+offset_right = 1227.0
+offset_bottom = 1032.0
+size_flags_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("4_b65yb")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_nle7u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rhfqo")
+text = "How to Play"
+
 [node name="Title" type="Label" parent="."]
+visible = false
 layout_mode = 2
 offset_left = 6.0
 offset_top = 216.0
