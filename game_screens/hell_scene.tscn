@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b018n8734ln7h"]
+[gd_scene load_steps=7 format=3 uid="uid://b018n8734ln7h"]
 
-[ext_resource type="Texture2D" uid="uid://bmnse52tkjyja" path="res://assets/images/backgrounds/hell_background.png" id="1_6nhcn"]
 [ext_resource type="Script" path="res://game_screens/hell_scene.gd" id="1_pgjjg"]
+[ext_resource type="Texture2D" uid="uid://cus42ouva080c" path="res://assets/images/screens/hell_screen/hell_bg.png" id="2_50xmr"]
 [ext_resource type="PackedScene" uid="uid://dpxut23sbwn73" path="res://npc/dialog_box_reborn.tscn" id="3_piko4"]
+[ext_resource type="Texture2D" uid="uid://dghcgeucuwun8" path="res://assets/images/screens/hell_screen/hell_eloter.png" id="3_qpy2k"]
+[ext_resource type="Texture2D" uid="uid://daicvfngyetr7" path="res://assets/images/screens/hell_screen/hell_emberek.png" id="4_udlye"]
+[ext_resource type="Texture2D" uid="uid://dw3b8cejaec6d" path="res://assets/images/screens/hell_screen/visszanyil.png" id="5_3vo01"]
 
 [node name="hell_scene" type="Control"]
 layout_mode = 3
@@ -20,7 +23,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_6nhcn")
+texture = ExtResource("2_50xmr")
+
+[node name="Front" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qpy2k")
+
+[node name="People" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_udlye")
+
+[node name="BackButtonImg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_3vo01")
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
