@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cuwqnebhet0eq" path="res://assets/images/screens/heaven_screen/heaven_bg.png" id="2_yjhmk"]
 [ext_resource type="Texture2D" uid="uid://hiy8lyeqvav5" path="res://assets/images/screens/heaven_screen/heaven_eloter.png" id="3_njn5x"]
 [ext_resource type="Texture2D" uid="uid://bj3dxi2p5my50" path="res://assets/images/screens/heaven_screen/heaven_emberek.png" id="4_pcm3s"]
-[ext_resource type="Texture2D" uid="uid://dnc7sw70g2h13" path="res://assets/images/screens/heaven_screen/vissza nyil.png" id="5_jf7bx"]
+[ext_resource type="Texture2D" uid="uid://ba5e5fxhnmkoq" path="res://assets/images/screens/heaven_screen/vissza nyil.png" id="5_132m3"]
 [ext_resource type="PackedScene" uid="uid://dpxut23sbwn73" path="res://npc/dialog_box_reborn.tscn" id="6_2fal4"]
 
 [node name="HeavenScene" type="Control"]
@@ -43,23 +43,18 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_njn5x")
 
-[node name="BackButtonImg" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_jf7bx")
-
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 464.0
-offset_right = 162.0
-offset_bottom = 730.0
+offset_left = 31.0
+offset_top = 456.0
+offset_right = 153.0
+offset_bottom = 722.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("5_132m3")
 
 [node name="DialogBoxReborn" parent="." instance=ExtResource("6_2fal4")]
 dialog_box_mode = 2
 
+[connection signal="mouse_entered" from="BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="mouse_exited" from="BackButton" to="." method="_on_back_button_mouse_exited"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
