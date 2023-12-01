@@ -27,7 +27,7 @@ func get_current_hell_quest_description() -> String:
 
 
 func set_next_hell_quest() -> void:
-	quest_description.set_text("")
+	quest_description.set_text("HELL QUEST COMPLETED")
 	QuestGlobalGameData.hell_quest_completed_in_current_turn = true
 	print("hell quest no. " + str(QuestGlobalGameData.next_hell_quest_index) + " completed.")
 	QuestGlobalGameData.next_hell_quest_index += 1

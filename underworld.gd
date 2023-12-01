@@ -33,10 +33,8 @@ func _on_tinder_scene_character_sent_to_heaven(character : CharacterData) -> voi
 	GlobalGameData.heaven_score += character.get_soul_value_sum()
 	hell_quest.update_heaven_score(GlobalGameData.heaven_score)
 	GlobalGameData.dead_counter += 1
-
 	heaven_score_label.text = "Heaven score is: " + str(GlobalGameData.heaven_score)
 	
-	evaluate_quest_completion()
 
 
 func _on_tinder_scene_character_sent_to_hell(character) -> void:
@@ -48,12 +46,11 @@ func _on_tinder_scene_character_sent_to_hell(character) -> void:
 	GlobalGameData.dead_counter += 1
 
 	hell_score_label.text = "Hell score is: " + str(GlobalGameData.hell_score)
-	
-	evaluate_quest_completion()
+
 
 func evaluate_end_of_turn() -> void:
 	evaluate_win_condition()
-	#evaluate_quest_completion()
+	evaluate_quest_completion()
 
 
 func evaluate_win_condition() -> void:
