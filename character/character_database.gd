@@ -344,8 +344,18 @@ func get_random_fullname() -> String:
 func get_random_character() -> CharacterData:
 	var character = CharacterData.new(
 		get_random_fullname(),
-		get_random_properties(positive_properties_normal, 3),
-		get_random_properties(negative_properties_normal, 3),
+		get_random_properties(positive_properties_normal, get_property_count_by_level()),
+		get_random_properties(negative_properties_normal, get_property_count_by_level()),
 		CharacterPortraitView.instantiate()
 	)
 	return character
+
+func get_property_count_by_level()-> int:
+	if (GlobalGameData.level <1):
+		return 1
+	elif (GlobalGameData.level <2):
+		return 2
+	elif (GlobalGameData.level <=3):
+		return 3
+	else:
+		return 4
