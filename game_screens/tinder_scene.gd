@@ -18,6 +18,8 @@ signal character_sent_to_heaven(character: CharacterData)
 @onready var to_heaven_button = $ToHeavenButton
 @onready var to_hell_button = $ToHellButton
 
+var hell_quest_completed: bool = false
+var heaven_quest_completed: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -66,7 +68,6 @@ func increase_processed_dead_counter():
 
 
 func trigger_break_selector() -> void:
-	
 	underworld_selector.set_visible(true)
 
 
