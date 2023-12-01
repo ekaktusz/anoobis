@@ -29,6 +29,7 @@ func _ready():
 	GlobalGameData.current_turn += 1
 	QuestGlobalGameData.hell_quest_completed_in_current_turn = false
 	QuestGlobalGameData.heaven_quest_completed_in_current_turn = false
+	QuestGlobalGameData.heaven_quest_completed_in_current_turn = false
 	
 	BackgroundMusicPlayer.play_anubis_music()
 	reset_dead_count()
@@ -89,9 +90,14 @@ func rank_up() -> void:
 
 
 func update_quest_descriptions() -> void:
-	hell_quest.text = underworld.get_current_hell_quest_description()
-	heaven_quest.text = underworld.get_current_heaven_quest_description()
-
+	if GlobalGameData.current_turn < 2:# még nem oldotta ki a hell questeket
+		if QuestGlobalGameData.accepted_hell_quest_index == -1:
+			hell_quest.text = underworld.get_current_hell_quest_description()
+		if QuestGlobalGameData.accepted_heaven_quest_index == -1:
+			heaven_quest.text = underworld.get_current_heaven_quest_description()
+	else:
+		hell_quest.text = underworld.get_current_hell_quest_description()
+		heaven_quest.text = underworld.get_current_heaven_quest_description()
 
 func _on_dislike_button_pressed():
 	character_sent_to_hell.emit(self.current_character)

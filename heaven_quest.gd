@@ -22,13 +22,10 @@ func get_current_heaven_quest_description() -> String:
 
 	return description
 
-
 func set_next_heaven_quest() -> void:
-	#if QuestGlobalGameData.heaven_quest_completed_in_current_turn:
-	#	return
-	#QuestGlobalGameData.heaven_quest_completed_in_current_turn = true
 	QuestGlobalGameData.heaven_quest_completed_in_current_turn = true
 	print("heaven quest no. " + str(QuestGlobalGameData.next_heaven_quest_index) + " completed.")
+	accept_next_quest()
 	QuestGlobalGameData.next_heaven_quest_index += 1
 	quest_description.set_text("HEAVEN QUEST COMPLETED")
 
@@ -43,7 +40,11 @@ func evaluate_heaven_quests() -> void:
 		if GlobalGameData.in_heaven_characters.size() > 4:
 			heaven_quest_completed.emit(5)
 			set_next_heaven_quest()
-	elif QuestGlobalGameData.accepted_heaven_quest_index == 0:
+			
+	if GlobalGameData.current_turn < 2:
+		return
+	
+	if QuestGlobalGameData.accepted_heaven_quest_index == 0:
 		if QuestGlobalGameData.people_sent_to_hell_and_heaven_balance > 0:
 			heaven_quest_completed.emit(5)
 			set_next_heaven_quest()
@@ -65,8 +66,8 @@ func evaluate_heaven_quests() -> void:
 
 
 func enable_heaven_quests() -> void:
-	self.set_visible(true)
-	quest_description.set_text(heaven_quest_descriptions[QuestGlobalGameData.next_heaven_quest_index])
+	#quest_description.set_text(heaven_quest_descriptions[QuestGlobalGameData.next_heaven_quest_index])
+	pass
 
 
 func reset_heaven_quest_progress() -> void:
