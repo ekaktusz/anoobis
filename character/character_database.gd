@@ -355,7 +355,5 @@ func get_property_count_by_level()-> int:
 		return 1
 	elif (GlobalGameData.level <2):
 		return 2
-	elif (GlobalGameData.level <=3):
-		return 3
 	else:
-		return 4
+		return 3
