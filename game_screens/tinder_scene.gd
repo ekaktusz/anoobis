@@ -19,11 +19,16 @@ signal character_sent_to_heaven(character: CharacterData)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalGameData.current_turn += 1
+	QuestGlobalGameData.hell_quest_completed_in_current_turn = false
+	QuestGlobalGameData.heaven_quest_completed_in_current_turn = false
+	
 	BackgroundMusicPlayer.play_anubis_music()
 	reset_dead_count()
 	rank_display_label.text = RankDefinitions.get_rank(GlobalGameData.level)
 	get_new_character()
 	update_quest_descriptions()
+	
 
 
 func _input(event: InputEvent) -> void:
@@ -31,13 +36,15 @@ func _input(event: InputEvent) -> void:
 		get_tree().change_scene_to_file("res://character/character_generator.tscn")
 
 
-func _on_heaven_button_pressed() -> void:
+func _on_to_heaven_button_pressed() -> void:
 	character_sent_to_heaven.emit(self.current_character)
+	GlobalGameData.in_heaven_characters.append(self.current_character)
 	swipe_character()
 
 
-func _on_hell_button_pressed() -> void:
+func _on_to_hell_button_pressed() -> void:
 	character_sent_to_hell.emit(self.current_character)
+	GlobalGameData.in_hell_characters.append(self.current_character)
 	swipe_character()
 
 
@@ -47,8 +54,9 @@ func swipe_character() -> void:
 		underworld.evaluate_end_of_turn()
 		trigger_break_selector()
 		rank_up()
-
-	get_new_character()
+		GlobalGameData.current_turn += 1
+	else:
+		get_new_character()
 
 
 func get_new_character() -> void:
@@ -88,3 +96,12 @@ func update_quest_descriptions() -> void:
 	hell_quest.text = underworld.get_current_hell_quest_description()
 	heaven_quest.text = underworld.get_current_heaven_quest_description()
 
+
+func _on_hell_button_pressed():
+	var hell_scene = preload("res://game_screens/hell_scene.tscn").instantiate()
+	SceneTransition.change_scene(hell_scene)
+
+
+func _on_heaven_button_pressed():
+	var heaven_scene = preload("res://game_screens/heaven_scene.tscn").instantiate()
+	SceneTransition.change_scene(heaven_scene)

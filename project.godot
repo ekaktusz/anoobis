@@ -24,6 +24,7 @@ NpcDialogs="*res://npc/dialogs.gd"
 GlobalGameData="*res://global_game_data.gd"
 MouseClickSound="*res://utils/mouse_click_sound.tscn"
 BackgroundMusicPlayer="*res://utils/background_music_player.tscn"
+QuestGlobalGameData="*res://utils/quest_global_game_data.gd"
 
 [display]
 
