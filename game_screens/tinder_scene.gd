@@ -15,6 +15,8 @@ signal character_sent_to_heaven(character: CharacterData)
 @onready var hell_quest : Node = $HellQuest
 @onready var heaven_quest : Node = $HeavenQuest
 @onready var underworld_selector = $underworld_selector
+@onready var to_heaven_button = $ToHeavenButton
+@onready var to_hell_button = $ToHellButton
 
 
 # Called when the node enters the scene tree for the first time.
@@ -34,19 +36,6 @@ func _ready():
 func _input(event: InputEvent) -> void:
 	if (event as InputEvent).is_action_pressed("OpenCharacterGenerator"):
 		get_tree().change_scene_to_file("res://character/character_generator.tscn")
-
-
-func _on_to_heaven_button_pressed() -> void:
-	character_sent_to_heaven.emit(self.current_character)
-	GlobalGameData.in_heaven_characters.append(self.current_character)
-	swipe_character()
-
-
-func _on_to_hell_button_pressed() -> void:
-	character_sent_to_hell.emit(self.current_character)
-	GlobalGameData.in_hell_characters.append(self.current_character)
-	swipe_character()
-
 
 func swipe_character() -> void:
 	increase_processed_dead_counter()
@@ -95,3 +84,41 @@ func rank_up() -> void:
 func update_quest_descriptions() -> void:
 	hell_quest.text = underworld.get_current_hell_quest_description()
 	heaven_quest.text = underworld.get_current_heaven_quest_description()
+
+
+func _on_dislike_button_pressed():
+	character_sent_to_hell.emit(self.current_character)
+	GlobalGameData.in_hell_characters.append(self.current_character)
+	swipe_character()
+	
+#func _on_dislike_button_mouse_entered():
+#	dislike_button.scale = Vector2(2.1, 2.1)
+#
+#func _on_dislike_button_mouse_exited():
+#	dislike_button.scale = Vector2(2, 2)
+
+
+func _on_to_heaven_button_mouse_entered():
+	to_heaven_button.scale = Vector2(2.1, 2.1)
+
+
+func _on_to_heaven_button_mouse_exited():
+	to_heaven_button.scale = Vector2(2, 2)
+
+
+func _on_to_heaven_button_pressed() -> void:
+	character_sent_to_heaven.emit(self.current_character)
+	GlobalGameData.in_heaven_characters.append(self.current_character)
+	swipe_character()
+	
+func _on_to_hell_button_pressed():
+	character_sent_to_hell.emit(self.current_character)
+	GlobalGameData.in_heaven_characters.append(self.current_character)
+	swipe_character()
+	
+func _on_to_hell_button_mouse_entered():
+	to_hell_button.scale = Vector2(2.1, 2.1)
+
+
+func _on_to_hell_button_mouse_exited():
+	to_hell_button.scale = Vector2(2, 2)
