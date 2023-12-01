@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfdl6hj2f46oc"]
+
+[ext_resource type="Script" path="res://game_screens/tutorial.gd" id="1_7lgke"]
+[ext_resource type="Texture2D" uid="uid://ba5e5fxhnmkoq" path="res://assets/images/screens/heaven_screen/vissza nyil.png" id="2_yu034"]
+
+[node name="tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7lgke")
+
+[node name="BackButton" type="TextureButton" parent="."]
+offset_left = 31.0
+offset_top = 456.0
+offset_right = 153.0
+offset_bottom = 722.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_yu034")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
