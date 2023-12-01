@@ -12,6 +12,20 @@ var anubis_dialogs:Array[DialogData] = [
 	DialogData.new("Wonderful! I am quite pleased with you Anoobis. Don't get tricked now into any funny business, chief executive intern. Keep on going! This might just be the last level.", 9),
   	DialogData.new("You have stood the test, proved yourself a true balanced soul. Congratulations, you are now a junior god of the dead! Sort 100 souls/day from now on.", 10)]
 
+var anubis_score_dialogs_hell : Array = [
+	{"text" : "Hell is much too weak, Anoobis. You don't want to know what would become of it when it's residents wouldn't cheat their taxes and respect the law. Where would I go to party then? You must send a lot more wicked souls there. Anyways...","score_from":-10, "score_to":-1 },
+	{"text" : "Hell is too weak, Anoobis. I heard many residents you sent there are volunteering to suffer in the breaking weels now. That's not the intended way! You must send more wicked souls there. Anyways...","score_from":-25, "score_to":-11 },
+	{"text" : "Hell is too strong, Anoobis. I can hear the laughter of their tasteless, unethical jokes up here all day long! You must send less wicked souls there. Anyways...","score_from":-89, "score_to":-75 },
+	{"text" : "Hell is much too strong, Anoobis. I think we might reach the capacity of Ammut's cauldron and stomach very soon. You must not send any more wicked souls there for a while. Anyways...","score_from":-99, "score_to":-90 }
+]
+
+var anubis_score_dialogs_heaven : Array = [
+	{"text" :"Heaven is much too weak, Anoobis. They will elect that utmost terrible mortal as their leader you sent there if you keep on this track. You must send a lot more good souls there. Anyways..." ,"score_from":1, "score_to":10 },
+	{"text" :"Heaven is too weak, Anoobis. All the fraud, lies and evil you set on them.. You must send more good souls there. Anyways..." ,"score_from":11, "score_to":25 },
+	{"text" : "Heaven is too strong, Anoobis. Noone wants to hear them brag how life should be lived. You must send less good souls there. Anyways...","score_from":75, "score_to":89 },
+	{"text" : "Heaven is much too strong, Anoobis. Bastet got her fangs in you, isn't she? You must not send any more good souls there for a while. Anyways...","score_from":90, "score_to":99 }
+]
+
 var croc_bro_dialogs:Array[DialogData] = [
 	DialogData.new("Ah, is it lunchtime already? Just kidding. Welcome to Hell, neutral soul, you must be Anubis's new intern. Anoobis, is it? On the left, you see the power of my realm above the soup I'm cooking. I only eat the souls of the wicked. Make sure to send me the right souls or else you'll be demoted to my lunch.", 1),
 	DialogData.new("Anoobis, my man! Ready to stir some trouble? A dash of unpredictability, a sprinkle of pandemonium. It's like a grand feast for the senses!", 2),
@@ -23,6 +37,20 @@ var croc_bro_dialogs:Array[DialogData] = [
 	DialogData.new("Anoobis! What brings you to my stomping grounds, huh? Got some tasty news for me?", 8),
 	DialogData.new("So, Anoobis, what's next on the agenda? More judgment, more souls, or maybe a snack that won't leave me regretting my life choices? Let's keep this underworld circus rolling!", 9),
 	DialogData.new("I ate an optimist once. But I couldn't keep him down! (Laughs uproariously) Get it? Down? Like in my stomach? I'm on fire today!", 10)
+]
+
+var croc_bro_score_dialogs_heaven : Array = [
+	{"text" : "Muhahaha! That's right! Looks like we'll dine in Heaven! Wonder what happens when we take over? Prepare your belly, our allies will open their gates soon. " ,"score_from":1, "score_to":10 },
+	{"text" : "He-he-he, heaven's gettin' thinner and thinner. I like it. " ,"score_from":11, "score_to":25 },
+	{"text" : "Dude, I am h-u-n-g-r-y! Hungry for something other than wicked souls! Heaven gets all the good stuff! ","score_from":75, "score_to":89 },
+	{"text" : "Damn, heaven's gettin' a little heavy on the good guys, man. Leave some of them for me too, all right? ","score_from":90, "score_to":99 }
+]
+
+var croc_bro_score_dialogs_hell : Array = [
+	{"text" : "(Loud stomach growl) Can't you feel it, Anoobis? The hunger in my gut, gnawing at me day in and day out. I need excitement, chaos, anything to fill this void.","score_from":-10, "score_to":-1 },
+	{"text" : "Anoobis! You... you gotta understand, man. I'm starving down here, and these souls are like flavorless snacks. I need something more, something with a kick!","score_from":-25, "score_to":-11 },
+	{"text" : "Anoobis, my stomach... it's killing me, man. I went a bit overboard with those souls. Too much, too fast.", "score_from":-89, "score_to":-75 },
+	{"text" : "((Burping uncontrollably) Ugh, I thought I could handle it, you know? A feast to end all feasts. But now, it feels like the underworld itself is churning in my gut.","score_from":-99, "score_to":-90 }
 ]
 
 var cat_godess_dialogs: Array[DialogData] = [
@@ -38,6 +66,21 @@ var cat_godess_dialogs: Array[DialogData] = [
 	DialogData.new("Guess what I’m wearing? The smile you gave me. And underneath... Nothing.", 10)
 ]
 
+var cat_goddess_score_dialogs_heaven : Array = [
+	{"text" :"Are you a charger? Because I'm dying without you. Seriously, please help, cause we are about to collapse. I don't want to loose this between us for some demons." ,"score_from":1, "score_to":10 },
+	{"text" :"If you let me borrow a kiss, I promise I'll give it right back. Also, you could borrow us some souls, we are not really overflowing at the moment..." ,"score_from":11, "score_to":25 },
+	{"text" : "Are you a loan? Because you've got my interest. We are about to conquer everything, baby. Mommy's proud of you.","score_from":75, "score_to":89 },
+	{"text" : "If I could rearrange the alphabet, I would put 'U' and 'I' together. We will win this race! I mean like reaaaally soon. Be ready.","score_from":90, "score_to":99 }
+]
+	
+var cat_goddess_score_dialogs_hell : Array = [
+	{"text" : "Are you a parking ticket? You've got fine written all over you. Hell seems a little weak on meat, baby. We don't wanna win just yet.","score_from":-10, "score_to":-1 },
+	{"text" : "Well, here I am! What were your other two wishes? Well, probably making the croc starve is one of them...","score_from":-25, "score_to":-11 },
+	{"text" : "On a scale of 1 to 10, you're a 9 and I'm the 1 you need. I also need you to weaken Hell... Like a hella lot.", "score_from":-89, "score_to":-75 },
+	{"text" : "If you were a potato, you’d be a sweet potato. Can you please fix the Hell situation? Mommy's a little worried...","score_from":-99, "score_to":-90 }
+]
+
+
 func anubis_speak(level: int) -> String:
 	return anubis_dialogs.filter(func(dialog): return dialog.level == level+1)[0].text
 
@@ -47,3 +90,74 @@ func croc_speak(level: int) -> String:
 func goddess_speak(level: int) -> String:
 	return cat_godess_dialogs.filter(func(dialog): return dialog.level == level)[0].text
 	
+func goddess_speak_score_hell():
+	var score = GlobalGameData.hell_score
+	if (score <= -1 && score >= -10):
+		return cat_goddess_score_dialogs_hell[0].text
+	elif (score <= -11 && score >= -25):
+		return cat_goddess_score_dialogs_hell[1].text
+	elif (score <= -75 && score >= -89):
+		return cat_goddess_score_dialogs_hell[2].text
+	elif (score <= -90 && score >= -99):
+		return cat_goddess_score_dialogs_hell[3].text
+	return null
+	
+func goddess_speak_score_heaven():
+	var score = GlobalGameData.heaven_score
+	if (score >= 1 && score <= 10 ):
+		return cat_goddess_score_dialogs_heaven[0].text
+	elif (score >= 11 && score <= 25):
+		return cat_goddess_score_dialogs_heaven[1].text
+	elif (score >= 75 && score <= 89):
+		return cat_goddess_score_dialogs_heaven[2].text
+	elif (score >= 90 && score <= 99):
+		return cat_goddess_score_dialogs_heaven[3].text
+	return null
+	
+func anubis_speak_score_hell():
+	var score = GlobalGameData.hell_score
+	print ("hell_score", score)
+	if (score <= -1 && score >= -10):
+		return anubis_score_dialogs_hell[0].text
+	elif (score <= -11 && score >= -25):
+		return anubis_score_dialogs_hell[1].text
+	elif (score <= -75 && score >= -89):
+		return anubis_score_dialogs_hell[2].text
+	elif (score <= -90 && score >= -99):
+		return anubis_score_dialogs_hell[3].text
+	
+func anubis_speak_score_heaven():
+	var score = GlobalGameData.heaven_score
+	print ("heaven_score", score)
+	if (score >= 1 && score <= 10 ):
+		return anubis_score_dialogs_heaven[0].text
+	elif (score >= 11 && score <= 25):
+		return anubis_score_dialogs_heaven[1].text
+	elif (score >= 75 && score <= 89):
+		return anubis_score_dialogs_heaven[2].text
+	elif (score >= 90 && score <= 99):
+		return anubis_score_dialogs_heaven[3].text
+
+func croc_speak_score_hell():
+	var score = GlobalGameData.hell_score
+	print ("hell_score", score)
+	if (score <= -1 && score >= -10):
+		return croc_bro_score_dialogs_hell[0].text
+	elif (score <= -11 && score >= -25):
+		return croc_bro_score_dialogs_hell[1].text
+	elif (score <= -75 && score >= -89):
+		return croc_bro_score_dialogs_hell[2].text
+	elif (score <= -90 && score >= -99):
+		return croc_bro_score_dialogs_hell[3].text
+	
+func croc_speak_score_heaven():
+	var score = GlobalGameData.heaven_score
+	print ("heaven_score", score)
+	if (score >= 1 && score <= 10 ):
+		return croc_bro_score_dialogs_heaven[0].text
+	elif (score >= 11 && score <= 25):
+		return croc_bro_score_dialogs_heaven[1].text
+	elif (score >= 75 && score <= 89):
+		return croc_bro_score_dialogs_heaven[2].text
+	elif (score >= 90 && score <= 99):
+		return croc_bro_score_dialogs_heaven[3].text

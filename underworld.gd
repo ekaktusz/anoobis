@@ -89,6 +89,7 @@ func evaluate_win_condition() -> void:
 		game_over()
 
 func game_over() -> void:
+	GlobalGameData.reset_global_data()
 	var menu_scene = preload("res://game_screens/menu_scene.tscn").instantiate()
 	SceneTransition.change_scene(menu_scene)
 
