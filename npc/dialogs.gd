@@ -82,7 +82,10 @@ var cat_goddess_score_dialogs_hell : Array = [
 
 
 func anubis_speak(level: int) -> String:
-	return anubis_dialogs.filter(func(dialog): return dialog.level == level+1)[0].text
+	if (level != 10):
+		return anubis_dialogs.filter(func(dialog): return dialog.level == level+1)[0].text
+	else:
+		return anubis_dialogs.filter(func(dialog): return dialog.level == level)[0].text
 
 func croc_speak(level: int) -> String:
 	return croc_bro_dialogs.filter(func(dialog): return dialog.level == level)[0].text
