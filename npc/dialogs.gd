@@ -27,7 +27,7 @@ var anubis_score_dialogs_heaven : Array = [
 ]
 
 var croc_bro_dialogs:Array[DialogData] = [
-	DialogData.new("Ah, is it lunchtime already? Just kidding. Welcome to Hell, neutral soul, you must be Anubis's new intern. Anoobis, is it? On the left, you see the power of my realm above the soup I'm cooking. I only eat the souls of the wicked. Make sure to send me the right souls or else you'll be demoted to my lunch.", 1),
+	DialogData.new("Ah, is it lunchtime already? Just kidding. Welcome to Hell, neutral soul, you must be Anubis's new intern. Anoobis, is it? On the right, you see the power of my realm above the soup I'm cooking. I only eat the souls of the wicked. Make sure to send me the right souls or else you'll be demoted to my lunch.", 1),
 	DialogData.new("Anoobis, my man! Ready to stir some trouble? A dash of unpredictability, a sprinkle of pandemonium. It's like a grand feast for the senses!", 2),
 	DialogData.new("(Chuckling) Well, well, look who decided to drop by the feeding grounds. Anoobis, my partner in crime and dine. What brings you here?", 3),
 	DialogData.new("You know, it's like my stomach staged a rebellion, but I've negotiated a truce. Back to the hunger, my friend, back to the endless quest for flavor!", 4),
