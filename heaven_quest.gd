@@ -30,7 +30,7 @@ func set_next_heaven_quest() -> void:
 	QuestGlobalGameData.heaven_quest_completed_in_current_turn = true
 	print("heaven quest no. " + str(QuestGlobalGameData.next_heaven_quest_index) + " completed.")
 	QuestGlobalGameData.next_heaven_quest_index += 1
-	quest_description.set_text("")
+	quest_description.set_text("HEAVEN QUEST COMPLETED")
 
 func update_hell_score(score : int) -> void:
 	QuestGlobalGameData.hell_score += score
