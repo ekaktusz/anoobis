@@ -1,51 +1,191 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpxut23sbwn73"]
+[gd_scene load_steps=9 format=3 uid="uid://dpxut23sbwn73"]
 
 [ext_resource type="Script" path="res://npc/dialog_box_reborn.gd" id="1_dee3c"]
-[ext_resource type="StyleBox" uid="uid://77rodbabxyi" path="res://styles/dialog_box_style.tres" id="2_weqkx"]
+[ext_resource type="Texture2D" uid="uid://c0kafbbsqy7l1" path="res://assets/images/dialog_box_background.png" id="3_e7guc"]
 [ext_resource type="FontFile" uid="uid://bjmqa32sthym1" path="res://assets/fonts/cinzel.ttf" id="3_xaqem"]
 [ext_resource type="Theme" uid="uid://bixc6mxs53sp4" path="res://styles/game_theme.tres" id="4_1pfqk"]
-[ext_resource type="Texture2D" uid="uid://b1tagarfrktv5" path="res://assets/images/npcs/anubis.png" id="5_it0xi"]
+[ext_resource type="Texture2D" uid="uid://d0dltanb3d45t" path="res://assets/images/npcs/anubis.png" id="5_it0xi"]
+[ext_resource type="Texture2D" uid="uid://dyakx0g506nqm" path="res://assets/images/npcs/bastet.png" id="7_iy8af"]
+[ext_resource type="Texture2D" uid="uid://dokdiw24rdwcu" path="res://assets/images/npcs/kroki.png" id="7_rgcu6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrcep"]
+bg_color = Color(0, 0, 0, 0.482353)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
 
 [node name="DialogBoxReborn" type="Node2D"]
 script = ExtResource("1_dee3c")
 
-[node name="NamePanel" type="Panel" parent="."]
-offset_left = 487.0
-offset_top = 697.0
-offset_right = 1085.0
-offset_bottom = 817.0
-theme_override_styles/panel = ExtResource("2_weqkx")
+[node name="BackgroundPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nrcep")
 
-[node name="NameLabel" type="Label" parent="NamePanel"]
+[node name="AnubisBox" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="AnubisBox"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="DialogBoxBackground" type="Sprite2D" parent="AnubisBox/Control"]
+position = Vector2(1143, 540)
+scale = Vector2(2, 2)
+texture = ExtResource("3_e7guc")
+
+[node name="DialogLabel" type="RichTextLabel" parent="AnubisBox/Control"]
+offset_left = 573.0
+offset_top = 746.0
+offset_right = 1664.0
+offset_bottom = 1005.0
+theme = ExtResource("4_1pfqk")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
+
+[node name="NameLabel" type="Label" parent="AnubisBox/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 567.0
+offset_top = 609.0
+offset_right = 937.0
+offset_bottom = 691.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_xaqem")
-theme_override_font_sizes/font_size = 50
-text = "Anoobis a szexdoktor"
+theme_override_font_sizes/font_size = 60
+text = "Anubis"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialogPanel" type="Panel" parent="."]
-offset_left = 391.0
-offset_top = 793.0
-offset_right = 1725.0
-offset_bottom = 1084.0
-theme_override_styles/panel = ExtResource("2_weqkx")
+[node name="GodSprite" type="Sprite2D" parent="AnubisBox"]
+position = Vector2(287, 615)
+scale = Vector2(3.67144, 3.67144)
+texture = ExtResource("5_it0xi")
 
-[node name="DialogLabel" type="RichTextLabel" parent="DialogPanel"]
-layout_mode = 0
-offset_left = 108.0
-offset_top = 17.0
-offset_right = 1312.0
-offset_bottom = 278.0
+[node name="KrokiBox" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="KrokiBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 114.0
+offset_right = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogBoxBackground" type="Sprite2D" parent="KrokiBox/Control"]
+position = Vector2(1143, 540)
+scale = Vector2(2, 2)
+texture = ExtResource("3_e7guc")
+
+[node name="DialogLabel" type="RichTextLabel" parent="KrokiBox/Control"]
+offset_left = 573.0
+offset_top = 746.0
+offset_right = 1664.0
+offset_bottom = 1005.0
 theme = ExtResource("4_1pfqk")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
 
-[node name="GodSprite" type="Sprite2D" parent="."]
-position = Vector2(298, 744)
-scale = Vector2(2.69466, 2.69466)
-texture = ExtResource("5_it0xi")
+[node name="NameLabel" type="Label" parent="KrokiBox/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 567.0
+offset_top = 609.0
+offset_right = 937.0
+offset_bottom = 691.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xaqem")
+theme_override_font_sizes/font_size = 60
+text = "Ammut"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GodSprite" type="Sprite2D" parent="KrokiBox"]
+position = Vector2(426, 608)
+scale = Vector2(3.67144, 3.67144)
+texture = ExtResource("7_rgcu6")
+
+[node name="BastBox" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="BastBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -298.0
+offset_right = -298.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogBoxBackground" type="Sprite2D" parent="BastBox/Control"]
+position = Vector2(1143, 540)
+scale = Vector2(2, 2)
+texture = ExtResource("3_e7guc")
+
+[node name="DialogLabel" type="RichTextLabel" parent="BastBox/Control"]
+offset_left = 573.0
+offset_top = 746.0
+offset_right = 1664.0
+offset_bottom = 1005.0
+theme = ExtResource("4_1pfqk")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
+
+[node name="NameLabel" type="Label" parent="BastBox/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 567.0
+offset_top = 609.0
+offset_right = 937.0
+offset_bottom = 691.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xaqem")
+theme_override_font_sizes/font_size = 60
+text = "Bast"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GodSprite" type="Sprite2D" parent="BastBox"]
+position = Vector2(1632, 613)
+scale = Vector2(3.67144, 3.67144)
+texture = ExtResource("7_iy8af")

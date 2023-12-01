@@ -1,27 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://c82so3ni2qkcb"]
 
 [ext_resource type="Script" path="res://game_screens/menu_scene.gd" id="1_feb58"]
-[ext_resource type="Texture2D" uid="uid://biumucliqxncn" path="res://assets/images/backgrounds/menu_background.png" id="2_yx5kr"]
+[ext_resource type="Texture2D" uid="uid://beawnv7ro7g0d" path="res://assets/images/backgrounds/menu_background.png" id="2_yx5kr"]
 [ext_resource type="FontFile" uid="uid://bjmqa32sthym1" path="res://assets/fonts/cinzel.ttf" id="3_1ff76"]
 [ext_resource type="Theme" uid="uid://bixc6mxs53sp4" path="res://styles/game_theme.tres" id="4_b65yb"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6or6r"]
-bg_color = Color(0.239216, 0.286275, 0.0627451, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0, 0, 0, 1)
-border_blend = true
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0hmv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uxxlv"]
-bg_color = Color(0.364706, 0.419608, 0.215686, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0, 0, 0, 1)
-border_blend = true
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gthe1"]
+bg_color = Color(0.258824, 0.129412, 0.211765, 1)
 
 [node name="menu_scene" type="Control"]
 layout_mode = 3
@@ -44,20 +32,41 @@ expand_mode = 2
 [node name="StartButton" type="Button" parent="."]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
-offset_left = 737.0
-offset_top = 647.0
-offset_right = 1189.0
-offset_bottom = 797.0
+offset_left = 724.0
+offset_top = 660.0
+offset_right = 1195.0
+offset_bottom = 812.0
 size_flags_vertical = 0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 theme = ExtResource("4_b65yb")
-theme_override_font_sizes/font_size = 70
-theme_override_styles/normal = SubResource("StyleBoxFlat_6or6r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_uxxlv")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_1ff76")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_p0hmv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gthe1")
 text = "Start Game"
 
+[node name="HowToPlayButton" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+offset_left = 696.0
+offset_top = 864.0
+offset_right = 1224.0
+offset_bottom = 1030.0
+size_flags_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("4_b65yb")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_1ff76")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_p0hmv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gthe1")
+text = "How To Play"
+
 [node name="Title" type="Label" parent="."]
+visible = false
 layout_mode = 2
 offset_left = 6.0
 offset_top = 216.0
@@ -72,3 +81,4 @@ text = "Anoobis"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HowToPlayButton" to="." method="_on_start_button_pressed"]
