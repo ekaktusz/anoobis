@@ -41,7 +41,7 @@ func _input(event: InputEvent) -> void:
 
 func swipe_character() -> void:
 	increase_processed_dead_counter()
-	if GlobalGameData.processed_dead_count >= 10:
+	if GlobalGameData.processed_dead_count >= 6:
 		underworld.evaluate_end_of_turn()
 		trigger_break_selector()
 		rank_up()
@@ -59,12 +59,12 @@ func get_new_character() -> void:
 
 func reset_dead_count() -> void:
 	GlobalGameData.processed_dead_count = 0
-	dead_count_label.text = "0/10"
+	dead_count_label.text = "0"
 
 
 func increase_processed_dead_counter():
 	GlobalGameData.processed_dead_count += 1
-	dead_count_label.text = str(GlobalGameData.processed_dead_count) + "/10"
+	dead_count_label.text = str(GlobalGameData.processed_dead_count)
 
 
 func trigger_break_selector() -> void:
