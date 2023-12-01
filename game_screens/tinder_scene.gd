@@ -83,8 +83,8 @@ func trigger_break_selector() -> void:
 
 func rank_up() -> void:
 	GlobalGameData.level += 1
-#	if GlobalGameData.level == 2:
-#		underworld.enable_underworld_quests()
+	if GlobalGameData.level == 2:
+		underworld.enable_underworld_quests()
 		
 ## no longer needed - poperty visible connected to global level directly
 #	elif GlobalGameData.level == 4:
@@ -95,13 +95,3 @@ func rank_up() -> void:
 func update_quest_descriptions() -> void:
 	hell_quest.text = underworld.get_current_hell_quest_description()
 	heaven_quest.text = underworld.get_current_heaven_quest_description()
-
-
-func _on_hell_button_pressed():
-	var hell_scene = preload("res://game_screens/hell_scene.tscn").instantiate()
-	SceneTransition.change_scene(hell_scene)
-
-
-func _on_heaven_button_pressed():
-	var heaven_scene = preload("res://game_screens/heaven_scene.tscn").instantiate()
-	SceneTransition.change_scene(heaven_scene)
