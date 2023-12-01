@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfdl6hj2f46oc"]
+[gd_scene load_steps=4 format=3 uid="uid://cfdl6hj2f46oc"]
 
 [ext_resource type="Script" path="res://game_screens/tutorial.gd" id="1_7lgke"]
+[ext_resource type="Texture2D" uid="uid://crm6ln62pkln2" path="res://assets/images/backgrounds/howtoplay.png" id="2_783q7"]
 [ext_resource type="Texture2D" uid="uid://ba5e5fxhnmkoq" path="res://assets/images/screens/heaven_screen/vissza nyil.png" id="2_yu034"]
 
 [node name="tutorial" type="Control"]
@@ -12,12 +13,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7lgke")
 
+[node name="Panel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_783q7")
+
 [node name="BackButton" type="TextureButton" parent="."]
-offset_left = 31.0
-offset_top = 456.0
-offset_right = 153.0
-offset_bottom = 722.0
-scale = Vector2(2, 2)
+offset_left = 15.0
+offset_top = 408.0
+offset_right = 78.0
+offset_bottom = 626.0
+scale = Vector2(1.3, 1.3)
 texture_normal = ExtResource("2_yu034")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
