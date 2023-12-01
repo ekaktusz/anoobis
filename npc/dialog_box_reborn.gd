@@ -68,15 +68,6 @@ func _process(delta):
 		if (text_speed == 0.01):
 			dialog_label.visible_characters = len(dialog_label.text)
 		text_speed = 0.01
-#	if Input.is_action_just_pressed("ui_cancel"):
-#		visible = false
-#
-#	if not self.finished and dialog_label.visible_characters < len(dialog_label.text):
-#		dialog_label.visible_characters += 1
-#		await get_tree().create_timer(text_speed).timeout
-#	else:
-#		self.finished = true
-#	pass
 
 func next_phrase():
 	if (phrase_num >= len(dialogs)):

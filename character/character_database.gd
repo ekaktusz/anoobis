@@ -344,8 +344,8 @@ func get_random_fullname() -> String:
 func get_random_character() -> CharacterData:
 	var character = CharacterData.new(
 		get_random_fullname(),
-		get_random_properties(positive_properties_normal, 2),
-		get_random_properties(negative_properties_normal, 1),
+		get_random_properties(positive_properties_normal, 3),
+		get_random_properties(negative_properties_normal, 3),
 		CharacterPortraitView.instantiate()
 	)
 	return character
