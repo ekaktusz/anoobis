@@ -75,6 +75,8 @@ func rank_up() -> void:
 	GlobalGameData.level += 1
 	if GlobalGameData.level == 2:
 		underworld.enable_underworld_quests()
+		
+## no longer needed - poperty visible connected to global level directly
 #	elif GlobalGameData.level == 4:
 #		const_properties_view.set_property_values_visible()
 #		pros_properties_view.set_property_values_visible()
