@@ -55,12 +55,15 @@ color = Color(0, 0, 0, 1)
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 0
-offset_right = 384.0
-offset_bottom = 384.0
+offset_left = 768.0
+offset_top = 348.0
+offset_right = 1152.0
+offset_bottom = 732.0
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer"]
 layout_mode = 2
 stream = ExtResource("1_ym651")
+expand = true
 script = ExtResource("2_ei0ii")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AspectRatioContainer/VideoStreamPlayer"]
