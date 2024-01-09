@@ -1,12 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhd8r8ji7gn64"]
+[gd_scene load_steps=5 format=3 uid="uid://dhd8r8ji7gn64"]
 
 [ext_resource type="VideoStream" path="res://logo_screen/gerappa.ogv" id="1_ym651"]
+
+[sub_resource type="Animation" id="Animation_w6o22"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FaderColor:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c3wj6"]
+resource_name = "Fade"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FaderColor:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_by7cr"]
+_data = {
+"Fade": SubResource("Animation_c3wj6"),
+"RESET": SubResource("Animation_w6o22")
+}
 
 [node name="LogoScene" type="Node2D"]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1922.0
+offset_bottom = 1083.0
 stream = ExtResource("1_ym651")
 autoplay = true
 expand = true
+
+[node name="FaderColor" type="ColorRect" parent="."]
+offset_left = -60.0
+offset_top = -33.0
+offset_right = 1971.0
+offset_bottom = 1133.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Fade"
+libraries = {
+"": SubResource("AnimationLibrary_by7cr")
+}
