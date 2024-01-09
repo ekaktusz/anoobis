@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhd8r8ji7gn64"]
+[gd_scene load_steps=7 format=3 uid="uid://dhd8r8ji7gn64"]
 
 [ext_resource type="VideoStream" path="res://logo_screen/gerappa.ogv" id="1_ym651"]
 [ext_resource type="Script" path="res://logo_screen/Logo.gd" id="2_ei0ii"]
+[ext_resource type="AudioStream" uid="uid://bpxjsd3l00pui" path="res://logo_screen/gerappa.mp3" id="3_uiye0"]
 
 [sub_resource type="Animation" id="Animation_w6o22"]
 length = 0.001
@@ -43,11 +44,12 @@ _data = {
 [node name="LogoScene" type="Node2D"]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-offset_right = 1922.0
-offset_bottom = 1083.0
 stream = ExtResource("1_ym651")
 expand = true
 script = ExtResource("2_ei0ii")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VideoStreamPlayer"]
+stream = ExtResource("3_uiye0")
 
 [node name="FaderColor" type="ColorRect" parent="."]
 offset_left = -60.0

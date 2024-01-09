@@ -7,3 +7,4 @@ func _ready():
 
 func _on_timer_timeout() -> void:
 	paused = false
+	$AudioStreamPlayer2D.play()
