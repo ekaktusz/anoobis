@@ -1,23 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dhd8r8ji7gn64"]
 
-[ext_resource type="VideoStream" path="res://logo_screen/gerappa.ogv" id="1_ym651"]
-[ext_resource type="Script" path="res://logo_screen/Logo.gd" id="2_ei0ii"]
-[ext_resource type="AudioStream" uid="uid://bpxjsd3l00pui" path="res://logo_screen/gerappa.mp3" id="3_uiye0"]
-
-[sub_resource type="Animation" id="Animation_w6o22"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FaderColor:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
+[ext_resource type="VideoStream" path="res://logo_screen/gerappa.ogv" id="1_juopf"]
+[ext_resource type="Script" path="res://logo_screen/intro.gd" id="2_qphy3"]
+[ext_resource type="AudioStream" uid="uid://bpxjsd3l00pui" path="res://logo_screen/gerappa.mp3" id="3_vx6xj"]
 
 [sub_resource type="Animation" id="Animation_c3wj6"]
 resource_name = "Fade"
@@ -35,18 +20,34 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_w6o22"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FaderColor:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_by7cr"]
 _data = {
 "Fade": SubResource("Animation_c3wj6"),
 "RESET": SubResource("Animation_w6o22")
 }
 
-[node name="LogoScene" type="Control"]
+[node name="IntroScene" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
 [node name="Background" type="ColorRect" parent="."]
 y_sort_enabled = true
+layout_mode = 0
 offset_left = -60.0
 offset_top = -33.0
 offset_right = 1971.0
@@ -62,14 +63,15 @@ offset_bottom = 732.0
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer"]
 layout_mode = 2
-stream = ExtResource("1_ym651")
+stream = ExtResource("1_juopf")
 expand = true
-script = ExtResource("2_ei0ii")
+script = ExtResource("2_qphy3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AspectRatioContainer/VideoStreamPlayer"]
-stream = ExtResource("3_uiye0")
+stream = ExtResource("3_vx6xj")
 
 [node name="FaderColor" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -33.0
 offset_right = 1971.0
