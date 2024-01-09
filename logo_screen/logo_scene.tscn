@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhd8r8ji7gn64"]
+
+[ext_resource type="VideoStream" path="res://logo_screen/gerappa.ogv" id="1_ym651"]
+
+[node name="LogoScene" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("1_ym651")
+autoplay = true
+expand = true
