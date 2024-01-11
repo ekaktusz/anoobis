@@ -89,4 +89,5 @@ wait_time = 2.0
 one_shot = true
 autostart = true
 
+[connection signal="animation_finished" from="AnimationPlayer" to="AspectRatioContainer/VideoStreamPlayer" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="AspectRatioContainer/VideoStreamPlayer" method="_on_timer_timeout"]
